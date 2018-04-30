@@ -32,7 +32,7 @@ if ($message->{"text"} == 'おれしかわかんね') {
             ]
         ]
     ];
-} elseif ($message->{"text"} == '天気') {
+} elseif ($message->{"text"} == '天気''天気予報''予報') {
     // ボタンタイプ
     $messageData = [
         'type' => 'template',
@@ -44,12 +44,12 @@ if ($message->{"text"} == 'おれしかわかんね') {
             'actions' => [
                 [
                     'type' => 'uri',
-                    'label' => '枚方市',
+                    'label' => '『枚方市』',
                     'uri' => 'https://www.mapion.co.jp/weather/admi/27/27210.html'
                 ],
                 [
                     'type' => 'uri',
-                    'label' => '大阪市',
+                    'label' => '『大阪市』',
                     'uri' => 'https://www.mapion.co.jp/weather/admi/27/27127.html'
                 ]
             ]
