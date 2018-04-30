@@ -10,7 +10,7 @@ $message = $jsonObj->{"events"}[0]->{"message"};
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 
 // 送られてきたメッセージの中身からレスポンスのタイプを選択
-if ($message->{"text"} == '天気') {
+if ($message->{"text"} == 'おれしかわかんね') {
     // 確認ダイアログタイプ
     $messageData = [
         'type' => 'template',
@@ -32,30 +32,30 @@ if ($message->{"text"} == '天気') {
             ]
         ]
     ];
-} elseif ($message->{"text"} == 'ボタン') {
+} elseif ($message->{"text"} == '天気') {
     // ボタンタイプ
     $messageData = [
         'type' => 'template',
-        'altText' => 'ボタン',
+        'altText' => '天気選択',
         'template' => [
             'type' => 'buttons',
-            'title' => 'タイトルです',
-            'text' => '選択してね',
+            'title' => '天気予報',
+            'text' => 'どこの予報？',
             'actions' => [
                 [
-                    'type' => 'postback',
-                    'label' => 'webhookにpost送信',
-                    'data' => 'value'
+                    'type' => 'uri',
+                    'label' => '枚方市',
+                    'uri' => 'https://www.mapion.co.jp/weather/admi/27/27210.html'
                 ],
                 [
                     'type' => 'uri',
-                    'label' => 'googleへ移動',
-                    'uri' => 'https://google.com'
+                    'label' => '大阪市',
+                    'uri' => 'https://www.mapion.co.jp/weather/admi/27/27127.html'
                 ]
             ]
         ]
     ];
-} elseif ($message->{"text"} == 'カルーセル') {
+} elseif ($message->{"text"} == 'カルーセルmotukaesou') {
     // カルーセルタイプ
     $messageData = [
         'type' => 'template',
@@ -98,14 +98,7 @@ if ($message->{"text"} == '天気') {
             ]
         ]
     ];
-} else {
-    // それ以外は送られてきたテキストをオウム返し
-    $messageData = [
-        'type' => 'text',
-        'text' => $message->{"text"}
-    ];
 }
-
 $response = [
     'replyToken' => $replyToken,
     'messages' => [$messageData]
