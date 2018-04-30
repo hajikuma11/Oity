@@ -13,7 +13,7 @@ $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 if ($message->{"text"} == '天気') {
      $messageData = [
         'type' => 'text',
-        'text' => $message->{"あああ"}
+        'text' => 'wether'
     ];
 }
 
