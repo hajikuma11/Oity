@@ -9,45 +9,49 @@ $jsonObj = json_decode($jsonString);
 $message = $jsonObj->{"events"}[0]->{"message"};
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 
-// 送られてきたメッセージの中身からレスポンスのタイプを選択
 if ($message->{"text"} == '天気') {
+    
+    require_once('weather.php');
+    
+    $time = new DateTime('now', new DateTimeZone('Asia/Tokyo'));
+    
+    $weather  = new Weather('osaka');
+    $now    = $weather->GetCondition();
+    $today   = $weather->GetToday();
+    
     $messageData = [
         'type' => 'text',
-        require_once('weather.php'); // 天気情報クラス
- 
-// 現在時刻. タイムゾーンはJST指定
-$time = new DateTime('now', new DateTimeZone('Asia/Tokyo'));
-
- 
-// 現在の天気と明日の予報を入手 (from weather.php)
-$weather  = new Weather('tokyo'); // まだ東京固定
-$now    = $weather->GetCondition();
-$tomorrow   = $weather->GetTomorrow();
- 
-// 呟く文に天気情報を加える
-$message  .= '大阪の現在('
-      . $time->format('m/d H:i')
-      . ')の天気は'
-      . $now['weather']
-      . '('
-      . $now['temp']
-      . '℃)です.'
-      . PHP_EOL
-      . '明日は'
-      . $tomorrow["weather"]
-      . 'で, '
-      . '最高気温は'
-      . $tomorrow['high']
-      . '℃, 最低気温は'
-      . $tomorrow['low']
-      . '℃ です.';
+        'text' =>  $message  = '('
+           $time->format('m/d H:i')
+          ')'
+           PHP_EOL
+           ' 現在における天気は'
+           PHP_EOL
+          '  '
+           $now['weather']
+           '('
+           $now['temp']
+           '℃)'
+           PHP_EOL
+           'です。'
+           PHP_EOL
+           '今日の天気は'
+           PHP_EOL
+          '  '
+           $today["weather"]
+           'で,'
+           PHP_EOL
+          ' 　 '
+           '最高気温は'
+           $today['high']
+           '℃, 最低気温は'
+           $today['low']
+           '℃'
+           PHP_EOL
+          'でしょう。';
+        
     ];
-} 
-
-$response = [
-    'replyToken' => $replyToken,
-    'messages' => [$messageData]
-];
+}
 error_log(json_encode($response));
 
 $ch = curl_init('https://api.line.me/v2/bot/message/reply');
