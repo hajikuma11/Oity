@@ -32,7 +32,7 @@ if ($message->{"text"} == 'おれしかわかんね') {
             ]
         ]
     ];
-} elseif ($message->{"text"} == '天気' = '天気予報' = '予報') {
+} elseif ($message->{"text"} == '天気') {
     // ボタンタイプ
     $messageData = [
         'type' => 'template',
