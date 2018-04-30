@@ -1,85 +1,5 @@
 <?php
 
-class Weather{
-    private $city;
-    private $info;
- 
-    public function __construct($city){ //コンストラクタ
-        $this->city = $city;
-        $this->info = $this->GetWeather();
-    }
- 
-    private function FtoC($f){ // 華氏→摂氏変換
-        return round(($f - 32) * 0.555, 1);
-    }
- 
-    private function Translation($weather){ //翻訳
-        switch ($weather) {
-            case 'Sunny':
-            case 'Clear':
-            case 'Mostly Sunny':
-            case 'Mostly Clear':
-                $weather=" 晴れ ";
-                break;
-            case 'Partly Cloudy':
-            case 'Mostly Cloudy':
-                $weather=" 晴れときどき曇り ";
-                break;
-            case 'Cloudy':
-                $weather=" 曇り ";
-                break;
-            case 'Breezy':
-                $weather=" そよ風 ";
-                break;
-            case 'Windy':
-                $weather=" 風が強い ";
-                break;
-            case 'Scattered Showers':
-            case 'Showers':
-            case 'Rain':
-            case 'Thunderstorms':
-            case 'Scattered Thunderstorms':
-                $weather=" 雨 ";
-                break;
-        }
-        return $weather;
-    }
- 
-    private function GetWeather(){ //天気情報取得
-        return json_decode(file_get_contents(
-            'https://query.yahooapis.com/v1/public/yql?q=select%09*%20from%20%09weather.forecast%20%20where%20%09woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22'
-            . $this->city
-            . '%2C%20jp%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys'
-            ))->query->results->channel->item;
-    }
- 
-    public function GetCondition(){ //現在の天気
-        $now = [
-            'weather' => $this->Translation($this->info->condition->text)
-            , 'temp'  => $this->FtoC($this->info->condition->temp)
-        ];
-        return $now;
-    }
- 
-    public function GetToday(){ //今日の天気
-        $today = [
-            'weather' => $this->Translation($this->info->forecast[0]->text)
-            , 'high'  => $this->FtoC($this->info->forecast[0]->high)
-            , 'low'   => $this->FtoC($this->info->forecast[0]->low)
-        ];
-        return $today;
-    }
- 
-    public function GetTomorrow(){ //明日の天気
-        $tomorrow = [
-            'weather' => $this->Translation($this->info->forecast[1]->text)
-            , 'high'  => $this->FtoC($this->info->forecast[1]->high)
-            , 'low'   => $this->FtoC($this->info->forecast[1]->low)
-        ];
-        return $tomorrow;
-    }
-}
-
 $accessToken = 'HjUjwJORNXxUyK/BJ3zw5+IVAnZ9lOcUHkgTxN7FGECcmS3jnIAndMcuUfW5qpazytxUVR62hXsqpv00JeXU9kjw9WLqesWYATfEmXabOoEt/FeYJPk2d4UJstPKwrlvRfdRHVpiucEX3K1n17qYDAdB04t89/1O/w1cDnyilFU=';
 
 $jsonString = file_get_contents('php://input');
@@ -91,42 +11,98 @@ $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 
 // 送られてきたメッセージの中身からレスポンスのタイプを選択
 if ($message->{"text"} == '天気') {
-    
-    $time = new DateTime('now', new DateTimeZone('Asia/Tokyo'));
- 
-    $weather  = new Weather('nagareyama');
-    $now    = $weather->GetCondition();
-    $today   = $weather->GetToday();
-    
-     $messageData = [
+    // 確認ダイアログタイプ
+    $messageData = [
+        'type' => 'template',
+        'altText' => '確認ダイアログ',
+        'template' => [
+            'type' => 'confirm',
+            'text' => 'どこの天気？',
+            'actions' => [
+                [
+                    'type' => 'message',
+                    'label' => '枚方市',
+                    'text' => 'https://www.mapion.co.jp/weather/admi/27/27210.html'
+                ],
+                [
+                    'type' => 'message',
+                    'label' => '大阪市',
+                    'text' => 'https://www.mapion.co.jp/weather/admi/27/27127.html'
+                ],
+            ]
+        ]
+    ];
+} elseif ($message->{"text"} == 'ボタン') {
+    // ボタンタイプ
+    $messageData = [
+        'type' => 'template',
+        'altText' => 'ボタン',
+        'template' => [
+            'type' => 'buttons',
+            'title' => 'タイトルです',
+            'text' => '選択してね',
+            'actions' => [
+                [
+                    'type' => 'postback',
+                    'label' => 'webhookにpost送信',
+                    'data' => 'value'
+                ],
+                [
+                    'type' => 'uri',
+                    'label' => 'googleへ移動',
+                    'uri' => 'https://google.com'
+                ]
+            ]
+        ]
+    ];
+} elseif ($message->{"text"} == 'カルーセル') {
+    // カルーセルタイプ
+    $messageData = [
+        'type' => 'template',
+        'altText' => 'カルーセル',
+        'template' => [
+            'type' => 'carousel',
+            'columns' => [
+                [
+                    'title' => 'カルーセル1',
+                    'text' => 'カルーセル1です',
+                    'actions' => [
+                        [
+                            'type' => 'postback',
+                            'label' => 'webhookにpost送信',
+                            'data' => 'value'
+                        ],
+                        [
+                            'type' => 'uri',
+                            'label' => '美容の口コミ広場を見る',
+                            'uri' => 'http://clinic.e-kuchikomi.info/'
+                        ]
+                    ]
+                ],
+                [
+                    'title' => 'カルーセル2',
+                    'text' => 'カルーセル2です',
+                    'actions' => [
+                        [
+                            'type' => 'postback',
+                            'label' => 'webhookにpost送信',
+                            'data' => 'value'
+                        ],
+                        [
+                            'type' => 'uri',
+                            'label' => '女美会を見る',
+                            'uri' => 'https://jobikai.com/'
+                        ]
+                    ]
+                ],
+            ]
+        ]
+    ];
+} else {
+    // それ以外は送られてきたテキストをオウム返し
+    $messageData = [
         'type' => 'text',
-        'text' => '$time->format('m/d H:i')
-          ')'
-           PHP_EOL
-           ' 現在における運河の天気は'
-           PHP_EOL
-          '  '
-           $now['weather']
-           '('
-           $now['temp']
-           '℃)'
-           PHP_EOL
-           'です。'
-           PHP_EOL
-           '今日の天気は'
-           PHP_EOL
-          '  '
-           $today["weather"]
-           'で,'
-           PHP_EOL
-          ' 　 '
-           '最高気温は'
-           $today['high']
-           '℃, 最低気温は'
-           $today['low']
-           '℃'
-           PHP_EOL
-          'でしょう。'
+        'text' => $message->{"text"}
     ];
 }
 
