@@ -10,35 +10,39 @@ $message = $jsonObj->{"events"}[0]->{"message"};
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 
 // 送られてきたメッセージの中身からレスポンスのタイプを選択
-if ($message->{"text"} == '確認') {
-    // 確認ダイアログタイプ
-    $messageData = [
-        'type' => 'template',
-        'altText' => '確認ダイアログ',
-        'template' => [
-            'type' => 'confirm',
-            'text' => '元気ですかー？',
-            'actions' => [
-                [
-                    'type' => 'message',
-                    'label' => '元気です',
-                    'text' => '元気です'
-                ],
-                [
-                    'type' => 'message',
-                    'label' => 'まあまあです',
-                    'text' => 'まあまあです'
-                ],
-            ]
-        ]
-    ];
-} else {
-    // それ以外は送られてきたテキストをオウム返し
+if ($message->{"text"} == '天気') {
     $messageData = [
         'type' => 'text',
-        'text' => $message->{"text"}
+        require_once('weather.php'); // 天気情報クラス
+ 
+// 現在時刻. タイムゾーンはJST指定
+$time = new DateTime('now', new DateTimeZone('Asia/Tokyo'));
+
+ 
+// 現在の天気と明日の予報を入手 (from weather.php)
+$weather  = new Weather('tokyo'); // まだ東京固定
+$now    = $weather->GetCondition();
+$tomorrow   = $weather->GetTomorrow();
+ 
+// 呟く文に天気情報を加える
+$message  .= '大阪の現在('
+      . $time->format('m/d H:i')
+      . ')の天気は'
+      . $now['weather']
+      . '('
+      . $now['temp']
+      . '℃)です.'
+      . PHP_EOL
+      . '明日は'
+      . $tomorrow["weather"]
+      . 'で, '
+      . '最高気温は'
+      . $tomorrow['high']
+      . '℃, 最低気温は'
+      . $tomorrow['low']
+      . '℃ です.';
     ];
-}
+} 
 
 $response = [
     'replyToken' => $replyToken,
