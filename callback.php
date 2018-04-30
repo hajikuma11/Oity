@@ -1,5 +1,7 @@
 <?php
 
+require_once('weather.php');
+
 $accessToken = 'HjUjwJORNXxUyK/BJ3zw5+IVAnZ9lOcUHkgTxN7FGECcmS3jnIAndMcuUfW5qpazytxUVR62hXsqpv00JeXU9kjw9WLqesWYATfEmXabOoEt/FeYJPk2d4UJstPKwrlvRfdRHVpiucEX3K1n17qYDAdB04t89/1O/w1cDnyilFU=';
 
 $jsonString = file_get_contents('php://input');
@@ -11,9 +13,42 @@ $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 
 // 送られてきたメッセージの中身からレスポンスのタイプを選択
 if ($message->{"text"} == '天気') {
+    
+    $time = new DateTime('now', new DateTimeZone('Asia/Tokyo'));
+ 
+    $weather  = new Weather('nagareyama');
+    $now    = $weather->GetCondition();
+    $today   = $weather->GetToday();
+    
      $messageData = [
         'type' => 'text',
-        'text' => 'wether'
+        'text' => '$time->format('m/d H:i')
+          ')'
+           PHP_EOL
+           ' 現在における運河の天気は'
+           PHP_EOL
+          '  '
+           $now['weather']
+           '('
+           $now['temp']
+           '℃)'
+           PHP_EOL
+           'です。'
+           PHP_EOL
+           '今日の天気は'
+           PHP_EOL
+          '  '
+           $today["weather"]
+           'で,'
+           PHP_EOL
+          ' 　 '
+           '最高気温は'
+           $today['high']
+           '℃, 最低気温は'
+           $today['low']
+           '℃'
+           PHP_EOL
+          'でしょう。'
     ];
 }
 
