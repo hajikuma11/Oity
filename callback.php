@@ -11,18 +11,14 @@ $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 
 // 送られてきたメッセージの中身からレスポンスのタイプを選択
 if ($message->{"text"} == '天気') {
-  function weath($city,$day){
-    $city=
-    $day="today";
-    $req="http://wether.livedoor.com/forecast/webservice/rest/v1";
-    $req.="?city=".$city."&day=".$day;
-    $xml=simplexml_load_file($req);
+  function weath{
+    $req="http://weather.livedoor.com/forecast/webservice/json/v1?city=270000";
 
-    if($xml!=FALSE){
+    if($jsonObj!=FALSE){
       $result="今日の枚方の天気は、";
-      $result.=$xml->telop."だよ！";
+      $result.=$jsonObj->telop."だよ！";
       $result.="今日の最高気温は、";
-      $result.=$xml->temperature->max->celsius."度だよ！";
+      $result.=$jsonObj->temperature->max->celsius."度だよ！";
     }
     else{
       $result="エラーで分かんないよ、、、。";
