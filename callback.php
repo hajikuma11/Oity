@@ -13,7 +13,17 @@ $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 if ($message->{"text"} == '天気') {
     $messageData = [
         'type' => 'text',
-        'text' => '天気選択',
+
+        function weath{
+          $req="http://weather.livedoor.com/forecast/webservice/json/v1?city=27";
+
+            $result="今日の枚方の天気は、";
+            $result.=$xml->telop."だよ！";
+            $result.="今日の最高気温は、";
+            $result.=$xml->temperature->max->celsius."度だよ！";
+          }
+
+        'text' => "$result",
     ];
   }
 
