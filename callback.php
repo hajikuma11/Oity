@@ -16,7 +16,7 @@ if ($message->{"text"} == '天気') {
 
         $result=test
 
-        'text' => "$result",
+        'text' => "result",
     ];
   }
 
