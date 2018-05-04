@@ -11,48 +11,11 @@ $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 
 // 送られてきたメッセージの中身からレスポンスのタイプを選択
 if ($message->{"text"} == '天気') {
-  function weath{
-    $req="http://weather.livedoor.com/forecast/webservice/json/v1?city=270000";
-
-    if($jsonObj!=FALSE){
-      $result="今日の枚方の天気は、";
-      $result.=$jsonObj->telop."だよ！";
-      $result.="今日の最高気温は、";
-      $result.=$jsonObj->temperature->max->celsius."度だよ！";
-    }
-    else{
-      $result="エラーで分かんないよ、、、。";
-    }
-    // ボタンタイプ
     $messageData = [
-        'type' => 'template',
-        'altText' => '天気選択',
-        'template' => [
-            'type' => 'buttons',
-            'title' => '天気予報',
-            'text' => 'どこの予報？',
-            'actions' => [
-                [
-                    'type' => 'text',
-                    'label' => '『枚方市』',
-                    'text' =>"$result"
-                    // 閉じるか閉じないか検証
-                ],
-                [
-                    'type' => 'uri',
-                    'label' => '『大阪市』',
-                    'uri' => 'https://www.mapion.co.jp/weather/admi/27/27127.html'
-                ]
-            ]
-        ]
+        'type' => 'text',
+        'text' => '天気選択',
     ];
-}
-}
-if ($message->{"te"}) {
-  // code...
-} else {
-  // code...
-}
+  }
 
 $response = [
     'replyToken' => $replyToken,
