@@ -8,16 +8,32 @@ $jsonObj = json_decode($jsonString);
 
 $message = $jsonObj->{"events"}[0]->{"message"};
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
-$result = 'sunny'
+
 // 送られてきたメッセージの中身からレスポンスのタイプを選択
 if ($message->{"text"} == '天気') {
+    // ボタンタイプ
     $messageData = [
-        'type' => 'text',
-
-        'text' => "天気は $result",
+        'type' => 'template',
+        'altText' => '天気選択',
+        'template' => [
+            'type' => 'buttons',
+            'title' => '天気予報',
+            'text' => 'どこの予報？',
+            'actions' => [
+                [
+                    'type' => 'uri',
+                    'label' => '『枚方市』',
+                    'uri' => 'https://www.mapion.co.jp/weather/admi/27/27210.html'
+                ],
+                [
+                    'type' => 'uri',
+                    'label' => '『大阪市』',
+                    'uri' => 'https://www.mapion.co.jp/weather/admi/27/27127.html'
+                ]
+            ]
+        ]
     ];
-  }
-
+}
 $response = [
     'replyToken' => $replyToken,
     'messages' => [$messageData]
