@@ -8,13 +8,13 @@ $jsonObj = json_decode($jsonString);
 
 $message = $jsonObj->{"events"}[0]->{"message"};
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
-
+$result = 'sunny'
 // 送られてきたメッセージの中身からレスポンスのタイプを選択
 if ($message->{"text"} == '天気') {
     $messageData = [
         'type' => 'text',
 
-        'text' => "result",
+        'text' => "天気は $result",
     ];
   }
 
