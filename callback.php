@@ -36,7 +36,7 @@ if ($message->{"text"} == '天気') {
 }
 
 //交通機関選択**********************************
-if ($message->{"text"} == '時刻') {
+elseif ($message->{"text"} == '時刻') {
 
     $messageData = [
         'type' => 'template',
@@ -64,7 +64,7 @@ if ($message->{"text"} == '時刻') {
 }
 
 //電車の駅選択**********************************
-if ($message->{"text"} == 'Train') {
+elseif ($message->{"text"} == 'Train') {
 
     $messageData = [
         'type' => 'template',
@@ -92,7 +92,7 @@ if ($message->{"text"} == 'Train') {
 }
 
 //バスの行き先選択**********************************
-if ($message->{"text"} == 'Localbus') {
+elseif ($message->{"text"} == 'Localbus') {
 
     $messageData = [
         'type' => 'template',
