@@ -34,6 +34,7 @@ if ($message->{"text"} == '天気') {
         ]
     ];
 }
+//交通機関選択**********************************
 elseif ($message->{"text"} == '時刻') {
 
     $messageData = [
@@ -56,6 +57,97 @@ elseif ($message->{"text"} == '時刻') {
                     'label' => 'バス',
                     
                     'text' => 'Localbus',
+                    'data' => 'value'
+                ]
+            ]
+        ]
+    ];
+}
+
+//電車の駅選択**********************************
+elseif ($message->{"text"} == 'Train') {
+
+    $messageData = [
+        'type' => 'template',
+        'altText' => '駅選択',
+        'template' => [
+            'type' => 'buttons',
+            'title' => '駅を選択',
+            'text' => 'どっち？',
+            'actions' => [
+                [
+                    'type' => 'postback',
+                    'label' => '長尾駅',
+                    
+                    'text' => 'NagaoSt',
+                    'data' => 'value'
+                ],
+                [
+                    'type' => 'postback',
+                    'label' => '京橋駅',
+                    
+                    'text' => 'KyobashiSt',
+                    'data' => 'value'
+                ]
+            ]
+        ]
+    ];
+}
+//長尾駅の向き**********************************
+elseif ($message->{"text"} == 'NagaoSt') {
+
+    $messageData = [
+        'type' => 'template',
+        'altText' => '向き選択',
+        'template' => [
+            'type' => 'buttons',
+            'title' => '向きを選択',
+            'text' => 'どっち？',
+            'actions' => [
+                [
+                    'type' => 'postback',
+                    'label' => '木津方面',
+                    
+                    'text' => '木津方面',
+                    'data' => 'value'
+                ],
+                [
+                    'type' => 'postback',
+                    'label' => '京橋方面',
+                    
+                    'text' => '京橋方面',
+                    'data' => 'value'
+                ]
+            ]
+        ]
+    ];
+}
+
+
+
+//バスの行き先選択**********************************
+elseif ($message->{"text"} == 'Localbus') {
+
+    $messageData = [
+        'type' => 'template',
+        'altText' => 'バス行先選択',
+        'template' => [
+            'type' => 'buttons',
+            'title' => '行き先を選択',
+            'text' => 'どっち？',
+            'actions' => [
+                [
+                    'type' => 'postback',
+                    'label' => '長尾駅行き',
+                    
+                    'text' => 'goNag',
+                    'data' => 'value'
+                ],
+                [
+                    'type' => 'postback',
+                    'label' => '北山中央行き',
+                    
+                    'text' => 'goKita',
                     'data' => 'value'
                 ]
             ]
