@@ -166,40 +166,22 @@ elseif ($message->{"text"} == 'goNag') {
             'title' => '時刻を選択',
             'text' => '長尾駅行きの何時？',
             'actions' => [
-                [
+                        [
                             'type' => 'postback',
-                            'label' => '６時',
-                            'text' => '6bd',
+                            'label' => '６～８時',
+                            'text' => '6~8bd',
                             'data' => 'value'
                         ],
                         [
                             'type' => 'postback',
-                            'label' => '７時',
-                            'text' => '6bd',
+                            'label' => '９～１１時',
+                            'text' => '9~11bd',
                             'data' => 'value'
                         ],
                         [
                             'type' => 'postback',
-                            'label' => '８時',
-                            'text' => '6bd',
-                            'data' => 'value'
-                        ],
-                        [
-                            'type' => 'postback',
-                            'label' => '９時',
-                            'text' => '6bd',
-                            'data' => 'value'
-                        ],
-                        [
-                            'type' => 'postback',
-                            'label' => '１０時',
-                            'text' => '6bd',
-                            'data' => 'value'
-                        ],
-                        [
-                            'type' => 'postback',
-                            'label' => '１１時',
-                            'text' => '6bd',
+                            'label' => '１２～１４時',
+                            'text' => '12~14bd',
                             'data' => 'value'
                         ]
             ]
