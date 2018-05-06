@@ -19,21 +19,11 @@ if ($message->{"text"} == '天気') {
             'type' => 'buttons',
             'title' => '天気予報',
             'text' => 'どこの予報？',
-            'actions' => [
+            'actions' => 
                 [
-                    'type' => 'uri',
-                    'label' => '『枚方市』',
-                    'uri' => 'https://www.mapion.co.jp/weather/admi/27/27210.html'
-                ],
-                [
-                    'type' => 'uri',
-                    'label' => '『大阪市』',
-                    'uri' => 'https://www.mapion.co.jp/weather/admi/27/27127.html'
-                ],
-                [
-                    'type' => 'uri',
+                    'type' => 'img',
                     'label' => '『大阪府』',
-                    'uri' => 'https://www.mapion.co.jp/weather/admi/27/27128.html'
+                    'uri' => 'http://gb.weather.livedoor.jp/weather/plugin-27.gif'
                 ]
             ]
         ]
