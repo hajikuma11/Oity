@@ -30,6 +30,11 @@ if ($message->{"text"} == '天気') {
                     'label' => '『大阪市』',
                     'uri' => 'https://www.mapion.co.jp/weather/admi/27/27127.html'
                 ]
+                 [
+                    'type' => 'uri',
+                    'label' => '『全国』',
+                    'uri' => 'https://www.mapion.co.jp/weather/admi/27/27127.html'
+                ]
             ]
         ]
     ];
