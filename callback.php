@@ -23,7 +23,7 @@ if ($message->{"text"} == '天気') {
                 [
                     'type' => 'img',
                     'label' => '『大阪府』',
-                    'uri' => 'http://gb.weather.livedoor.jp/weather/plugin-27.gif'
+                    'img' => 'http://gb.weather.livedoor.jp/weather/plugin-27.gif'
                 ]
             ]
         ]
