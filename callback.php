@@ -48,13 +48,15 @@ elseif ($message->{"text"} == '時刻') {
                     'type' => 'postback',
                     'label' => '電車',
                     
-                    'text' => 'Train'
+                    'text' => 'Train',
+                    'data' => 'value'
                 ],
                 [
                     'type' => 'postback',
                     'label' => 'バス',
                     
-                    'text' => 'Localbus'
+                    'text' => 'Localbus',
+                    'data' => 'value'
                 ]
             ]
         ]
