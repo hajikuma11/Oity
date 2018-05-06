@@ -50,13 +50,15 @@ elseif ($message->{"text"} == '時刻') {
                     'type' => 'postback',
                     'label' => '電車',
                     
-                    'text' => 'Train'
+                    'text' => 'Train',
+                    'date' => 'データa'
                 ],
                 [
                     'type' => 'postback',
                     'label' => 'バス',
                     
-                    'text' => 'Localbus'
+                    'text' => 'Localbus',
+                    'date' => 'データ0'
                 ]
             ]
         ]
@@ -78,14 +80,14 @@ elseif ($message->{"text"} == 'Train') {
                     'type' => 'postback',
                     'label' => '長尾駅',
                     
-                    'text' => 'NagaoSt'
+                    'text' => 'NagaoSt',
                     'date' => 'データ1'
                 ],
                 [
                     'type' => 'postback',
                     'label' => '京橋駅',
                     
-                    'text' => 'KyobashiSt'
+                    'text' => 'KyobashiSt',
                     'date' => 'データ2'
                 ]
             ]
@@ -107,14 +109,14 @@ elseif ($message->{"text"} == 'NagaoSt') {
                     'type' => 'postback',
                     'label' => '木津方面',
                     
-                    'text' => '木津方面'
+                    'text' => '木津方面',
                     'date' => 'データ3'
                 ],
                 [
                     'type' => 'postback',
                     'label' => '京橋方面',
                     
-                    'text' => '京橋方面'
+                    'text' => '京橋方面',
                     'date' => 'データ4'
                 ]
             ]
@@ -139,14 +141,14 @@ elseif ($message->{"text"} == 'Localbus') {
                     'type' => 'postback',
                     'label' => '長尾駅行き',
                     
-                    'text' => 'goNag'
+                    'text' => 'goNag',
                     'date' => 'データ5'
                 ],
                 [
                     'type' => 'postback',
                     'label' => '北山中央行き',
                     
-                    'text' => 'goKita'
+                    'text' => 'goKita',
                     'date' => 'データ6'
                 ]
             ]
