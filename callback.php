@@ -22,8 +22,13 @@ if ($message->{"text"} == '天気') {
             'actions' => [
                 [
                     'type' => 'text',
-                    'label' => '大阪府',
-                    'text' => 'test'
+                    'label' => '大阪府1',
+                    'text' => 'test1'
+                ],
+                [
+                    'type' => 'text',
+                    'label' => '大阪府2',
+                    'text' => 'test2'
                 ]
             ]
         ]
