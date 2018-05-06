@@ -13,20 +13,8 @@ $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 if ($message->{"text"} == '天気') {
     // ボタンタイプ
     $messageData = [
-        'type' => 'template',
-        'altText' => '天気選択',
-        'template' => [
-            'type' => 'buttons',
-            'title' => '天気予報',
-            'text' => 'どこの予報？',
-            'actions' => 
-                [
-                    'type' => 'img',
-                    'label' => '『大阪府』',
-                    'img' => 'http://gb.weather.livedoor.jp/weather/plugin-27.gif'
-                ]
-            ]
-        ]
+        'type' => 'img'
+        'img'  => 'http://gb.weather.livedoor.jp/weather/plugin-27.gif'
     ];
 }
 $response = [
