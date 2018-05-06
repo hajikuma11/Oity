@@ -79,17 +79,50 @@ elseif ($message->{"text"} == 'Train') {
                     'label' => '長尾駅',
                     
                     'text' => 'NagaoSt'
+                    'date' => 'データ1'
                 ],
                 [
                     'type' => 'postback',
                     'label' => '京橋駅',
                     
                     'text' => 'KyobashiSt'
+                    'date' => 'データ2'
                 ]
             ]
         ]
     ];
 }
+//長尾駅の向き**********************************
+elseif ($message->{"text"} == 'NagaoSt') {
+
+    $messageData = [
+        'type' => 'template',
+        'altText' => '向き選択',
+        'template' => [
+            'type' => 'buttons',
+            'title' => '向きを選択',
+            'text' => 'どっち？',
+            'actions' => [
+                [
+                    'type' => 'postback',
+                    'label' => '木津方面',
+                    
+                    'text' => '木津方面'
+                    'date' => 'データ3'
+                ],
+                [
+                    'type' => 'postback',
+                    'label' => '京橋方面',
+                    
+                    'text' => '京橋方面'
+                    'date' => 'データ4'
+                ]
+            ]
+        ]
+    ];
+}
+
+
 
 //バスの行き先選択**********************************
 elseif ($message->{"text"} == 'Localbus') {
@@ -107,12 +140,14 @@ elseif ($message->{"text"} == 'Localbus') {
                     'label' => '長尾駅行き',
                     
                     'text' => 'goNag'
+                    'date' => 'データ5'
                 ],
                 [
                     'type' => 'postback',
                     'label' => '北山中央行き',
                     
                     'text' => 'goKita'
+                    'date' => 'データ6'
                 ]
             ]
         ]
