@@ -21,9 +21,9 @@ if ($message->{"text"} == '天気') {
             'text' => '選択してね',
             'actions' => [
                 [
-                    'type' => 'image',
+                    'type' => 'text',
                     'label' => '大阪府',
-                    'data' => 'http://weather.livedoor.com/plugin/common/forecast/27'
+                    'text' => 'test'
                 ]
             ]
         ]
