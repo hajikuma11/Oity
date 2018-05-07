@@ -140,7 +140,7 @@ elseif ($message->{"text"} == 'Localbus') {
                     'type' => 'postback',
                     'label' => '長尾駅行き',
                     
-                    'text' => 'goNag',
+                    'text' => 'goNag1''goNaf2',
                     'data' => 'value'
                 ],
                 [
@@ -156,7 +156,7 @@ elseif ($message->{"text"} == 'Localbus') {
 }
 
 //長尾駅行き先選択**********************************
-elseif ($message->{"text"} == 'goNag') {
+elseif ($message->{"text"} == 'goNag1') {
 
     $messageData = [
         'type' => 'template',
@@ -186,7 +186,14 @@ elseif ($message->{"text"} == 'goNag') {
                         ]
             ]
         ]
-        [
+    ];
+}
+elseif ($message->{"text"} == 'goNag2') {
+    
+    $messageData = [
+        'type' => 'template',
+        'altText' => '時刻選択',
+        'template' => [
             'type' => 'buttons',
             'title' => '時刻を選択',
             'text' => '長尾駅行きの何時？',
