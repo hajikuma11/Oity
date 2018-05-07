@@ -10,7 +10,7 @@ $message = $jsonObj->{"events"}[0]->{"message"};
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
  
 // 送られてきたメッセージの中身からレスポンスのタイプを選択
-if ($message->{"text"} == '天気') {
+if ($message->{"text"} == '天気'　or $message->{"text"} ==　'てんき'　or $message->{"text"} ==　'今の天気') {
     // ボタンタイプ
     $messageData = [
         'type' => 'template',
@@ -34,8 +34,44 @@ if ($message->{"text"} == '天気') {
         ]
     ];
 }
+//ヘルプ**************************************************************************************************************************************************************************
+elseif ($message->{"text"} == 'ヘルプ' or $message->{"text"} == 'help' or $message->{"text"} == 'コマンド' or $message->{"text"} == 'へるぷ') {
+
+    $messageData = [
+        'type' => 'template',
+        'altText' => 'ヘルプ選択',
+        'template' => [
+            'type' => 'buttons',
+            'title' => 'ヘルプを選択',
+            'text' => 'どのヘルプをお探しですか？',
+            'actions' => [
+                [
+                    'type' => 'postback',
+                    'label' => '交通系',
+                    
+                    'text' => '交通',
+                    'data' => 'value'
+                ],
+                [
+                    'type' => 'postback',
+                    'label' => 'URL系',
+                    
+                    'text' => 'URL',
+                    'data' => 'value'
+                ],
+                [
+                    'type' => 'postback',
+                    'label' => '教室系',
+                    
+                    'text' => '教室',
+                    'data' => 'value'
+                ]
+            ]
+        ]
+    ];
+}
 //交通機関選択**************************************************************************************************************************************************************************
-elseif ($message->{"text"} == '時刻' or $message->{"text"} == 'じこく') {
+elseif ($message->{"text"} == '時刻' or $message->{"text"} == 'じこく' or $message->{"text"} == 'バス' or $message->{"text"} == '電車') {
 
     $messageData = [
         'type' => 'template',
