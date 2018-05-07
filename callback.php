@@ -253,7 +253,7 @@ elseif ($message->{"text"} == 'goKita') {
                         [
                             'type' => 'postback',
                             'label' => 'それ以降の時刻',
-                            'text' => 'goNag2',
+                            'text' => 'goKita2',
                             'data' => 'value'
                         ]
             ]
