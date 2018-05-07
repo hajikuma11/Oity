@@ -182,35 +182,6 @@ elseif ($message->{"text"} == 'goNag') {
             ]
         ]
     ];
-    $messageData2 = [
-        'type' => 'template',
-        'altText' => '時間帯選択',
-        'template' => [
-            'type' => 'buttons',
-            'title' => '時間帯を選択',
-            'text' => '何時くらい？',
-            'actions' => [
-                        [
-                            'type' => 'postback',
-                            'label' => '１５～１７時',
-                            'text' => '15~17bd',
-                            'data' => 'value'
-                        ],
-                        [
-                            'type' => 'postback',
-                            'label' => '１８～２０時',
-                            'text' => '18~20bd',
-                            'data' => 'value'
-                        ],
-                        [
-                            'type' => 'postback',
-                            'label' => '２１～２３時',
-                            'text' => '21~23bd',
-                            'data' => 'value'
-                        ]
-            ]
-        ]
-    ];
 }
 $response = [
     'replyToken' => $replyToken,
