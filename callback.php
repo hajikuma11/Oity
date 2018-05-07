@@ -185,7 +185,7 @@ elseif ($message->{"text"} == 'goNag') {
 }
 $response = [
     'replyToken' => $replyToken,
-    'messages' => [$messageData,$messageData2]
+    'messages' => [$messageData]
 ];
 error_log(json_encode($response));
  
