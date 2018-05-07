@@ -10,7 +10,7 @@ $message = $jsonObj->{"events"}[0]->{"message"};
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
  
 // 送られてきたメッセージの中身からレスポンスのタイプを選択
-if ($message->{"text"} == '天気'　or $message->{"text"} ==　'てんき'　or $message->{"text"} ==　'今の天気') {
+if ($message->{"text"} == '天気'　or $message->{"text"} ==　'てんき') {
     // ボタンタイプ
     $messageData = [
         'type' => 'template',
