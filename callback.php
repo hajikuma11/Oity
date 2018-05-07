@@ -121,6 +121,35 @@ elseif ($message->{"text"} == 'NagaoSt') {
         ]
     ];
 }
+//バスの行き先選択**********************************
+elseif ($message->{"text"} == 'Localbus') {
+
+    $messageData = [
+        'type' => 'template',
+        'altText' => 'バス行先選択',
+        'template' => [
+            'type' => 'buttons',
+            'title' => '行き先を選択',
+            'text' => 'どっち？',
+            'actions' => [
+                [
+                    'type' => 'postback',
+                    'label' => '長尾駅行き',
+                    
+                    'text' => 'goNag1','goNag2',
+                    'data' => 'value'
+                ],
+                [
+                    'type' => 'postback',
+                    'label' => '北山中央行き',
+                    
+                    'text' => 'goKita',
+                    'data' => 'value'
+                ]
+            ]
+        ]
+    ];
+}
 
 $response = [
     'replyToken' => $replyToken,
