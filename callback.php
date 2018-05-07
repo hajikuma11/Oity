@@ -178,10 +178,19 @@ elseif ($message->{"text"} == 'goNag') {
                             'label' => '１２～１４時',
                             'text' => '12~14bd',
                             'data' => 'value'
+                        ],
+                        [
+                            'type' => 'postback',
+                            'label' => 'それ以降の時刻',
+                            'text' => 'goNag2',
+                            'data' => 'value'
                         ]
             ]
         ]
     ];
+}
+elseif ($message->{"text"} == 'goNag2') {
+
     $messageData = [
         'type' => 'template',
         'altText' => '時間帯選択',
@@ -192,26 +201,27 @@ elseif ($message->{"text"} == 'goNag') {
             'actions' => [
                         [
                             'type' => 'postback',
-                            'label' => '６～８時',
-                            'text' => '6~8bd',
+                            'label' => '１５～１７時',
+                            'text' => '15~17bd',
                             'data' => 'value'
                         ],
                         [
                             'type' => 'postback',
-                            'label' => '９～１１時',
-                            'text' => '9~11bd',
+                            'label' => '１８～２０時',
+                            'text' => '18~20bd',
                             'data' => 'value'
                         ],
                         [
                             'type' => 'postback',
-                            'label' => '１２～１４時',
-                            'text' => '12~14bd',
+                            'label' => '２１～２３時',
+                            'text' => '21~23bd',
                             'data' => 'value'
                         ]
             ]
         ]
     ];
 }
+
 $response = [
     'replyToken' => $replyToken,
     'messages' => [$messageData]
