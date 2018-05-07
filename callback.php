@@ -34,6 +34,93 @@ if ($message->{"text"} == '天気') {
         ]
     ];
 }
+//交通機関選択**********************************
+elseif ($message->{"text"} == '時刻') {
+
+    $messageData = [
+        'type' => 'template',
+        'altText' => '機関選択',
+        'template' => [
+            'type' => 'buttons',
+            'title' => '交通機関を選択',
+            'text' => 'どっち？',
+            'actions' => [
+                [
+                    'type' => 'postback',
+                    'label' => '電車',
+                    
+                    'text' => 'Train',
+                    'data' => 'value'
+                ],
+                [
+                    'type' => 'postback',
+                    'label' => 'バス',
+                    
+                    'text' => 'Localbus',
+                    'data' => 'value'
+                ]
+            ]
+        ]
+    ];
+}
+//電車の駅選択**********************************
+elseif ($message->{"text"} == 'Train') {
+
+    $messageData = [
+        'type' => 'template',
+        'altText' => '駅選択',
+        'template' => [
+            'type' => 'buttons',
+            'title' => '駅を選択',
+            'text' => 'どっち？',
+            'actions' => [
+                [
+                    'type' => 'postback',
+                    'label' => '長尾駅',
+                    
+                    'text' => 'NagaoSt',
+                    'data' => 'value'
+                ],
+                [
+                    'type' => 'postback',
+                    'label' => '京橋駅',
+                    
+                    'text' => 'KyobashiSt',
+                    'data' => 'value'
+                ]
+            ]
+        ]
+    ];
+}
+//長尾駅の向き**********************************
+elseif ($message->{"text"} == 'NagaoSt') {
+
+    $messageData = [
+        'type' => 'template',
+        'altText' => '向き選択',
+        'template' => [
+            'type' => 'buttons',
+            'title' => '向きを選択',
+            'text' => 'どっち？',
+            'actions' => [
+                [
+                    'type' => 'postback',
+                    'label' => '木津方面',
+                    
+                    'text' => '木津方面',
+                    'data' => 'value'
+                ],
+                [
+                    'type' => 'postback',
+                    'label' => '京橋方面',
+                    
+                    'text' => '京橋方面',
+                    'data' => 'value'
+                ]
+            ]
+        ]
+    ];
+}
 
 $response = [
     'replyToken' => $replyToken,
