@@ -9,9 +9,34 @@ $jsonObj = json_decode($jsonString);
 $message = $jsonObj->{"events"}[0]->{"message"};
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
  
+// 送られてきたメッセージの中身からレスポンスのタイプを選択
+if ($message->{"text"} == '天気' or $message->{"text"} == 'てんき') {
+    // ボタンタイプ
+    $messageData = [
+        'type' => 'template',
+        'altText' => '天気選択',
+        'template' => [
+            'type' => 'buttons',
+            'title' => '天気予報',
+            'text' => 'どこの予報？',
+            'actions' => [
+                [
+                    'type' => 'uri',
+                    'label' => '『枚方市』',
+                    'uri' => 'https://www.mapion.co.jp/weather/admi/27/27210.html'
+                ],
+                [
+                    'type' => 'uri',
+                    'label' => '『大阪市』',
+                    'uri' => 'https://www.mapion.co.jp/weather/admi/27/27127.html'
+                ]
+            ]
+        ]
+    ];
+}
 
 //交通機関選択**************************************************************************************************************************************************************************
-if ($message->{"text"} == '時刻' or $message->{"text"} == 'じこく' or $message->{"text"} == 'バス' or $message->{"text"} == '電車') {
+elseif ($message->{"text"} == '時刻' or $message->{"text"} == 'じこく' or $message->{"text"} == 'バス' or $message->{"text"} == '電車') {
 
     $messageData = [
         'type' => 'template',
