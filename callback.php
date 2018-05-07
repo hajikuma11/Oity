@@ -136,7 +136,7 @@ elseif ($message->{"text"} == 'Localbus') {
                     'type' => 'postback',
                     'label' => '長尾駅行き',
                     
-                    'text' => 'goNag1','goNag2',
+                    'text' => 'goNag',
                     'data' => 'value'
                 ],
                 [
@@ -150,10 +150,71 @@ elseif ($message->{"text"} == 'Localbus') {
         ]
     ];
 }
+//長尾駅行き時間帯選択**********************************
+elseif ($message->{"text"} == 'goNag') {
 
+    $messageData = [
+        'type' => 'template',
+        'altText' => '時間帯選択',
+        'template' => [
+            'type' => 'buttons',
+            'title' => '時間帯を選択',
+            'text' => '何時くらい？',
+            'actions' => [
+                        [
+                            'type' => 'postback',
+                            'label' => '６～８時',
+                            'text' => '6~8bd',
+                            'data' => 'value'
+                        ],
+                        [
+                            'type' => 'postback',
+                            'label' => '９～１１時',
+                            'text' => '9~11bd',
+                            'data' => 'value'
+                        ],
+                        [
+                            'type' => 'postback',
+                            'label' => '１２～１４時',
+                            'text' => '12~14bd',
+                            'data' => 'value'
+                        ]
+            ]
+        ]
+    ];
+    $messageData2 = [
+        'type' => 'template',
+        'altText' => '時間帯選択',
+        'template' => [
+            'type' => 'buttons',
+            'title' => '時間帯を選択',
+            'text' => '何時くらい？',
+            'actions' => [
+                        [
+                            'type' => 'postback',
+                            'label' => '１５～１７時',
+                            'text' => '15~17bd',
+                            'data' => 'value'
+                        ],
+                        [
+                            'type' => 'postback',
+                            'label' => '１８～２０時',
+                            'text' => '18~20bd',
+                            'data' => 'value'
+                        ],
+                        [
+                            'type' => 'postback',
+                            'label' => '２１～２３時',
+                            'text' => '21~23bd',
+                            'data' => 'value'
+                        ]
+            ]
+        ]
+    ];
+}
 $response = [
     'replyToken' => $replyToken,
-    'messages' => [$messageData]
+    'messages' => [$messageData,$messageData2]
 ];
 error_log(json_encode($response));
  
