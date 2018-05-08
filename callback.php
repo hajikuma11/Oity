@@ -11,7 +11,7 @@ $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
  
 
 
-//交通機関選択**************************************************************************************************************************************************************************
+//ヘルプ**************************************************************************************************************************************************************************
 if ($message->{"text"} == 'ヘルプ' or $message->{"text"} == 'へるぷ' or $message->{"text"} == 'help' or $message->{"text"} == 'Help') {
 
     $messageData = [
@@ -55,7 +55,7 @@ if ($message->{"text"} == 'ヘルプ' or $message->{"text"} == 'へるぷ' or $m
     ];
 }
 
-// 送られてきたメッセージの中身からレスポンスのタイプを選択
+//天気**************************************************************************************************************************************************************************
 elseif ($message->{"text"} == '天気' or $message->{"text"} == 'てんき') {
     // ボタンタイプ
     $messageData = [
@@ -358,7 +358,7 @@ elseif ($message->{"text"} == '19991111') {
             'actions' => [
                         [
                             'type' => 'postback',
-                            'label' => 'weather',
+                            'label' => 'Weather',
                             'text' => '::weathK&K::',
                             'data' => 'value'
                         ],
@@ -372,6 +372,59 @@ elseif ($message->{"text"} == '19991111') {
         ]
     ];
 }
+
+elseif ($message->{"text"} == '::weathK&K::') {
+
+    $messageData = [
+        'type' => 'template',
+        'altText' => 'SelectWeath',
+        'template' => [
+            'type' => 'buttons',
+            'title' => 'ForecastWeath',
+            'text' => 'Where？',
+            'actions' => [
+                [
+                    'type' => 'uri',
+                    'label' => '『Kawachinagano』',
+                    'uri' => 'https://www.mapion.co.jp/weather/admi/27/27216.html'
+                ],
+                [
+                    'type' => 'uri',
+                    'label' => '『Kobe』',
+                    'uri' => 'https://www.mapion.co.jp/weather/admi/28/28110.html'
+                ]
+            ]
+        ]
+    ];
+}
+
+elseif ($message->{"text"} == '::UsheH&H::') {
+
+    $messageData = [
+        'type' => 'template',
+        'altText' => 'SelectSch',
+        'template' => [
+            'type' => 'buttons',
+            'title' => 'Schedule',
+            'text' => 'Whose？',
+            'actions' => [
+                        [
+                            'type' => 'postback',
+                            'label' => 'Honoka',
+                            'text' => 'h9n2k1',
+                            'data' => 'value'
+                        ],
+                        [
+                            'type' => 'postback',
+                            'label' => 'Hajime',
+                            'text' => 'h1j1m1',
+                            'data' => 'value'
+                        ]
+                ]
+            ]
+    ];
+}
+
 
 
 
