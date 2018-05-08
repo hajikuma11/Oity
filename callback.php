@@ -10,7 +10,7 @@ $message = $jsonObj->{"events"}[0]->{"message"};
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
  
 //交通機関選択**************************************************************************************************************************************************************************
-elseif ($message->{"text"} == 'ヘルプ' or $message->{"text"} == 'へるぷ' or $message->{"text"} == 'help' or $message->{"text"} == 'Help') {
+if ($message->{"text"} == 'ヘルプ' or $message->{"text"} == 'へるぷ' or $message->{"text"} == 'help' or $message->{"text"} == 'Help') {
 
     $messageData = [
         'type' => 'template',
@@ -53,7 +53,7 @@ elseif ($message->{"text"} == 'ヘルプ' or $message->{"text"} == 'へるぷ' o
     ];
 }
 // 送られてきたメッセージの中身からレスポンスのタイプを選択
-if ($message->{"text"} == '天気' or $message->{"text"} == 'てんき') {
+elseif ($message->{"text"} == '天気' or $message->{"text"} == 'てんき') {
     // ボタンタイプ
     $messageData = [
         'type' => 'template',
