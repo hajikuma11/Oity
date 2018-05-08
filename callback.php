@@ -9,6 +9,49 @@ $jsonObj = json_decode($jsonString);
 $message = $jsonObj->{"events"}[0]->{"message"};
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
  
+//交通機関選択**************************************************************************************************************************************************************************
+elseif ($message->{"text"} == 'ヘルプ' or $message->{"text"} == 'へるぷ' or $message->{"text"} == 'help' or $message->{"text"} == 'Help') {
+
+    $messageData = [
+        'type' => 'template',
+        'altText' => 'ヘルプ選択',
+        'template' => [
+            'type' => 'buttons',
+            'title' => 'ヘルプを選択',
+            'text' => 'どのヘルプを表示しますか？',
+            'actions' => [
+                [
+                    'type' => 'postback',
+                    'label' => '交通系',
+                    
+                    'text' => '交通',
+                    'data' => 'value'
+                ],
+                [
+                    'type' => 'postback',
+                    'label' => 'URL系',
+                    
+                    'text' => 'URL',
+                    'data' => 'value'
+                ],
+                [
+                    'type' => 'postback',
+                    'label' => '教室系',
+                    
+                    'text' => '教室',
+                    'data' => 'value'
+                ],
+                [
+                    'type' => 'postback',
+                    'label' => 'その他',
+                    
+                    'text' => 'その他',
+                    'data' => 'value'
+                ]
+            ]
+        ]
+    ];
+}
 // 送られてきたメッセージの中身からレスポンスのタイプを選択
 if ($message->{"text"} == '天気' or $message->{"text"} == 'てんき') {
     // ボタンタイプ
