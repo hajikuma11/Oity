@@ -8,8 +8,8 @@ $jsonString = file_get_contents('php://input');
 error_log($jsonString);
 $jsonObj = json_decode($jsonString);
  
-$messagebef = $jsonObj->{"events"}[0]->{"message"};
-$message = trim($messagebef);
+$message = $jsonObj->{"events"}[0]->{"message"};
+//$message = trim($messagebef);
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
  
 
