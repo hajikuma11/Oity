@@ -16,7 +16,7 @@ if ($message->{"text"} == 'ユーザーID') {
     
      $messageData = [
          'type' => 'text'
-         'text' => $userid
+         'text' => "$userid"
          ];
 }
 
