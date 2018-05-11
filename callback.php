@@ -71,12 +71,12 @@ elseif ($message->{"text"} == '天気' or $message->{"text"} == 'てんき') {
                 [
                     'type' => 'uri',
                     'label' => '『枚方市』',
-                    'uri' => 'https://www.mapion.co.jp/weather/admi/27/27210.html'
+                    'uri' => 'https://goo.gl/xocMKr'
                 ],
                 [
                     'type' => 'uri',
                     'label' => '『大阪市』',
-                    'uri' => 'https://www.mapion.co.jp/weather/admi/27/27127.html'
+                    'uri' => 'https://goo.gl/To4NFy'
                 ]
             ]
         ]
@@ -388,12 +388,12 @@ elseif ($message->{"text"} == '::weathK&K::') {
                 [
                     'type' => 'uri',
                     'label' => '『Kawachinagano』',
-                    'uri' => 'https://www.mapion.co.jp/weather/admi/27/27216.html'
+                    'uri' => 'https://goo.gl/SDVp4x'
                 ],
                 [
                     'type' => 'uri',
                     'label' => '『Kobe』',
-                    'uri' => 'https://www.mapion.co.jp/weather/admi/28/28110.html'
+                    'uri' => 'https://goo.gl/ZAHEuF'
                 ]
             ]
         ]
