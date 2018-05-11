@@ -12,16 +12,8 @@ $message = $jsonObj->{"events"}[0]->{"message"};
 $userid = $jsonObj->{"events"}[0]->{"source"}->{"userId"};
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
  
-if ($message->{"text"} == 'ユーザーID') {
-    
-     $messageData = [
-         'type' => 'text'
-         'text' => "$userid"
-         ];
-}
-
 //***ヘルプ******************************************************************************************************************************************************************************
-elseif ($message->{"text"} == 'ヘルプ' or $message->{"text"} == 'へるぷ' or $message->{"text"} == 'help' or $message->{"text"} == 'Help') {
+if ($message->{"text"} == 'ヘルプ' or $message->{"text"} == 'へるぷ' or $message->{"text"} == 'help' or $message->{"text"} == 'Help') {
 
     $messageData = [
         'type' => 'template',
@@ -433,6 +425,14 @@ elseif ($message->{"text"} == '::UsheH&H::') {
             ]
     ];
 }
+elseif ($message->{"text"} == 'ユーザーID') {
+    
+     $messageData = [
+         'type' => 'text'
+         'text' => "$userid"
+         ];
+}
+
 
 
 
