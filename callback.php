@@ -9,13 +9,19 @@ error_log($jsonString);
 $jsonObj = json_decode($jsonString);
  
 $message = $jsonObj->{"events"}[0]->{"message"};
-//$message = trim($messagebef);
+$userid = $jsonObj->{"events"}[0]->{"source"}->{"userId"};
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
  
-
+if ($message->{"text"} == 'ユーザーID') {
+    
+     $messageData = [
+         'type' => 'text'
+         'text' => $userid
+         ];
+}
 
 //***ヘルプ******************************************************************************************************************************************************************************
-if ($message->{"text"} == 'ヘルプ' or $message->{"text"} == 'へるぷ' or $message->{"text"} == 'help' or $message->{"text"} == 'Help') {
+elseif ($message->{"text"} == 'ヘルプ' or $message->{"text"} == 'へるぷ' or $message->{"text"} == 'help' or $message->{"text"} == 'Help') {
 
     $messageData = [
         'type' => 'template',
