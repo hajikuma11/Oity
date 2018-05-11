@@ -8,7 +8,8 @@ $jsonString = file_get_contents('php://input');
 error_log($jsonString);
 $jsonObj = json_decode($jsonString);
  
-$message = $jsonObj->{"events"}[0]->{"message"};
+$messagebef = $jsonObj->{"events"}[0]->{"message"};
+$message = trim($messagebef)
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
  
 
@@ -58,7 +59,7 @@ if ($message->{"text"} == 'ヘルプ' or $message->{"text"} == 'へるぷ' or $m
 }
 
 //***天気********************************************************************************************************************************************************************************
-elseif ($message->{"text"} == '天気' or $message->{"text"} == 'てんき') {
+elseif ($message->{"text"} == '天気' or $message->{"text"} == 'てんき' or $message->{"text"} == '天気予報' or $message->{"text"} == 'てんきよほう') {
     // ボタンタイプ
     $messageData = [
         'type' => 'template',
