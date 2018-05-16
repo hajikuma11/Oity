@@ -7,10 +7,10 @@ $accessToken = 'HjUjwJORNXxUyK/BJ3zw5+IVAnZ9lOcUHkgTxN7FGECcmS3jnIAndMcuUfW5qpaz
 $jsonString = file_get_contents('php://input');
 error_log($jsonString);
 $jsonObj = json_decode($jsonString);
- 
+
 $message = $jsonObj->{"events"}[0]->{"message"};
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
- 
+$userID = $jsonObj->{"events"}[0]->{"source"};
 //***ヘルプ******************************************************************************************************************************************************************************
 if ($message->{"text"} == 'ヘルプ' or $message->{"text"} == 'へるぷ' or $message->{"text"} == 'help' or $message->{"text"} == 'Help') {
 
@@ -25,28 +25,28 @@ if ($message->{"text"} == 'ヘルプ' or $message->{"text"} == 'へるぷ' or $m
                 [
                     'type' => 'postback',
                     'label' => '交通系',
-                    
+
                     'text' => '交通',
                     'data' => 'value'
                 ],
                 [
                     'type' => 'postback',
                     'label' => 'URL系',
-                    
+
                     'text' => 'URL',
                     'data' => 'value'
                 ],
                 [
                     'type' => 'postback',
                     'label' => '教室系',
-                    
+
                     'text' => '教室',
                     'data' => 'value'
                 ],
                 [
                     'type' => 'postback',
                     'label' => 'その他',
-                    
+
                     'text' => 'その他',
                     'data' => 'value'
                 ]
@@ -95,14 +95,14 @@ elseif ($message->{"text"} == '時刻' or $message->{"text"} == 'じこく' or $
                 [
                     'type' => 'postback',
                     'label' => '電車',
-                    
+
                     'text' => 'Train',
                     'data' => 'value'
                 ],
                 [
                     'type' => 'postback',
                     'label' => 'バス',
-                    
+
                     'text' => 'Localbus',
                     'data' => 'value'
                 ]
@@ -125,14 +125,14 @@ elseif ($message->{"text"} == 'Train') {
                 [
                     'type' => 'postback',
                     'label' => '長尾駅',
-                    
+
                     'text' => 'NagaoSt',
                     'data' => 'value'
                 ],
                 [
                     'type' => 'postback',
                     'label' => '京橋駅',
-                    
+
                     'text' => 'KyobashiSt',
                     'data' => 'value'
                 ]
@@ -155,14 +155,14 @@ elseif ($message->{"text"} == 'NagaoSt') {
                 [
                     'type' => 'postback',
                     'label' => '木津方面',
-                    
+
                     'text' => '木津方面',
                     'data' => 'value'
                 ],
                 [
                     'type' => 'postback',
                     'label' => '京橋方面',
-                    
+
                     'text' => '京橋方面',
                     'data' => 'value'
                 ]
@@ -185,14 +185,14 @@ elseif ($message->{"text"} == 'Localbus') {
                 [
                     'type' => 'postback',
                     'label' => '長尾駅行き',
-                    
+
                     'text' => 'goNag',
                     'data' => 'value'
                 ],
                 [
                     'type' => 'postback',
                     'label' => '北山中央行き',
-                    
+
                     'text' => 'goKita',
                     'data' => 'value'
                 ]
@@ -425,6 +425,14 @@ elseif ($message->{"text"} == '::UsheH&H::') {
     ];
 }
 
+elseif ($message->{"text"} == 'userid') {
+ $msg = $userID->{"userId"};
+ $messageData = [
+    'type' => 'text',
+    'text' => $msg
+ ];
+}
+
 
 
 //***レスポンス系*****************************************************************************************************************************************************************************
@@ -433,7 +441,7 @@ $response = [
     'messages' => [$messageData]
 ];
 error_log(json_encode($response));
- 
+
 $ch = curl_init('https://api.line.me/v2/bot/message/reply');
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
