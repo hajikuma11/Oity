@@ -55,8 +55,44 @@ if ($message->{"text"} == 'ヘルプ' or $message->{"text"} == 'へるぷ' or $m
     ];
 }
 
-//***天気********************************************************************************************************************************************************************************
-elseif ($message->{"text"} == '天気' or $message->{"text"} == 'てんき' or $message->{"text"} == '天気予報' or $message->{"text"} == 'てんきよほう') {
+//***天気系********************************************************************************************************************************************************************************
+elseif ($message->{"text"} == '天気' or $message->{"text"} == 'てんき' or $message->{"text"} == '気象' or $message->{"text"} == '気象情報') {
+    // ボタンタイプ
+    $messageData = [
+        'type' => 'template',
+        'altText' => '情報選択',
+        'template' => [
+            'type' => 'buttons',
+            'title' => '気象情報',
+            'text' => 'どの情報？',
+            'actions' => [
+              [
+                  'type' => 'postback',
+                  'label' => '天気予報',
+
+                  'text' => 'forecast',
+                  'data' => 'value'
+              ],
+              [
+                  'type' => 'postback',
+                  'label' => '台風情報',
+
+                  'text' => 'typhoon',
+                  'data' => 'value'
+              ],
+              [
+                  'type' => 'postback',
+                  'label' => '雨雲レーダー',
+
+                  'text' => 'rainmap',
+                  'data' => 'value'
+              ]
+            ]
+        ]
+    ];
+}
+//天気予報
+elseif ($message->{"text"} == 'forecast' or $message->{"text"} == 'forecast' or $message->{"text"} == '天気予報' or $message->{"text"} == 'てんきよほう') {
     // ボタンタイプ
     $messageData = [
         'type' => 'template',
@@ -91,6 +127,12 @@ elseif ($message->{"text"} == '天気' or $message->{"text"} == 'てんき' or $
     ];
 }
 
+elseif ($message->{"type"} == 'typhoon') {
+  $messageData = [
+    'type' => 'uri',
+    'text' => 'https://goo.gl/5gZfQp'
+  ];
+}
 //***交通機関選択**************************************************************************************************************************************************************************
 elseif ($message->{"text"} == '時刻' or $message->{"text"} == 'じこく') {
 
