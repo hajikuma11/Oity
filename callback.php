@@ -237,16 +237,30 @@ elseif ($message->{"text"} == 'Localbus' or $message->{"text"} == 'バス') {
             'actions' => [
                 [
                     'type' => 'postback',
-                    'label' => '長尾駅行き',
+                    'label' => '北山中央から長尾駅行き',
 
                     'text' => 'goNag',
                     'data' => 'value'
                 ],
                 [
                     'type' => 'postback',
-                    'label' => '北山中央行き',
+                    'label' => '長尾駅から北山中央行き',
 
                     'text' => 'goKita',
+                    'data' => 'value'
+                ],
+                [
+                    'type' => 'postback',
+                    'label' => '楠葉駅から北山中央行き',
+
+                    'text' => 'goKitafK',
+                    'data' => 'value'
+                ],
+                [
+                    'type' => 'postback',
+                    'label' => '北山中央から樟葉駅行き',
+
+                    'text' => 'goKuz',
                     'data' => 'value'
                 ]
             ]
@@ -254,7 +268,7 @@ elseif ($message->{"text"} == 'Localbus' or $message->{"text"} == 'バス') {
     ];
 }
 
-//***長尾駅行き時間帯選択*******************************************************************************************************************************************************************
+//***北山中央から長尾駅行き時間帯選択*******************************************************************************************************************************************************************
 elseif ($message->{"text"} == 'goNag') {
 
     $messageData = [
@@ -326,7 +340,7 @@ elseif ($message->{"text"} == 'goNag2') {
     ];
 }
 
-//***北山中央行き時間帯選択******************************************************************************************************************************************************************
+//***長尾駅から北山中央行き時間帯選択******************************************************************************************************************************************************************
 elseif ($message->{"text"} == 'goKita') {
 
     $messageData = [
@@ -391,6 +405,150 @@ elseif ($message->{"text"} == 'goKita2') {
                             'type' => 'postback',
                             'label' => '２１時',
                             'text' => '21bu',
+                            'data' => 'value'
+                        ]
+            ]
+        ]
+    ];
+}
+
+//***北山中央から楠葉駅行き時間帯選択*******************************************************************************************************************************************************************
+elseif ($message->{"text"} == 'goKuz') {
+
+    $messageData = [
+        'type' => 'template',
+        'altText' => '時間帯選択',
+        'template' => [
+            'type' => 'buttons',
+            'title' => '時間帯を選択',
+            'text' => '何時くらい？',
+            'actions' => [
+                        [
+                            'type' => 'postback',
+                            'label' => '６～８時',
+                            'text' => '6~8kk',
+                            'data' => 'value'
+                        ],
+                        [
+                            'type' => 'postback',
+                            'label' => '９～１１時',
+                            'text' => '9~11kk',
+                            'data' => 'value'
+                        ],
+                        [
+                            'type' => 'postback',
+                            'label' => '１２～１４時',
+                            'text' => '12~14kk',
+                            'data' => 'value'
+                        ],
+                        [
+                            'type' => 'postback',
+                            'label' => 'それ以降の時刻',
+                            'text' => 'goKuz2',
+                            'data' => 'value'
+                        ]
+            ]
+        ]
+    ];
+}
+elseif ($message->{"text"} == 'goKuz2') {
+
+    $messageData = [
+        'type' => 'template',
+        'altText' => '時間帯選択',
+        'template' => [
+            'type' => 'buttons',
+            'title' => '時間帯を選択',
+            'text' => '何時くらい？',
+            'actions' => [
+                        [
+                            'type' => 'postback',
+                            'label' => '１５～１７時',
+                            'text' => '15~17kk',
+                            'data' => 'value'
+                        ],
+                        [
+                            'type' => 'postback',
+                            'label' => '１８～２０時',
+                            'text' => '18~20kk',
+                            'data' => 'value'
+                        ],
+                        [
+                            'type' => 'postback',
+                            'label' => '２１時',
+                            'text' => '21kk',
+                            'data' => 'value'
+                        ]
+            ]
+        ]
+    ];
+}
+
+//***楠葉駅から北山中央行き時間帯選択******************************************************************************************************************************************************************
+elseif ($message->{"text"} == 'goKitafK') {
+
+    $messageData = [
+        'type' => 'template',
+        'altText' => '時間帯選択',
+        'template' => [
+            'type' => 'buttons',
+            'title' => '時間帯を選択',
+            'text' => '何時くらい？',
+            'actions' => [
+                        [
+                            'type' => 'postback',
+                            'label' => '６～８時',
+                            'text' => '6~8fk',
+                            'data' => 'value'
+                        ],
+                        [
+                            'type' => 'postback',
+                            'label' => '９～１１時',
+                            'text' => '9~11fk',
+                            'data' => 'value'
+                        ],
+                        [
+                            'type' => 'postback',
+                            'label' => '１２～１４時',
+                            'text' => '12~14fk',
+                            'data' => 'value'
+                        ],
+                        [
+                            'type' => 'postback',
+                            'label' => 'それ以降の時刻',
+                            'text' => 'goKitafK2',
+                            'data' => 'value'
+                        ]
+            ]
+        ]
+    ];
+}
+elseif ($message->{"text"} == 'goKitafK2') {
+
+    $messageData = [
+        'type' => 'template',
+        'altText' => '時間帯選択',
+        'template' => [
+            'type' => 'buttons',
+            'title' => '時間帯を選択',
+            'text' => '何時くらい？',
+            'actions' => [
+                        [
+                            'type' => 'postback',
+                            'label' => '１５～１７時',
+                            'text' => '15~17fk',
+                            'data' => 'value'
+                        ],
+                        [
+                            'type' => 'postback',
+                            'label' => '１８～２０時',
+                            'text' => '18~20fk',
+                            'data' => 'value'
+                        ],
+                        [
+                            'type' => 'postback',
+                            'label' => '２１時',
+                            'text' => '21fk',
                             'data' => 'value'
                         ]
             ]
