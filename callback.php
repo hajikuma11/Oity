@@ -75,6 +75,16 @@ elseif ($message->{"text"} == '天気' or $message->{"text"} == 'てんき' or $
                     'type' => 'uri',
                     'label' => '『大阪市』',
                     'uri' => 'https://goo.gl/To4NFy'
+                ],
+                [
+                    'type' => 'uri',
+                    'label' => '『京都市』(未実装)',
+                    'uri' => ''
+                ],
+                [
+                    'type' => 'uri',
+                    'label' => '『神戸市中央区』(未実装)',
+                    'uri' => ''
                 ]
             ]
         ]
@@ -82,7 +92,7 @@ elseif ($message->{"text"} == '天気' or $message->{"text"} == 'てんき' or $
 }
 
 //***交通機関選択**************************************************************************************************************************************************************************
-elseif ($message->{"text"} == '時刻' or $message->{"text"} == 'じこく' or $message->{"text"} == 'バス' or $message->{"text"} == '電車') {
+elseif ($message->{"text"} == '時刻' or $message->{"text"} == 'じこく') {
 
     $messageData = [
         'type' => 'template',
@@ -90,7 +100,7 @@ elseif ($message->{"text"} == '時刻' or $message->{"text"} == 'じこく' or $
         'template' => [
             'type' => 'buttons',
             'title' => '交通機関を選択',
-            'text' => 'どっち？',
+            'text' => 'どの交通機関？',
             'actions' => [
                 [
                     'type' => 'postback',
@@ -112,7 +122,7 @@ elseif ($message->{"text"} == '時刻' or $message->{"text"} == 'じこく' or $
 }
 
 //***電車の駅選択**************************************************************************************************************************************************************************
-elseif ($message->{"text"} == 'Train') {
+elseif ($message->{"text"} == 'Train' or $message->{"text"} == '電車') {
 
     $messageData = [
         'type' => 'template',
@@ -124,16 +134,23 @@ elseif ($message->{"text"} == 'Train') {
             'actions' => [
                 [
                     'type' => 'postback',
-                    'label' => '長尾駅',
+                    'label' => '長尾駅発',
 
                     'text' => 'NagaoSt',
                     'data' => 'value'
                 ],
                 [
                     'type' => 'postback',
-                    'label' => '京橋駅',
+                    'label' => '京橋駅発',
 
                     'text' => 'KyobashiSt',
+                    'data' => 'value'
+                ],
+                [
+                    'type' => 'postback',
+                    'label' => '楠葉駅発(未実装)',
+
+                    'text' => 'KuzuhaSt',
                     'data' => 'value'
                 ]
             ]
@@ -142,7 +159,7 @@ elseif ($message->{"text"} == 'Train') {
 }
 
 //***長尾駅の向き**************************************************************************************************************************************************************************
-elseif ($message->{"text"} == 'NagaoSt') {
+elseif ($message->{"text"} == 'NagaoSt' or $message->{"text"} == '長尾駅発') {
 
     $messageData = [
         'type' => 'template',
@@ -150,7 +167,7 @@ elseif ($message->{"text"} == 'NagaoSt') {
         'template' => [
             'type' => 'buttons',
             'title' => '向きを選択',
-            'text' => 'どっち？',
+            'text' => 'どっち方面？',
             'actions' => [
                 [
                     'type' => 'postback',
@@ -172,7 +189,7 @@ elseif ($message->{"text"} == 'NagaoSt') {
 }
 
 //***バスの行き先選択***********************************************************************************************************************************************************************
-elseif ($message->{"text"} == 'Localbus') {
+elseif ($message->{"text"} == 'Localbus' or $message->{"text"} == 'バス') {
 
     $messageData = [
         'type' => 'template',
@@ -180,7 +197,7 @@ elseif ($message->{"text"} == 'Localbus') {
         'template' => [
             'type' => 'buttons',
             'title' => '行き先を選択',
-            'text' => 'どっち？',
+            'text' => 'どこ行き？',
             'actions' => [
                 [
                     'type' => 'postback',
