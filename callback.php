@@ -434,9 +434,10 @@ elseif ($message->{"text"} == 'userid') {
 }
 
 elseif ($message->{"type"} == 'location') {
+  $loc = $message->{"address"}
   $messageData = [
     'type' => 'text',
-    'text' => 'ストーカーを開始しちゃうぞ☆'
+    'text' => $loc
   ];
 }
 
