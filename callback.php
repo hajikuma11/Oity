@@ -73,18 +73,18 @@ elseif ($message->{"text"} == '天気' or $message->{"text"} == 'てんき' or $
                 ],
                 [
                     'type' => 'uri',
-                    'label' => '『大阪市』',
-                    'uri' => 'https://goo.gl/To4NFy'
+                    'label' => '『大阪府』',
+                    'uri' => 'https://goo.gl/zDoPwU'
                 ],
                 [
                     'type' => 'uri',
-                    'label' => '『京都市』(未実装)',
-                    'uri' => ''
+                    'label' => '『京都府』',
+                    'uri' => 'https://goo.gl/sbXiYv'
                 ],
                 [
                     'type' => 'uri',
-                    'label' => '『神戸市中央区』(未実装)',
-                    'uri' => ''
+                    'label' => '『兵庫県』',
+                    'uri' => 'https://goo.gl/3AuVUs'
                 ]
             ]
         ]
