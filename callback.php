@@ -237,28 +237,28 @@ elseif ($message->{"text"} == 'Localbus' or $message->{"text"} == 'バス') {
             'actions' => [
                 [
                     'type' => 'postback',
-                    'label' => '北山中央から長尾駅行き',
+                    'label' => '北山中央→→→長尾駅',
 
                     'text' => 'goNag',
                     'data' => 'value'
                 ],
                 [
                     'type' => 'postback',
-                    'label' => '長尾駅から北山中央行き',
+                    'label' => '長尾駅→→→北山中央',
 
                     'text' => 'goKita',
                     'data' => 'value'
                 ],
                 [
                     'type' => 'postback',
-                    'label' => '楠葉駅から北山中央行き',
+                    'label' => '楠葉駅→→→北山中央',
 
                     'text' => 'goKitafK',
                     'data' => 'value'
                 ],
                 [
                     'type' => 'postback',
-                    'label' => '北山中央から樟葉駅行き',
+                    'label' => '北山中央→→→樟葉駅',
 
                     'text' => 'goKuz',
                     'data' => 'value'
@@ -475,8 +475,8 @@ elseif ($message->{"text"} == 'goKuz2') {
                         ],
                         [
                             'type' => 'postback',
-                            'label' => '２１時',
-                            'text' => '21kk',
+                            'label' => '２１時～２３時',
+                            'text' => '21~23kk',
                             'data' => 'value'
                         ]
             ]
@@ -547,8 +547,8 @@ elseif ($message->{"text"} == 'goKitafK2') {
                         ],
                         [
                             'type' => 'postback',
-                            'label' => '２１時',
-                            'text' => '21fk',
+                            'label' => '２１時～２３時',
+                            'text' => '21~23fk',
                             'data' => 'value'
                         ]
             ]
