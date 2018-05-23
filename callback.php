@@ -571,13 +571,13 @@ elseif ($message->{"text"} == '19991111') {
                         [
                             'type' => 'postback',
                             'label' => 'Weather',
-                            'text' => '::weathK&K::',
+                            'text' => ':weathK&K:',
                             'data' => 'value'
                         ],
                         [
                             'type' => 'postback',
                             'label' => 'Uschedule',
-                            'text' => '::UsheH&H::',
+                            'text' => ':UsheH&H:',
                             'data' => 'value'
                         ]
             ]
@@ -585,7 +585,7 @@ elseif ($message->{"text"} == '19991111') {
     ];
 }
 
-elseif ($message->{"text"} == '::weathK&K::') {
+elseif ($message->{"text"} == ':weathK&K:') {
 
     $messageData = [
         'type' => 'template',
@@ -610,7 +610,7 @@ elseif ($message->{"text"} == '::weathK&K::') {
     ];
 }
 
-elseif ($message->{"text"} == '::UsheH&H::') {
+elseif ($message->{"text"} == ':UsheH&H:') {
 
     $messageData = [
         'type' => 'template',
