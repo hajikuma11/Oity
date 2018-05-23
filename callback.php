@@ -317,14 +317,14 @@ elseif ($message->{"text"} == 'Localbus' or $message->{"text"} == 'バス') {
                 ],
                 [
                     'type' => 'postback',
-                    'label' => '長尾駅　　→→　北山中央',
+                    'label' => '　長尾駅　→→　北山中央',
 
                     'text' => 'goKita',
                     'data' => 'value'
                 ],
                 [
                     'type' => 'postback',
-                    'label' => '楠葉駅　　→→　北山中央',
+                    'label' => '　楠葉駅　→→　北山中央',
 
                     'text' => 'goKitafK',
                     'data' => 'value'
