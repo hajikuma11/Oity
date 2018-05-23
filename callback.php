@@ -275,7 +275,7 @@ elseif ($message->{"text"} == 'NagaoSt' or $message->{"text"} == '長尾駅発')
         'altText' => '向き選択',
         'template' => [
             'type' => 'buttons',
-            'title' => '向きを選択',
+            'title' => '方面を選択',
             'text' => 'どっち方面？',
             'actions' => [
                 [
@@ -305,33 +305,33 @@ elseif ($message->{"text"} == 'Localbus' or $message->{"text"} == 'バス') {
         'altText' => 'バス行先選択',
         'template' => [
             'type' => 'buttons',
-            'title' => '行き先',
+            'title' => 'バスの行き先',
             'text' => 'どこからどこ行き？',
             'actions' => [
                 [
                     'type' => 'postback',
-                    'label' => '北山中央→→→長尾駅',
+                    'label' => '北山中央　→→　長尾駅',
 
                     'text' => 'goNag',
                     'data' => 'value'
                 ],
                 [
                     'type' => 'postback',
-                    'label' => '長尾駅→→→北山中央',
+                    'label' => '長尾駅　→→　北山中央',
 
                     'text' => 'goKita',
                     'data' => 'value'
                 ],
                 [
                     'type' => 'postback',
-                    'label' => '楠葉駅→→→北山中央',
+                    'label' => '楠葉駅　→→　北山中央',
 
                     'text' => 'goKitafK',
                     'data' => 'value'
                 ],
                 [
                     'type' => 'postback',
-                    'label' => '北山中央→→→樟葉駅',
+                    'label' => '北山中央　→→　樟葉駅',
 
                     'text' => 'goKuz',
                     'data' => 'value'
