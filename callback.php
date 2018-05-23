@@ -19,7 +19,7 @@ if ($message->{"text"} == 'ヘルプ' or $message->{"text"} == 'へるぷ' or $m
         'altText' => 'ヘルプ選択',
         'template' => [
             'type' => 'buttons',
-            'title' => 'ヘルプを選択',
+            'title' => 'ヘルプ',
             'text' => 'どのヘルプを表示しますか？',
             'actions' => [
                 [
@@ -91,6 +91,7 @@ elseif ($message->{"text"} == '天気' or $message->{"text"} == 'てんき' or $
         ]
     ];
 }
+
 //***天気予報********************************************************************************************************************************************************************************
 elseif ($message->{"text"} == 'forecast' or $message->{"text"} == 'forecast' or $message->{"text"} == '天気予報' or $message->{"text"} == 'てんきよほう') {
     // ボタンタイプ
@@ -135,7 +136,7 @@ elseif ($message->{"text"} == '時刻' or $message->{"text"} == 'じこく') {
         'altText' => '機関選択',
         'template' => [
             'type' => 'buttons',
-            'title' => '交通機関を選択',
+            'title' => '交通機関',
             'text' => 'どの交通機関？',
             'actions' => [
                 [
@@ -165,7 +166,7 @@ elseif ($message->{"text"} == 'Train' or $message->{"text"} == '電車') {
         'altText' => '駅選択',
         'template' => [
             'type' => 'buttons',
-            'title' => '発車駅を選択',
+            'title' => '発車駅',
             'text' => 'どこ発？',
             'actions' => [
                 [
@@ -194,6 +195,77 @@ elseif ($message->{"text"} == 'Train' or $message->{"text"} == '電車') {
     ];
 }
 
+//***京橋発長尾方面**************************************************************************************************************************************************************************
+elseif ($message->{"text"} == 'KyobashiSt' or $message->{"text"} == '京橋発' or $message->{"text"} == '京橋から') {
+
+  $messageData = [
+      'type' => 'template',
+      'altText' => '時間帯選択',
+      'template' => [
+          'type' => 'buttons',
+          'title' => '京橋発松井山手・木津方面',
+          'text' => '何時くらい？',
+          'actions' => [
+                      [
+                          'type' => 'postback',
+                          'label' => '６～８時',
+                          'text' => '6~8kh',
+                          'data' => 'value'
+                      ],
+                      [
+                          'type' => 'postback',
+                          'label' => '９～１１時',
+                          'text' => '9~11kh',
+                          'data' => 'value'
+                      ],
+                      [
+                          'type' => 'postback',
+                          'label' => '１２～１４時',
+                          'text' => '12~14kh',
+                          'data' => 'value'
+                      ],
+                      [
+                          'type' => 'postback',
+                          'label' => 'それ以降の時刻',
+                          'text' => 'kh2',
+                          'data' => 'value'
+                      ]
+          ]
+      ]
+  ];
+}
+elseif ($message->{"text"} == 'kh2') {
+
+    $messageData = [
+        'type' => 'template',
+        'altText' => '時間帯選択',
+        'template' => [
+            'type' => 'buttons',
+            'title' => '京橋発松井山手・木津方面',
+            'text' => '何時くらい？',
+            'actions' => [
+                        [
+                            'type' => 'postback',
+                            'label' => '１５～１７時',
+                            'text' => '15~17kh',
+                            'data' => 'value'
+                        ],
+                        [
+                            'type' => 'postback',
+                            'label' => '１８～２０時',
+                            'text' => '18~20kh',
+                            'data' => 'value'
+                        ],
+                        [
+                            'type' => 'postback',
+                            'label' => '２１～２３時',
+                            'text' => '21kh',
+                            'data' => 'value'
+                        ]
+            ]
+        ]
+    ];
+}
 //***長尾駅の向き**************************************************************************************************************************************************************************
 elseif ($message->{"text"} == 'NagaoSt' or $message->{"text"} == '長尾駅発') {
 
@@ -207,7 +279,7 @@ elseif ($message->{"text"} == 'NagaoSt' or $message->{"text"} == '長尾駅発')
             'actions' => [
                 [
                     'type' => 'postback',
-                    'label' => '木津方面',
+                    'label' => '松井山手・木津方面',
 
                     'text' => '木津方面',
                     'data' => 'value'
@@ -232,8 +304,8 @@ elseif ($message->{"text"} == 'Localbus' or $message->{"text"} == 'バス') {
         'altText' => 'バス行先選択',
         'template' => [
             'type' => 'buttons',
-            'title' => '行き先を選択',
-            'text' => 'どこ行き？',
+            'title' => '行き先',
+            'text' => 'どこからどこ行き？',
             'actions' => [
                 [
                     'type' => 'postback',
@@ -276,7 +348,7 @@ elseif ($message->{"text"} == 'goNag') {
         'altText' => '時間帯選択',
         'template' => [
             'type' => 'buttons',
-            'title' => '時間帯を選択',
+            'title' => '北山中央→→→長尾駅',
             'text' => '何時くらい？',
             'actions' => [
                         [
@@ -314,7 +386,7 @@ elseif ($message->{"text"} == 'goNag2') {
         'altText' => '時間帯選択',
         'template' => [
             'type' => 'buttons',
-            'title' => '時間帯を選択',
+            'title' => '北山中央→→→長尾駅',
             'text' => '何時くらい？',
             'actions' => [
                         [
@@ -348,7 +420,7 @@ elseif ($message->{"text"} == 'goKita') {
         'altText' => '時間帯選択',
         'template' => [
             'type' => 'buttons',
-            'title' => '時間帯を選択',
+            'title' => '長尾駅→→→北山中央',
             'text' => '何時くらい？',
             'actions' => [
                         [
@@ -386,7 +458,7 @@ elseif ($message->{"text"} == 'goKita2') {
         'altText' => '時間帯選択',
         'template' => [
             'type' => 'buttons',
-            'title' => '時間帯を選択',
+            'title' => '長尾駅→→→北山中央',
             'text' => '何時くらい？',
             'actions' => [
                         [
@@ -420,7 +492,7 @@ elseif ($message->{"text"} == 'goKuz') {
         'altText' => '時間帯選択',
         'template' => [
             'type' => 'buttons',
-            'title' => '時間帯を選択',
+            'title' => '北山中央→→→楠葉駅',
             'text' => '何時くらい？',
             'actions' => [
                         [
@@ -458,7 +530,7 @@ elseif ($message->{"text"} == 'goKuz2') {
         'altText' => '時間帯選択',
         'template' => [
             'type' => 'buttons',
-            'title' => '時間帯を選択',
+            'title' => '北山中央→→→楠葉駅',
             'text' => '何時くらい？',
             'actions' => [
                         [
@@ -492,7 +564,7 @@ elseif ($message->{"text"} == 'goKitafK') {
         'altText' => '時間帯選択',
         'template' => [
             'type' => 'buttons',
-            'title' => '時間帯を選択',
+            'title' => '楠葉駅→→→北山中央',
             'text' => '何時くらい？',
             'actions' => [
                         [
@@ -530,7 +602,7 @@ elseif ($message->{"text"} == 'goKitafK2') {
         'altText' => '時間帯選択',
         'template' => [
             'type' => 'buttons',
-            'title' => '時間帯を選択',
+            'title' => '楠葉駅→→→北山中央',
             'text' => '何時くらい？',
             'actions' => [
                         [
@@ -646,9 +718,10 @@ elseif ($message->{"text"} == 'userid') {
 
 elseif ($message->{"type"} == 'location') {
   $loc = $message->{"address"};
+  $locp = $loc.".You know?";
   $messageData = [
     'type' => 'text',
-    'text' => $loc
+    'text' =>　$locp,
   ];
 }
 
