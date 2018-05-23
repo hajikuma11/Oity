@@ -721,7 +721,7 @@ elseif ($message->{"type"} == 'location') {
   $locp = $loc.".You know?";
   $messageData = [
     'type' => 'text',
-    'text' =>　$locp,
+    'text' =>　$locp
   ];
 }
 
