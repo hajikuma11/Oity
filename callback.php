@@ -682,7 +682,7 @@ elseif ($message->{"text"} == ':weathK&K:') {
     ];
 }
 
-elseif ($message->{"text"} == 'userid') {
+elseif ($message->{"text"} == 'userid' or $message->{"text"} == 'id') {
   require "help.php";
 }
 
