@@ -1,5 +1,5 @@
 <?php
-elseif ($message->{"text"} == '19991111') {
+if ($message->{"text"} == '19991111') {
 
     $messageData = [
         'type' => 'template',
