@@ -13,46 +13,7 @@ $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 $userID = $jsonObj->{"events"}[0]->{"source"};
 //***ヘルプ******************************************************************************************************************************************************************************
 if ($message->{"text"} == 'ヘルプ' or $message->{"text"} == 'へるぷ' or $message->{"text"} == 'help' or $message->{"text"} == 'Help') {
-
-    $messageData = [
-        'type' => 'template',
-        'altText' => 'ヘルプ選択',
-        'template' => [
-            'type' => 'buttons',
-            'title' => 'ヘルプ',
-            'text' => 'どのヘルプを表示しますか？',
-            'actions' => [
-                [
-                    'type' => 'postback',
-                    'label' => '交通系',
-
-                    'text' => '交通',
-                    'data' => 'value'
-                ],
-                [
-                    'type' => 'postback',
-                    'label' => 'URL系',
-
-                    'text' => 'URL',
-                    'data' => 'value'
-                ],
-                [
-                    'type' => 'postback',
-                    'label' => '教室系',
-
-                    'text' => '教室',
-                    'data' => 'value'
-                ],
-                [
-                    'type' => 'postback',
-                    'label' => 'その他',
-
-                    'text' => 'その他',
-                    'data' => 'value'
-                ]
-            ]
-        ]
-    ];
+    require "help.php";
 }
 
 //***天気系********************************************************************************************************************************************************************************
@@ -159,7 +120,7 @@ elseif ($message->{"text"} == '時刻' or $message->{"text"} == 'じこく') {
 }
 
 //***電車の駅選択**************************************************************************************************************************************************************************
-elseif ($message->{"text"} == 'Train' or $message->{"text"} == '電車') {
+elseif ($message->{"text"} == 'Train' or $message->{"text"} == '電車' or $message->{"text"} == 'train') {
 
     $messageData = [
         'type' => 'template',
@@ -258,8 +219,8 @@ elseif ($message->{"text"} == 'kh2') {
                         ],
                         [
                             'type' => 'postback',
-                            'label' => '２１～２３時',
-                            'text' => '21kh',
+                            'label' => '２１～２４時',
+                            'text' => '21~24kh',
                             'data' => 'value'
                         ]
             ]
@@ -298,7 +259,7 @@ elseif ($message->{"text"} == 'NagaoSt' or $message->{"text"} == '長尾駅発')
 }
 
 //***バスの行き先選択***********************************************************************************************************************************************************************
-elseif ($message->{"text"} == 'Localbus' or $message->{"text"} == 'バス') {
+elseif ($message->{"text"} == 'Localbus' or $message->{"text"} == 'バス' or $message->{"text"} == 'bus') {
 
     $messageData = [
         'type' => 'template',
@@ -682,33 +643,6 @@ elseif ($message->{"text"} == ':weathK&K:') {
     ];
 }
 
-elseif ($message->{"text"} == ':UsheH&H:') {
-
-    $messageData = [
-        'type' => 'template',
-        'altText' => 'SelectSch',
-        'template' => [
-            'type' => 'buttons',
-            'title' => 'Schedule',
-            'text' => 'Whose？',
-            'actions' => [
-                        [
-                            'type' => 'postback',
-                            'label' => 'Honoka',
-                            'text' => 'h9n2k1',
-                            'data' => 'value'
-                        ],
-                        [
-                            'type' => 'postback',
-                            'label' => 'Hajime',
-                            'text' => 'h1j1m1',
-                            'data' => 'value'
-                        ]
-                ]
-            ]
-    ];
-}
-
 elseif ($message->{"text"} == 'userid') {
  $msg = $userID->{"userId"};
  $messageData = [
@@ -717,6 +651,13 @@ elseif ($message->{"text"} == 'userid') {
  ];
 }
 
+elseif ($message->{"location"}) {
+  $loc = $message->{"address"}
+  $messageData = [
+    'type' => 'text',
+    'text' => $loc
+  ];
+}
 
 //***レスポンス系*****************************************************************************************************************************************************************************
 $response = [
