@@ -695,7 +695,7 @@ elseif ($message->{"text"} == 'userid') {
 elseif ($message->{"location"}) {
   $messageData = [
     'type' => 'text',
-    'text' => $loc
+    'text' => 'ok'
   ];
 }
 
