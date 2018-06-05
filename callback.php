@@ -11,7 +11,7 @@ $jsonObj = json_decode($jsonString);
 $message = $jsonObj->{"events"}[0]->{"message"};
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 $userID = $jsonObj->{"events"}[0]->{"source"};
-$loc = $message->{"address"};
+$loc = $jsonObj->{"events"}[0]->{"message"}[0]->{"address"};
 
 //***ヘルプ******************************************************************************************************************************************************************************
 if ($message->{"text"} == 'ヘルプ' or $message->{"text"} == 'へるぷ' or $message->{"text"} == 'help' or $message->{"text"} == 'Help') {
