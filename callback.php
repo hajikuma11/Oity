@@ -11,9 +11,6 @@ $jsonObj = json_decode($jsonString);
 $message = $jsonObj->{"events"}[0]->{"message"};
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 $userID = $jsonObj->{"events"}[0]->{"source"};
-$location = $jsonObj->{"events"}[0]->{"message"};
-$loc = $location->{"address"};
-
 //***ヘルプ******************************************************************************************************************************************************************************
 if ($message->{"text"} == 'ヘルプ' or $message->{"text"} == 'へるぷ' or $message->{"text"} == 'help' or $message->{"text"} == 'Help') {
 
@@ -686,18 +683,7 @@ elseif ($message->{"text"} == ':weathK&K:') {
 }
 
 elseif ($message->{"text"} == 'userid') {
- $msg = $userID->{"userId"};
- $messageData = [
-    'type' => 'text',
-    'text' => $msg
- ];
-}
-
-elseif ($message->{"location"}) {
-  $messageData = [
-    'type' => 'text',
-    'text' => 'ok'
-  ];
+  require "help.php";
 }
 
 //***レスポンス系*****************************************************************************************************************************************************************************
