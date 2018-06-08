@@ -1,6 +1,6 @@
 <?php
-$strstrtext = mb_strstr($text,'数');
-$s_text = substr($strstrtext,3);
+$pos = strpos($text,'数');
+$s_text = substr($text,$pos+3);
 
 if (strstr($text,'2進数')) {//２進数から
   $ten =bindec($s_text);
