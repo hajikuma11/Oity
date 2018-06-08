@@ -9,10 +9,11 @@ error_log($jsonString);
 $jsonObj = json_decode($jsonString);
 
 $message = $jsonObj->{"events"}[0]->{"message"};
+$text = $message->{"text"}
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 $userID = $jsonObj->{"events"}[0]->{"source"};
 //***ヘルプ******************************************************************************************************************************************************************************
-if ($message->{"text"} == 'ヘルプ' or $message->{"text"} == 'へるぷ' or $message->{"text"} == 'help' or $message->{"text"} == 'Help') {
+if ($text == 'ヘルプ' or $text == 'へるぷ' or $text == 'help' or $text == 'Help') {
 
     $messageData = [
         'type' => 'template',
@@ -634,6 +635,9 @@ elseif ($message->{"text"} == '19991111' or $message->{"text"} == ':weathK&K:' o
 require "help.php";
 }
 
+elseif (strstr($message->{"text"},'進数')) {
+  require "decimal.php";
+}
 //***レスポンス系*****************************************************************************************************************************************************************************
 $response = [
     'replyToken' => $replyToken,
