@@ -1,5 +1,5 @@
 <?php
-if ($message->{"text"} == '19991111') {
+if ($text == '19991111') {
 
     $messageData = [
         'type' => 'template',
@@ -26,7 +26,7 @@ if ($message->{"text"} == '19991111') {
     ];
 }
 
-elseif ($message->{"text"} == ':weathK&K:') {
+elseif ($text == ':weathK&K:') {
 
     $messageData = [
         'type' => 'template',
@@ -51,7 +51,7 @@ elseif ($message->{"text"} == ':weathK&K:') {
     ];
 }
 
-elseif ($message->{"text"} == 'userid') {
+elseif ($text == 'userid') {
 $msg = $userID->{"userId"};
 $messageData = [
    'type' => 'text',

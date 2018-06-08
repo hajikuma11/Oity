@@ -57,7 +57,7 @@ if ($text == 'ヘルプ' or $text == 'へるぷ' or $text == 'help' or $text == 
 }
 
 //***天気系********************************************************************************************************************************************************************************
-elseif ($message->{"text"} == '天気' or $message->{"text"} == 'てんき' or $message->{"text"} == '気象' or $message->{"text"} == '気象情報') {
+elseif ($text == '天気' or $text == 'てんき' or $text == '気象' or $text == '気象情報') {
     // ボタンタイプ
     $messageData = [
         'type' => 'template',
@@ -94,7 +94,7 @@ elseif ($message->{"text"} == '天気' or $message->{"text"} == 'てんき' or $
 }
 
 //***天気予報********************************************************************************************************************************************************************************
-elseif ($message->{"text"} == 'forecast' or $message->{"text"} == 'forecast' or $message->{"text"} == '天気予報' or $message->{"text"} == 'てんきよほう') {
+elseif ($text == 'forecast' or $text == 'forecast' or $text == '天気予報' or $text == 'てんきよほう') {
     // ボタンタイプ
     $messageData = [
         'type' => 'template',
@@ -130,7 +130,7 @@ elseif ($message->{"text"} == 'forecast' or $message->{"text"} == 'forecast' or 
 }
 
 //***交通機関選択**************************************************************************************************************************************************************************
-elseif ($message->{"text"} == '時刻' or $message->{"text"} == 'じこく') {
+elseif ($text == '時刻' or $text == 'じこく') {
 
     $messageData = [
         'type' => 'template',
@@ -160,7 +160,7 @@ elseif ($message->{"text"} == '時刻' or $message->{"text"} == 'じこく') {
 }
 
 //***電車の駅選択**************************************************************************************************************************************************************************
-elseif ($message->{"text"} == 'Train' or $message->{"text"} == '電車' or $message->{"text"} == 'train') {
+elseif ($text == 'Train' or $text == '電車' or $text == 'train') {
 
     $messageData = [
         'type' => 'template',
@@ -197,7 +197,7 @@ elseif ($message->{"text"} == 'Train' or $message->{"text"} == '電車' or $mess
 }
 
 //***京橋発長尾方面**************************************************************************************************************************************************************************
-elseif ($message->{"text"} == 'KyobashiSt' or $message->{"text"} == '京橋発' or $message->{"text"} == '京橋から') {
+elseif ($text == 'KyobashiSt' or $text == '京橋発' or $text == '京橋から') {
 
   $messageData = [
       'type' => 'template',
@@ -235,7 +235,7 @@ elseif ($message->{"text"} == 'KyobashiSt' or $message->{"text"} == '京橋発' 
       ]
   ];
 }
-elseif ($message->{"text"} == 'kh2') {
+elseif ($text == 'kh2') {
 
     $messageData = [
         'type' => 'template',
@@ -269,7 +269,7 @@ elseif ($message->{"text"} == 'kh2') {
 }
 
 //***長尾駅の向き**************************************************************************************************************************************************************************
-elseif ($message->{"text"} == 'NagaoSt' or $message->{"text"} == '長尾駅発') {
+elseif ($text == 'NagaoSt' or $text == '長尾駅発') {
 
     $messageData = [
         'type' => 'template',
@@ -299,7 +299,7 @@ elseif ($message->{"text"} == 'NagaoSt' or $message->{"text"} == '長尾駅発')
 }
 
 //***バスの行き先選択***********************************************************************************************************************************************************************
-elseif ($message->{"text"} == 'Localbus' or $message->{"text"} == 'バス' or $message->{"text"} == 'bus') {
+elseif ($text == 'Localbus' or $text == 'バス' or $text == 'bus') {
 
     $messageData = [
         'type' => 'template',
@@ -343,7 +343,7 @@ elseif ($message->{"text"} == 'Localbus' or $message->{"text"} == 'バス' or $m
 }
 
 //***北山中央から長尾駅行き時間帯選択*******************************************************************************************************************************************************************
-elseif ($message->{"text"} == 'goNag') {
+elseif ($text == 'goNag') {
 
     $messageData = [
         'type' => 'template',
@@ -381,7 +381,7 @@ elseif ($message->{"text"} == 'goNag') {
         ]
     ];
 }
-elseif ($message->{"text"} == 'goNag2') {
+elseif ($text == 'goNag2') {
 
     $messageData = [
         'type' => 'template',
@@ -415,7 +415,7 @@ elseif ($message->{"text"} == 'goNag2') {
 }
 
 //***長尾駅から北山中央行き時間帯選択******************************************************************************************************************************************************************
-elseif ($message->{"text"} == 'goKita') {
+elseif ($text == 'goKita') {
 
     $messageData = [
         'type' => 'template',
@@ -453,7 +453,7 @@ elseif ($message->{"text"} == 'goKita') {
         ]
     ];
 }
-elseif ($message->{"text"} == 'goKita2') {
+elseif ($text == 'goKita2') {
 
     $messageData = [
         'type' => 'template',
@@ -487,7 +487,7 @@ elseif ($message->{"text"} == 'goKita2') {
 }
 
 //***北山中央から楠葉駅行き時間帯選択*******************************************************************************************************************************************************************
-elseif ($message->{"text"} == 'goKuz') {
+elseif ($text == 'goKuz') {
 
     $messageData = [
         'type' => 'template',
@@ -525,7 +525,7 @@ elseif ($message->{"text"} == 'goKuz') {
         ]
     ];
 }
-elseif ($message->{"text"} == 'goKuz2') {
+elseif ($text == 'goKuz2') {
 
     $messageData = [
         'type' => 'template',
@@ -559,7 +559,7 @@ elseif ($message->{"text"} == 'goKuz2') {
 }
 
 //***楠葉駅から北山中央行き時間帯選択******************************************************************************************************************************************************************
-elseif ($message->{"text"} == 'goKitafK') {
+elseif ($text == 'goKitafK') {
 
     $messageData = [
         'type' => 'template',
@@ -597,7 +597,7 @@ elseif ($message->{"text"} == 'goKitafK') {
         ]
     ];
 }
-elseif ($message->{"text"} == 'goKitafK2') {
+elseif ($text == 'goKitafK2') {
 
     $messageData = [
         'type' => 'template',
@@ -631,11 +631,11 @@ elseif ($message->{"text"} == 'goKitafK2') {
 }
 
 //***裏コード*****************************************************************************************************************************************************************************
-elseif ($message->{"text"} == '19991111' or $message->{"text"} == ':weathK&K:' or $message->{"text"} == 'userid') {
+elseif ($text == '19991111' or $text == ':weathK&K:' or $text == 'userid') {
 require "help.php";
 }
 
-elseif (strstr($message->{"text"},'進数')) {
+elseif (strstr($text,'進数')) {
   require "decimal.php";
 }
 //***レスポンス系*****************************************************************************************************************************************************************************
