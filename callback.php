@@ -9,7 +9,7 @@ error_log($jsonString);
 $jsonObj = json_decode($jsonString);
 
 $message = $jsonObj->{"events"}[0]->{"message"};
-$text = $message->{"text"}
+$text = $message->{"text"};
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 $userID = $jsonObj->{"events"}[0]->{"source"};
 //***ヘルプ******************************************************************************************************************************************************************************
