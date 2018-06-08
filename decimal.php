@@ -1,5 +1,6 @@
 <?php
-$TDATA = substr($text,4);
+$text = '進数120';
+$TDATA = substr($text,6);
 $sec =decbin($TDATA);
 $eig =octdec($TDATA);
 $sixt =dechex($TDATA);
