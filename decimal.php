@@ -36,7 +36,7 @@ elseif (strstr($text,'16進数')) {//１６進数から
   ];
 };
 
-else {//１０進数から
+elseif (strstr($text,'進数')) {//１０進数から
   $sec =decbin($s_text);
   $eig =decoct($s_text);
   $sixt =dechex($s_text);
