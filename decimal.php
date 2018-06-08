@@ -1,5 +1,4 @@
 <?php
-
 $strstrtext = mb_strstr($text,'数');
 $s_text = substr($strstrtext,3);
 
