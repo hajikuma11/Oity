@@ -1,6 +1,5 @@
 <?php
-$utftext = mb_convert_encoding($text,'SJIS');
-$TDATA = substr($utftext,4);
+$TDATA = substr($text,4);
 $sec =decbin($TDATA);
 $eig =octdec($TDATA);
 $sixt =dechex($TDATA);
