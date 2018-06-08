@@ -12,7 +12,7 @@ if (strstr($text,'2進数')) {//２進数から
    'type' => 'text',
    'text' => "[8]$eig\n[10]$ten\n[16]$sixt"
   ];
-};
+}
 
 elseif (strstr($text,'8進数')) {//８進数から
   $ten =octdec($s_text);
@@ -23,7 +23,7 @@ elseif (strstr($text,'8進数')) {//８進数から
    'type' => 'text',
    'text' => "[2]$sec\n[10]$ten\n[16]$sixt"
   ];
-};
+}
 
 elseif (strstr($text,'16進数')) {//１６進数から
   $ten =hexdec($s_text);
@@ -34,7 +34,7 @@ elseif (strstr($text,'16進数')) {//１６進数から
    'type' => 'text',
    'text' => "[2]$sec\n[8]$eig\n[10]$ten"
   ];
-};
+}
 
 elseif (strstr($text,'進数')) {//１０進数から
   $sec =decbin($s_text);
@@ -45,4 +45,4 @@ elseif (strstr($text,'進数')) {//１０進数から
    'type' => 'text',
    'text' => "[2]$sec\n[8]$eig\n[16]$sixt"
   ];
-};
+}
