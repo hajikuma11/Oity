@@ -11,6 +11,7 @@ if ($text == '19991111') {
             'actions' => [
                         [
                             'type' => 'postback',
+                            'style' => 'primary',
                             'label' => 'Weather',
                             'text' => ':weathK&K:',
                             'data' => 'value'
