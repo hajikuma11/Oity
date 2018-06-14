@@ -58,6 +58,7 @@ $messageData = [
    'type' => 'text',
    'text' => $msg
 ];
+}
 
 elseif ($text == 'flex') {
   $messageData = [
