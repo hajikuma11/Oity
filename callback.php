@@ -355,12 +355,6 @@ elseif ($text == 'goNag') {
             'actions' => [
                         [
                             'type' => 'postback',
-                            'label' => '６～８時',
-                            'text' => '6~8bd',
-                            'data' => 'value'
-                        ],
-                        [
-                            'type' => 'postback',
                             'label' => '９～１１時',
                             'text' => '9~11bd',
                             'data' => 'value'
