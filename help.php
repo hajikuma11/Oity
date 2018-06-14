@@ -61,8 +61,8 @@ $messageData = [
 }
 
 elseif ($text == 'flex') {
-  $messageData = [
-    {
+
+    $json = ({
   "type": "bubble",
   "hero": {
     "type": "image",
@@ -212,5 +212,7 @@ elseif ($text == 'flex') {
     "flex": 0
   }
 }
-  ;
+);
+$jsonencode = json_encode($json);
+$messageData = $jsonencode;
 }
