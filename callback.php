@@ -159,6 +159,10 @@ elseif ($text == '時刻' or $text == 'じこく') {
     ];
 }
 
+elseif (strstr($text,'今')) {
+	require "now.php";
+}
+
 //***電車の駅選択**************************************************************************************************************************************************************************
 elseif ($text == 'Train' or $text == '電車' or $text == 'train') {
 
@@ -259,7 +263,7 @@ elseif ($text == 'kh2') {
                         ],
                         [
                             'type' => 'postback',
-                            'label' => '２１～２４時',
+                            'label' => '２１～２３時',
                             'text' => '21~24kh',
                             'data' => 'value'
                         ]
@@ -493,14 +497,8 @@ elseif ($text == 'goKuz') {
             'actions' => [
                         [
                             'type' => 'postback',
-                            'label' => '６～８時',
-                            'text' => '6~8kk',
-                            'data' => 'value'
-                        ],
-                        [
-                            'type' => 'postback',
-                            'label' => '９～１１時',
-                            'text' => '9~11kk',
+                            'label' => '１０～１１時',
+                            'text' => '10~11kk',
                             'data' => 'value'
                         ],
                         [
@@ -625,7 +623,7 @@ elseif ($text == 'goKitafK2') {
 }
 
 //***裏コード*****************************************************************************************************************************************************************************
-elseif ($text == '19991111' or $text == ':weathK&K:' or $text == 'userid' or $text == 'flex') {
+elseif ($text == '19991111' or $text == ':weathK&K:' or $text == 'userid') {
 require "help.php";
 }
 
