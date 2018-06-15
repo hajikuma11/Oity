@@ -41,6 +41,9 @@ elseif (strstr($text,'kh') or strstr($text,'京橋発') or strstr($text,'京橋�
 }
 
 $Tresult = $TM.$loc;
+elseif (0 <= $Ntime && $Ntime <= 5) {
+  $Tresult = '運行していないようです';
+}
 $messageData = [
  'type' => 'text',
  'text' => $Tresult
