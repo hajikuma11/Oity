@@ -26,14 +26,42 @@ elseif (0 <= $Ntime && $Ntime <= 5) {
 //===============================================
 if (strstr($text,'きた') or strstr($text,'bu')) {
   $loc = "bu";
+  if ($TM = "21") {
+    $TM = '21';
+  }
+  elseif (22 <= $Ntime && $Ntime <= 23){
+    $TM = '運行';
+    $loc = 'していません';
+  }
 }
 
 elseif (strstr($text,'bd') or strstr($text,'なが')) {
   $loc = "bd";
+  if ($TM = "6~8"){
+    $TM = '運行';
+    $loc = 'していません';
+  }
+  elseif ($TM = "21") {
+    $TM = '21';
+  }
+  elseif (22 <= $Ntime && $Ntime <= 23){
+    $TM = '運行';
+    $loc = 'していません';
+  }
 }
 
 elseif (strstr($text,'kk')) {
   $loc = "kk";
+  if ($TM = "6~8"){
+    $TM = 'データが';
+    $loc = 'ありません';
+  }
+  elseif ($TM = "21") {
+    $TM = '21';
+  }
+  elseif (10 <= $Ntime && $Ntime <= 11){
+    $TM = '10~11';
+  }
 }
 
 elseif (strstr($text,'kh') or strstr($text,'京橋発') or strstr($text,'京橋から')) {

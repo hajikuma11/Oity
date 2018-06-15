@@ -263,7 +263,7 @@ elseif ($text == 'kh2') {
                         ],
                         [
                             'type' => 'postback',
-                            'label' => '２１～２３時',
+                            'label' => '２１～２４時',
                             'text' => '21~24kh',
                             'data' => 'value'
                         ]
@@ -542,7 +542,7 @@ elseif ($text == 'goKuz2') {
                         [
                             'type' => 'postback',
                             'label' => '２１時～２３時',
-                            'text' => '21~23kk',
+                            'text' => '21~24kk',
                             'data' => 'value'
                         ]
             ]
