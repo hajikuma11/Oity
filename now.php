@@ -26,7 +26,7 @@ elseif (0 <= $Ntime && $Ntime <= 5) {
 //===============================================
 if (strstr($text,'きた') or strstr($text,'bu')) {
   $loc = "bu";
-  if ($TM = "21") {
+  if ($TM = "21~24") {
     $TM = '21';
   }
   elseif (22 <= $Ntime && $Ntime <= 23){
