@@ -41,7 +41,7 @@ elseif (strstr($text,'bd') or strstr($text,'なが')) {
     $TM = '運行';
     $loc = 'していません';
   }
-  elseif ($TM = "21") {
+  elseif ($TM = "21~24") {
     $TM = '21';
   }
   elseif (22 <= $Ntime && $Ntime <= 23){
@@ -55,9 +55,6 @@ elseif (strstr($text,'kk')) {
   if ($TM = "6~8"){
     $TM = 'データが';
     $loc = 'ありません';
-  }
-  elseif ($TM = "21") {
-    $TM = '21';
   }
   elseif (10 <= $Ntime && $Ntime <= 11){
     $TM = '10~11';
