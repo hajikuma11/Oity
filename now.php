@@ -18,7 +18,7 @@ elseif (18 <= $Ntime && $Ntime <= 20) {
   $TM = '18~20';
 }
 elseif (21 <= $Ntime && $Ntime <= 23) {
-  $TM = '21~23';
+  $TM = '21~24';
 }
 elseif (0 <= $Ntime && $Ntime <= 5) {
   $TM = '運行していないようです';
@@ -37,13 +37,10 @@ elseif (strstr($text,'kk')) {
 }
 
 elseif (strstr($text,'kh') or strstr($text,'京橋発') or strstr($text,'京橋から')) {
-  $loc = "bu";
+  $loc = "kh";
 }
 
 $Tresult = $TM.$loc;
-elseif (0 <= $Ntime && $Ntime <= 5) {
-  $Tresult = '運行していないようです';
-}
 $messageData = [
  'type' => 'text',
  'text' => $Tresult
