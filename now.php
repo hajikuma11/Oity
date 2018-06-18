@@ -1,7 +1,7 @@
 <?php
 date_default_timezone_set('Asia/Tokyo');
 $Ntime = date("G");
-$text = mb_substr($text, 1);
+
 //==============================================
 if (6 <= $Ntime && $Ntime <= 8) {
   $TM = '6~8';
