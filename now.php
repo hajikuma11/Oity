@@ -1,6 +1,7 @@
 <?php
 date_default_timezone_set('Asia/Tokyo');
 $Ntime = date("G");
+$text = mb_substr($text, 1);
 //==============================================
 if (6 <= $Ntime && $Ntime <= 8) {
   $TM = '6~8';
@@ -24,7 +25,7 @@ elseif (0 <= $Ntime && $Ntime <= 5) {
   $TM = '運行していないようです';
 }
 //===============================================
-if (strstr($text,'きた') or strstr($text,'bu') or strstr($text,'北')) {
+if ($text == 'きた' or $text == 'bu' or $text == '北') {
   $loc = "bu";
   $label = "長尾駅発 北山中央行";
   if ($Ntime == "21") {
@@ -37,7 +38,7 @@ if (strstr($text,'きた') or strstr($text,'bu') or strstr($text,'北')) {
   }
 }
 
-elseif (strstr($text,'bd') or strstr($text,'なが') or strstr($text,'長') or strstr($text,'長尾')) {
+elseif ($text == 'bd' or $text == 'なが' or $text == '長' or $text == '長尾') {
   $loc = "bd";
   $label = "北山中央発 長尾駅行";
   if ($TM == "6~8"){
@@ -55,7 +56,7 @@ elseif (strstr($text,'bd') or strstr($text,'なが') or strstr($text,'長') or s
   }
 }
 
-elseif (strstr($text,'kk')) {
+elseif ($text == 'kk') {
   $loc = "kk";
   $label = "北山中央発 樟葉駅行";
   if ($TM == "6~8"){
@@ -68,7 +69,7 @@ elseif (strstr($text,'kk')) {
   }
 }
 
-elseif (strstr($text,'kh') or strstr($text,'京橋発') or strstr($text,'京橋から')) {
+elseif ($text == 'kh' or $text == '京橋発' or $text == '京橋から') {
   $loc = "kh";
   $label = "京橋駅発 長尾駅行";
 }
