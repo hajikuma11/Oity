@@ -26,20 +26,24 @@ elseif (0 <= $Ntime && $Ntime <= 5) {
 //===============================================
 if (strstr($text,'きた') or strstr($text,'bu') or strstr($text,'北')) {
   $loc = "bu";
+  $label = "今の時間帯の\n長尾駅発 北山中央行";
   if ($Ntime == "21") {
     $TM = '21';
   }
   elseif (22 <= $Ntime && $Ntime <= 23){
     $TM = '運行';
     $loc = 'していません';
+    $label = "今の時間帯は\n運行していません";
   }
 }
 
 elseif (strstr($text,'bd') or strstr($text,'なが') or strstr($text,'長') or strstr($text,'長尾')) {
   $loc = "bd";
+  $label = "今の時間帯の\n北山中央発 長尾駅行";
   if ($TM == "6~8"){
     $TM = '運行';
     $loc = 'していません';
+    $label = "今の時間帯は\n運行していません";
   }
   elseif ($Ntime == "21") {
     $TM = '21';
@@ -47,14 +51,17 @@ elseif (strstr($text,'bd') or strstr($text,'なが') or strstr($text,'長') or s
   elseif (22 <= $Ntime && $Ntime <= 23){
     $TM = '運行';
     $loc = 'していません';
+    $label = "今の時間帯は\n運行していません";
   }
 }
 
 elseif (strstr($text,'kk')) {
   $loc = "kk";
+  $label = "今の時間帯の\n北山中央発 樟葉駅行";
   if ($TM == "6~8"){
     $TM = 'データが';
     $loc = 'ありません';
+    $label = "今の時間帯の\nデータがありません";
   }
   elseif (10 <= $Ntime && $Ntime <= 11){
     $TM = '10~11';
@@ -63,6 +70,7 @@ elseif (strstr($text,'kk')) {
 
 elseif (strstr($text,'kh') or strstr($text,'京橋発') or strstr($text,'京橋から')) {
   $loc = "kh";
+  $label = "今の時間帯の\n京橋駅発 長尾駅行";
 }
 
 $Tresult = $TM.$loc;
@@ -76,7 +84,7 @@ $messageData = [
         'actions' => [
             [
                 'type' => 'postback',
-                'label' => "今の時間帯の$loc",
+                'label' => $label,
 
                 'text' => $Tresult,
                 'data' => 'value'
