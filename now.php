@@ -26,7 +26,7 @@ elseif (0 <= $Ntime && $Ntime <= 5) {
 //===============================================
 if (strstr($text,'きた') or strstr($text,'bu') or strstr($text,'北')) {
   $loc = "bu";
-  if ($TM == "21~24") {
+  if ($Ntime == "21") {
     $TM = '21';
   }
   elseif (22 <= $Ntime && $Ntime <= 23){
@@ -41,7 +41,7 @@ elseif (strstr($text,'bd') or strstr($text,'なが') or strstr($text,'長') or s
     $TM = '運行';
     $loc = 'していません';
   }
-  elseif ($TM == "21~24") {
+  elseif ($Ntime == "21") {
     $TM = '21';
   }
   elseif (22 <= $Ntime && $Ntime <= 23){
