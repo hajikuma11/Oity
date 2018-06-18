@@ -24,9 +24,9 @@ elseif (0 <= $Ntime && $Ntime <= 5) {
   $TM = '運行していないようです';
 }
 //===============================================
-if (strstr($text,'きた') or strstr($text,'bu')) {
+if (strstr($text,'きた') or strstr($text,'bu') or strstr($text,'北')) {
   $loc = "bu";
-  if ($TM = "21~24") {
+  if ($TM == "21~24") {
     $TM = '21';
   }
   elseif (22 <= $Ntime && $Ntime <= 23){
@@ -35,13 +35,13 @@ if (strstr($text,'きた') or strstr($text,'bu')) {
   }
 }
 
-elseif (strstr($text,'bd') or strstr($text,'なが')) {
+elseif (strstr($text,'bd') or strstr($text,'なが') or strstr($text,'長') or strstr($text,'長尾')) {
   $loc = "bd";
-  if ($TM = "6~8"){
+  if ($TM == "6~8"){
     $TM = '運行';
     $loc = 'していません';
   }
-  elseif ($TM = "21~24") {
+  elseif ($TM == "21~24") {
     $TM = '21';
   }
   elseif (22 <= $Ntime && $Ntime <= 23){
@@ -52,7 +52,7 @@ elseif (strstr($text,'bd') or strstr($text,'なが')) {
 
 elseif (strstr($text,'kk')) {
   $loc = "kk";
-  if ($TM = "6~8"){
+  if ($TM == "6~8"){
     $TM = 'データが';
     $loc = 'ありません';
   }
@@ -67,6 +67,20 @@ elseif (strstr($text,'kh') or strstr($text,'京橋発') or strstr($text,'京橋�
 
 $Tresult = $TM.$loc;
 $messageData = [
- 'type' => 'text',
- 'text' => $Tresult
+    'type' => 'template',
+    'altText' => '押して、時刻を表示！',
+    'template' => [
+        'type' => 'buttons',
+        'title' => '下のボタンを押してください。',
+        'text' => '今の時間帯の時刻表をお知らせします。',
+        'actions' => [
+            [
+                'type' => 'postback',
+                'label' => "今の時間帯の$loc",
+
+                'text' => $Tresult,
+                'data' => 'value'
+            ]
+        ]
+    ]
 ];
