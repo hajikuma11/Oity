@@ -53,9 +53,8 @@ elseif ($text == ':weathK&K:') {
 }
 
 elseif ($text == 'userid') {
-$msg = $userID->{"userId"};
 $messageData = [
    'type' => 'text',
-   'text' => $msg
+   'text' => $userID
 ];
 }
