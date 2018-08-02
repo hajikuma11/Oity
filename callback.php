@@ -133,31 +133,30 @@ elseif ($text == 'forecast' or $text == 'forecast' or $text == '天気予報' or
 //***交通機関選択**************************************************************************************************************************************************************************
 elseif ($text == '時刻' or $text == 'じこく') {
 
-    $messageData = [
-        'type' => 'template',
-        'altText' => '機関選択',
-        'template' => [
-            'type' => 'buttons',
-            'title' => '交通機関',
-            'text' => 'どの交通機関？',
-            'actions' => [
-                [
-                    'type' => 'postback',
-                    'label' => '電車',
-
-                    'text' => 'Train',
-                    'data' => 'value'
-                ],
-                [
-                    'type' => 'postback',
-                    'label' => 'バス',
-
-                    'text' => 'Localbus',
-                    'data' => 'value'
+$messageData = [
+    'type' => 'text',
+    'text' => 'どっちの交通機関？',
+    'quickReply' => [
+        'items' => [
+            [
+            'type' => 'action',
+            'action' => [
+              'type' => 'message',
+              'label' => '電車',
+              'text' => 'Train'
+                ]
+            ],
+            [
+            'type' => 'action',
+            'action' => [
+              'type' => 'message',
+              'label' => 'バス',
+              'text' => 'Localbus'
                 ]
             ]
         ]
-    ];
+    ]
+];
 }
 
  elseif (strstr($text,'今')) {
