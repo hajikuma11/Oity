@@ -58,3 +58,30 @@ $messageData = [
    'text' => $userID
 ];
 }
+
+elseif ($text == 'quickreply') {
+$messageData = [
+    'type' => 'text',
+    'text' => 'うまくできとるかいな？',
+    'quickReply' => [
+        'items' => [
+            [
+            'type' => 'action',
+            'action' => [
+              'type' => 'message',
+              'label' => 'はい',
+              'text' => 'はい'
+                ]
+            ],
+            [
+            'type' => 'action',
+            'action' => [
+              'type' => 'message',
+              'label' => 'いいえ',
+              'text' => 'いいえ'
+                ]
+            ]
+        ]
+    ]
+]
+}
