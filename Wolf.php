@@ -5,7 +5,7 @@ case '人狼':
       'type' => 'text',
       'text' => '遊ぶ人数を選択してください',
       'quickReply' -> {
-        'items' -> [
+        'items' -> {
                     [
                       'type' -> 'action',
                       'action' -> [
@@ -24,7 +24,7 @@ case '人狼':
                        ]
                       ]
                     }
-                  ]
+                  }
                 }
               ];
 break;
