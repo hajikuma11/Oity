@@ -4,7 +4,7 @@ case '人狼':
     $messageData = [
       'type' => 'text',
       'text' => '遊ぶ人数を選択してください',
-      'quickReply' -> [
+      'quickReply' -> {
         'items' -> [
                     [
                       'type' -> 'action',
@@ -25,7 +25,7 @@ case '人狼':
                       ]
                     }
                   ]
-                ]
+                }
               ];
 break;
 }
