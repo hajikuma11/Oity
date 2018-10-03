@@ -9,49 +9,49 @@ case '人狼':
                     [
                       'type' => 'action',
                       'action' => [
-                        'type' => 'postback',
+                        'type' => 'text',
                         'label' => '4人',
-                        'data' => 'wwold4'
+                        'text' => 'wwolf4'
                      ]
                     ],
                     [
                       'type' => 'action',
                       'action' => [
-                        'type' => 'postback',
+                        'type' => 'text',
                         'label' => '5人',
-                        'data' => 'wwold5'
+                        'text' => 'wwolf5'
                      ]
                     ],
                     [
                       'type' => 'action',
                       'action' => [
-                        'type' => 'postback',
+                        'type' => 'text',
                         'label' => '6人',
-                        'data' => 'wwold6'
+                        'text' => 'wwolf6'
                      ]
                     ],
                     [
                       'type' => 'action',
                       'action' => [
-                        'type' => 'postback',
+                        'type' => 'text',
                         'label' => '7人',
-                        'data' => 'wwold7'
+                        'text' => 'wwolf7'
                      ]
                     ],
                     [
                       'type' => 'action',
                       'action' => [
-                        'type' => 'postback',
+                        'type' => 'text',
                         'label' => '8人',
-                        'data' => 'wwold8'
+                        'text' => 'wwolf8'
                      ]
                     ],
                     [
                       'type' => 'action',
                       'action' => [
-                        'type' => 'postback',
+                        'type' => 'text',
                         'label' => '9人',
-                        'data' => 'wwold9'
+                        'text' => 'wwolf9'
                      ]
                     ]
                   ]
