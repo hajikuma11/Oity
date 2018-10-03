@@ -13,17 +13,47 @@ case '人狼':
                         'label' => '4人',
                         'data' => 'wwold4'
                      ]
+                    ],
+                    [
+                      'type' => 'action',
+                      'action' => [
+                        'type' => 'postback',
+                        'label' => '5人',
+                        'data' => 'wwold5'
+                     ]
+                    ],
+                    [
+                      'type' => 'action',
+                      'action' => [
+                        'type' => 'postback',
+                        'label' => '6人',
+                        'data' => 'wwold6'
+                     ]
+                    ],
+                    [
+                      'type' => 'action',
+                      'action' => [
+                        'type' => 'postback',
+                        'label' => '7人',
+                        'data' => 'wwold7'
+                     ]
+                    ],
+                    [
+                      'type' => 'action',
+                      'action' => [
+                        'type' => 'postback',
+                        'label' => '8人',
+                        'data' => 'wwold8'
+                     ]
+                    ],
+                    [
+                      'type' => 'action',
+                      'action' => [
+                        'type' => 'postback',
+                        'label' => '9人',
+                        'data' => 'wwold9'
+                     ]
                     ]
-                    for ($fig=5:$fig<10:$fig++) {
-                      ,[
-                        'type' => 'action',
-                        'action' => [
-                          'type' => 'postback',
-                          'label' => $fig.'人',
-                          'data' => 'wwold'.$fig
-                       ]
-                      ]
-                    }
                   ]
                 ]
               ];
