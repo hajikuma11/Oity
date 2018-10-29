@@ -1,7 +1,7 @@
 <?php
 
  //***アクセストークン**********************************************************************************************************************************************************************
-require_once "AccessToken.php";
+$accessToken = 'HjUjwJORNXxUyK/BJ3zw5+IVAnZ9lOcUHkgTxN7FGECcmS3jnIAndMcuUfW5qpazytxUVR62hXsqpv00JeXU9kjw9WLqesWYATfEmXabOoEt/FeYJPk2d4UJstPKwrlvRfdRHVpiucEX3K1n17qYDAdB04t89/1O/w1cDnyilFU=';
 
  //***json系*****************************************************************************************************************************************************************************
 $jsonString = file_get_contents('php://input');
@@ -220,12 +220,23 @@ elseif (strstr($text,'進数')) {
   require_once "decimal.php";
 }
 
-//***人狼***********************************************************************************************************************************************************************************
-switch ($text) {
-    case '人狼':
-    
-    require_once"Wolf.php";
-    break;
+elseif ($text == 'pg') {
+
+  $link = pg_connect("host=ec2-23-23-153-145.compute-1.amazonaws.com dbname=d1o6ghv54q1l02 user=vrzabuvonfrevo password=c3ac08f31a9d87de492624ea203f8e3237529940af2475ebde5f70614ff874a8");
+
+  if (!$link) {
+    $messageData = [
+     'type' => 'text',
+     'text' => '接続に失敗'
+    ];
+  } else {
+    $messageData = [
+     'type' => 'text',
+     'text' => '接続に成功'
+    ];
+  }
+
+  pg_close($link);
 }
 //***レスポンス系*****************************************************************************************************************************************************************************
 $response = [
