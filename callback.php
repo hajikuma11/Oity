@@ -133,7 +133,7 @@ elseif ($text == 'forecast' or $text == 'forecast' or $text == '天気予報' or
 //***交通機関選択**************************************************************************************************************************************************************************
 elseif ($text == '時刻' or $text == 'じこく') {
 
-    require_once __DIR__ . "main/Tr-Bs.php";
+    require_once __DIR__ . "/main/Tr-Bs.php";
 }
 
  elseif (strstr($text,'今')) {
@@ -147,7 +147,7 @@ elseif ($text == '時刻' or $text == 'じこく') {
       or $text == 'goNag' or $text == 'goNag2' or $text == 'goKita' or $text == 'goKita2'
       or $text == 'goKuz' or $text == 'goKuz2' or $text == 'goKitafK' or $text == 'goKitafK2') {
 
-    require_once __DIR__ . 'main/Tr-Bs.php';
+    require_once __DIR__ . '/main/Tr-Bs.php';
 }
 
 //***裏コード*****************************************************************************************************************************************************************************
