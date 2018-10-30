@@ -148,7 +148,6 @@ elseif ($text == '時刻' or $text == 'じこく') {
       or $text == 'goKuz' or $text == 'goKuz2' or $text == 'goKitafK' or $text == 'goKitafK2') {
 
     require_once "(/app/main/Tr-Bs.php)";
-    echo _FILE_;
 }
 
 //***裏コード*****************************************************************************************************************************************************************************
@@ -158,6 +157,10 @@ require_once "(/app/main/help.php)";
 
 elseif (strstr($text,'進数')) {
   require_once "(/app/main/decimal.php)";
+}
+
+elseif ($text == 'filepath') {
+ echo __FILE__;
 }
 
 elseif ($text == 'pg') {
