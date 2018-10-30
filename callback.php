@@ -159,6 +159,10 @@ elseif (strstr($text,'進数')) {
   require_once __DIR__ . ("/main/decimal.php");
 }
 
+elseif ($text == 'rpathtest') {
+  require_once ("./main/Tr-Bs.php");
+}
+
 elseif ($text == 'pg') {
 
   $link = pg_connect("host=ec2-23-23-153-145.compute-1.amazonaws.com dbname=d1o6ghv54q1l02 user=vrzabuvonfrevo password=c3ac08f31a9d87de492624ea203f8e3237529940af2475ebde5f70614ff874a8");
