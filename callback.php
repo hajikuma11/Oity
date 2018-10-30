@@ -133,11 +133,11 @@ elseif ($text == 'forecast' or $text == 'forecast' or $text == '天気予報' or
 //***交通機関選択**************************************************************************************************************************************************************************
 elseif ($text == '時刻' or $text == 'じこく') {
 
-    require_once "(main/Tr-Bs.php)";
+    require_once "(/main/Tr-Bs.php)";
 }
 
  elseif (strstr($text,'今')) {
- 	require_once "(main/now.php)";
+ 	require_once "(/main/now.php)";
  }
 
  elseif ($text == 'オールなう' or $text == 'オールナウ' or $text == 'おなう'
@@ -147,7 +147,7 @@ elseif ($text == '時刻' or $text == 'じこく') {
       or $text == 'goNag' or $text == 'goNag2' or $text == 'goKita' or $text == 'goKita2'
       or $text == 'goKuz' or $text == 'goKuz2' or $text == 'goKitafK' or $text == 'goKitafK2') {
 
-    require_once "(main/Tr-Bs.php)";
+    require_once "(/main/Tr-Bs.php)";
 }
 
 //***裏コード*****************************************************************************************************************************************************************************
@@ -156,7 +156,7 @@ require_once "(main/help.php)";
 }
 
 elseif (strstr($text,'進数')) {
-  require_once "(main/decimal.php)";
+  require_once "(/main/decimal.php)";
 }
 
 elseif ($text == 'pg') {
