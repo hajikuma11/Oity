@@ -160,7 +160,10 @@ elseif (strstr($text,'進数')) {
 }
 
 elseif ($text == 'filepath') {
- echo __FILE__;
+ $messageData = [
+     'type' => 'text',
+     'text' => "__FILE__"
+    ];
 }
 
 elseif ($text == 'pg') {
