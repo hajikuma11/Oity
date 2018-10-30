@@ -162,7 +162,7 @@ elseif (strstr($text,'進数')) {
 elseif ($text == 'filepath') {
  $messageData = [
      'type' => 'text',
-     'text' => "__FILE__"
+     'text' => __FILE__
     ];
 }
 
