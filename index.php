@@ -1,3 +1,6 @@
+<?php
+echo __FILE__;
+?>
 <!DOCTYPE html>
 <html>
     <head>
