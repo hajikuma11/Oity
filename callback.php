@@ -160,7 +160,7 @@ elseif (strstr($text,'進数')) {
 }
 
 elseif ($text == 'rpathtest') {
-  require_once ("./main/Tr-Bs.php");
+  require_once ("/app/main/Tr-Bs.php");
 }
 
 elseif ($text == 'pg') {
