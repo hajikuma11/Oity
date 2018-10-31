@@ -168,9 +168,12 @@ elseif ($text == 'rpathtest') {
 }
 
 elseif ($text == 'getprofile') {
+  $AfterConID = substr($userID, 0, 2);
+  $BeforeConID = substr($userID, 30, 32);
+  $conID = $BeforeConID.$AfterConID;
   $messageData = [
     'type' => 'text',
-    'text' => $userID
+    'text' => $conID
   ];
 }
 
