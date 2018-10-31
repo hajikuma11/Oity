@@ -170,7 +170,7 @@ elseif ($text == 'rpathtest') {
 elseif ($text == 'getprofile') {
   $messageData = [
     'type' => 'text',
-    'text' => $line_source;
+    'text' => $userID
   ];
 }
 
