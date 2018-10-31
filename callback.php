@@ -150,6 +150,10 @@ elseif ($text == '時刻' or $text == 'じこく') {
     require_once __DIR__ . ("/main/Tr-Bs.php");
 }
 
+//**人狼
+elseif (strstr($text,'WLF') || $text == '人狼') {
+  require_once __DIR__ . ("/Wolf/Wolf.php");
+}
 //***裏コード*****************************************************************************************************************************************************************************
 elseif ($text == '19991111' or $text == ':weathK&K:' or $text == 'userid' or $text == 'quickreply') {
 require_once __DIR__ . ("/main/help.php");
@@ -161,6 +165,13 @@ elseif (strstr($text,'進数')) {
 
 elseif ($text == 'rpathtest') {
   require_once ("/app/main/Tr-Bs.php");
+}
+
+elseif ($text == 'getprofile') {
+  $messageData = [
+    'type' => 'text',
+    'text' => $userID;
+  ]
 }
 
 elseif ($text == 'pg') {
