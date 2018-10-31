@@ -171,7 +171,7 @@ elseif ($text == 'getprofile') {
   $messageData = [
     'type' => 'text',
     'text' => $line_source;
-  ]
+  ];
 }
 
 elseif ($text == 'pg') {
