@@ -55,7 +55,7 @@ if (strstr($text,'きた') or strstr($text,'bu') or strstr($text,'北')) {
     $TM = '運行';
     $loc = 'していません';
     $label = "運行していません";
-    $NSFlag++:
+    $NSFlag++;
   }
 }
 
