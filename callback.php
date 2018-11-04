@@ -187,7 +187,7 @@ $pdo = new PDO($dsn, $url['user'], $url['pass']);
 
 $messageData = [
   'type' => 'text',
-  'text' => $pdo->getAttribute(PDO::ATTR_SERVER_VERSION);
+  'text' => var_dump($pdo->getAttribute(PDO::ATTR_SERVER_VERSION));
 ];
 }
 //***レスポンス系*****************************************************************************************************************************************************************************
