@@ -179,21 +179,16 @@ elseif ($text == 'getprofile') {
 
 elseif ($text == 'pg') {
 
-  $link = pg_connect("host=ec2-23-23-153-145.compute-1.amazonaws.com dbname=d1o6ghv54q1l02 user=vrzabuvonfrevo password=c3ac08f31a9d87de492624ea203f8e3237529940af2475ebde5f70614ff874a8");
+  $url = parse_url(getenv('DATABASE_URL'));
 
-  if (!$link) {
-    $messageData = [
-     'type' => 'text',
-     'text' => '接続に失敗'
-    ];
-  } else {
-    $messageData = [
-     'type' => 'text',
-     'text' => '接続に成功'
-    ];
-  }
+$dsn = sprintf('pgsql:host=%s;dbname=%s', $url['host'], substr($url['path'], 1));
 
-  pg_close($link);
+$pdo = new PDO($dsn, $url['user'], $url['pass']);
+
+$messageData = [
+  'type' => 'text',
+  'text' => $pdo->getAttribute(PDO::ATTR_SERVER_VERSION);
+];
 }
 //***レスポンス系*****************************************************************************************************************************************************************************
 $response = [
