@@ -201,10 +201,7 @@ $messageData = [
 //***レスポンス系*****************************************************************************************************************************************************************************
 $response = [
     'replyToken' => $replyToken,
-    'messages' => [$messageData],
-    if ($messageFlag == 2) {
-      [$messageData2]
-    }
+    'messages' => [$messageData],[$messageData2]
 ];
 error_log(json_encode($response));
 
