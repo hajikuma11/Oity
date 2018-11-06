@@ -201,7 +201,10 @@ $messageData = [
 //***レスポンス系*****************************************************************************************************************************************************************************
 $response = [
     'replyToken' => $replyToken,
-    'messages' => [$messageData]
+    'messages' => [$messageData],
+    if ($messageFlag == 2) {
+      [$messageData2]
+    }
 ];
 error_log(json_encode($response));
 
@@ -217,26 +220,3 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 $result = curl_exec($ch);
 error_log($result);
 curl_close($ch);
-
-if ($messageFlag == 2) {
-
-  $response = [
-      'replyToken' => $replyToken,
-      'messages' => [$messageData2]
-  ];
-  error_log(json_encode($response));
-
-  $ch = curl_init('https://api.line.me/v2/bot/message/reply');
-  curl_setopt($ch, CURLOPT_POST, true);
-  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-  curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($response));
-  curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-      'Content-Type: application/json; charser=UTF-8',
-      'Authorization: Bearer ' . $accessToken
-  ));
-  $result = curl_exec($ch);
-  error_log($result);
-  curl_close($ch);
-
-}
