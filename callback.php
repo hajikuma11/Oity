@@ -178,17 +178,6 @@ elseif ($text == 'getprofile') {
     'text' => $conID
   ];
 }
-
-elseif ($text == 'testm1') {
-  $messageData = [
-    'type' => 'text',
-    'text' => $conID
-  ],
-  [
-    'type' => 'text',
-    'text' => $conID
-  ];
-}
 elseif ($text == 'testm2') {
   $messageData = [
     'type' => 'text',
