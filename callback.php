@@ -3,7 +3,7 @@
  //***アクセストークン**********************************************************************************************************************************************************************
 $accessToken = 'HjUjwJORNXxUyK/BJ3zw5+IVAnZ9lOcUHkgTxN7FGECcmS3jnIAndMcuUfW5qpazytxUVR62hXsqpv00JeXU9kjw9WLqesWYATfEmXabOoEt/FeYJPk2d4UJstPKwrlvRfdRHVpiucEX3K1n17qYDAdB04t89/1O/w1cDnyilFU=';
 
- //***json系*****************************************************************************************************************************************************************************
+ //***変数宣言****************************************************************************************************************************************************************************
 $jsonString = file_get_contents('php://input');
 error_log($jsonString);
 $jsonObj = json_decode($jsonString);
@@ -13,6 +13,8 @@ $text = $message->{"text"};
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 $line_source = $jsonObj->{"events"}[0]->{"source"};
 $userID = $line_source->{"userId"};
+$messageFlag = 0;
+
 //***ヘルプ******************************************************************************************************************************************************************************
 if ($text == 'ヘルプ' or $text == 'へるぷ' or $text == 'help' or $text == 'Help') {
 
@@ -175,6 +177,11 @@ elseif ($text == 'getprofile') {
     'type' => 'text',
     'text' => $conID
   ];
+  $messageData2 = [
+    'type' => 'text',
+    'text' => '成功'
+  ];
+  $messageFlag = 2;
 }
 
 elseif ($text == 'pg') {
@@ -210,3 +217,26 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 $result = curl_exec($ch);
 error_log($result);
 curl_close($ch);
+
+if ($messageFlag == 2) {
+
+  $response = [
+      'replyToken' => $replyToken,
+      'messages' => [$messageData2]
+  ];
+  error_log(json_encode($response));
+
+  $ch = curl_init('https://api.line.me/v2/bot/message/reply');
+  curl_setopt($ch, CURLOPT_POST, true);
+  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+  curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($response));
+  curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+      'Content-Type: application/json; charser=UTF-8',
+      'Authorization: Bearer ' . $accessToken
+  ));
+  $result = curl_exec($ch);
+  error_log($result);
+  curl_close($ch);
+
+}
