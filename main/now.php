@@ -125,6 +125,7 @@ if ($tmflag == 0 || $NSFlag <= 1) {
       ]
   ];
 } else {
+  $msgFlag = 1;
   $messageData = [
       'type' => 'template',
       'altText' => '押して、時刻を表示！',
