@@ -13,7 +13,7 @@ $text = $message->{"text"};
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 $line_source = $jsonObj->{"events"}[0]->{"source"};
 $userID = $line_source->{"userId"};
-$messageFlag = 0;
+$msgFlag = 0;
 
 //***ヘルプ******************************************************************************************************************************************************************************
 if ($text == 'ヘルプ' or $text == 'へるぷ' or $text == 'help' or $text == 'Help') {
@@ -194,10 +194,22 @@ $messageData = [
 ];
 }
 //***レスポンス系*****************************************************************************************************************************************************************************
-  $response = [
-      'replyToken' => $replyToken,
-      'messages' => [$messageData]
-  ];
+  if ($msgFlag == 1) {
+    $response = [
+        'replyToken' => $replyToken,
+        'messages' => [$messageData,$messageData2]
+    ];
+  } else if ($msgFlag == 2) {
+    $response = [
+        'replyToken' => $replyToken,
+        'messages' => [$messageData,$messageData2,$messageData3]
+    ];
+  } else {
+    $response = [
+        'replyToken' => $replyToken,
+        'messages' => [$messageData]
+    ];
+  }
 error_log(json_encode($response));
 
 $ch = curl_init('https://api.line.me/v2/bot/message/reply');
