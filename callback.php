@@ -177,11 +177,36 @@ elseif ($text == 'getprofile') {
     'type' => 'text',
     'text' => $conID
   ];
+}
+
+elseif ($text == 'testm1') {
+  $messageData = [
+    'type' => 'text',
+    'text' => $conID
+  ],
+  [
+    'type' => 'text',
+    'text' => $conID
+  ];
+}
+elseif ($text == 'testm2') {
+  $messageData = [
+    'type' => 'text',
+    'text' => $conID,
+    'type' => 'text',
+    'text' => $conID
+  ];
+}
+elseif ($text == 'testm1') {
+  $messageData = [
+    'type' => 'text',
+    'text' => $conID
+  ];
   $messageData2 = [
     'type' => 'text',
-    'text' => '成功'
+    'text' => $conID
   ];
-  $messageFlag = 2;
+  $messageData2 = 2;
 }
 
 elseif ($text == 'pg') {
@@ -199,10 +224,18 @@ $messageData = [
 ];
 }
 //***レスポンス系*****************************************************************************************************************************************************************************
-$response = [
-    'replyToken' => $replyToken,
-    'messages' => [$messageData],[$messageData2]
-];
+if ($messageData2 != 2) {
+  $response = [
+      'replyToken' => $replyToken,
+      'messages' => [$messageData]
+  ];
+} else {
+  $response = [
+      'replyToken' => $replyToken,
+      'messages' => [$messageData],
+      'messages' => [$messageData2]
+  ];
+}
 error_log(json_encode($response));
 
 $ch = curl_init('https://api.line.me/v2/bot/message/reply');
