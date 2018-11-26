@@ -2,7 +2,7 @@
 $pos = strpos($text,'数');
 $s_text = substr($text,$pos+3);
 
-if ($s_text > 0) {
+if ($s_text >= 1) {
   if (strstr($s_text,'.')) {
     $messageData = [
      'type' => 'text',
