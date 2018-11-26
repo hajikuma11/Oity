@@ -57,11 +57,12 @@ if ($s_text >= 1) {
 } else {
 
 $data = $s_text;
+$cnt = 0;
 
-if (strstr($text,'2進数')) {
+if (strstr($text,'10進数')) {
 
   $val = '0.';
-  while ($data != 0) {
+  while ($data != 0 || $cnt <= 15) {
     $data = $data * 2;
     if ($data >= 1) {
       $val .= '1';
@@ -69,29 +70,32 @@ if (strstr($text,'2進数')) {
     } else {
       $val .= '0';
     }
+    $cnt++;
   }
   $messageData = [
    'type' => 'text',
-   'text' => "[10]$val"
+   'text' => "[2]$val"
   ];
 
-} elseif (strstr($text,'10進数')) {
-
-  $reData = 0;
-  for ($i=1;$i<=strlen(substr($val,2));$i++) {
-    if ($val[$i+1] == 1) {
-      $sum2 = 1;
-      for ($j=0;$j<$i;$j++) {
-        $sum2 = $sum2 / 2;
+} elseif (strstr($text,'2進数')) {
+  if (strlen($s_text) > 15) {
+    $reData = '111111111111111111111';
+  } else {
+    $reData = 0;
+    for ($i=1;$i<=strlen(substr($val,2));$i++) {
+      if ($val[$i+1] == 1) {
+        $sum2 = 1;
+        for ($j=0;$j<$i;$j++) {
+          $sum2 = $sum2 / 2;
+        }
+        $reData += $sum2;
       }
-      $reData += $sum2;
     }
+    $messageData = [
+     'type' => 'text',
+     'text' => "[10]$reData"
+    ];
   }
-  $messageData = [
-   'type' => 'text',
-   'text' => "[2]$reData"
-  ];
-
 } else {
   $messageData = [
    'type' => 'text',
