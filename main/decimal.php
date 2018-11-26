@@ -100,3 +100,10 @@ if (strstr($text,'2進数')) {
 }
 
 }
+
+if (strlen($val) > 15 || strlen($reData) > 15) {
+  $messageData = [
+   'type' => 'text',
+   'text' => "申し訳ありません。\n正確な計算が不可能です。"
+  ];
+}
