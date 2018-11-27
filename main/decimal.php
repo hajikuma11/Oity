@@ -62,7 +62,7 @@ $cnt = 0;
 if (strstr($text,'10進数')) {
 
   $val = '0.';
-  while ($data != 0 || $cnt <= 15) {
+  while ($data != 0 && $cnt <= 15) {
     $data = $data * 2;
     if ($data >= 1) {
       $val .= '1';
