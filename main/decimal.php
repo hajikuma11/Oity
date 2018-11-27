@@ -82,8 +82,8 @@ if (strstr($text,'10進数')) {
     $reData = '111111111111111111111';
   } else {
     $reData = 0;
-    for ($i=1;$i<=strlen(substr($val,2));$i++) {
-      if ($val[$i+1] == 1) {
+    for ($i=1;$i<=strlen(substr($s_text,2));$i++) {
+      if ($s_text[$i+1] == 1) {
         $sum2 = 1;
         for ($j=0;$j<$i;$j++) {
           $sum2 = $sum2 / 2;
