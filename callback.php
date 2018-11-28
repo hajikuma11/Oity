@@ -142,14 +142,17 @@ elseif ($text == '時刻' or $text == 'じこく') {
  	require_once __DIR__ . ("/main/now.php");
  }
 
- elseif ($text == 'オールなう' or $text == 'オールナウ' or $text == 'おなう'
-      or $text == 'Train' or $text == '電車' or $text == 'train' or $text == 'KyobashiSt'
+ elseif ($text == 'Train' or $text == '電車' or $text == 'train' or $text == 'KyobashiSt'
       or $text == '京橋発' or $text == '京橋から' or $text == 'kh2' or $text == 'NagaoSt'
       or $text == '長尾駅発' or $text == 'Localbus' or $text == 'バス' or $text == 'bus'
       or $text == 'goNag' or $text == 'goNag2' or $text == 'goKita' or $text == 'goKita2'
       or $text == 'goKuz' or $text == 'goKuz2' or $text == 'goKitafK' or $text == 'goKitafK2') {
 
     require_once __DIR__ . ("/main/Tr-Bs.php");
+}
+
+elseif ($text == 'オールなう' or $text == 'オールナウ' or $text == 'おナウ' or $text == 'おーるなう' or $text == 'AN') {
+  require_once__DIR__ . ("/main/allNow.php");
 }
 
 //**人狼
@@ -179,18 +182,17 @@ elseif ($text == 'getprofile') {
   ];
 }
 
-elseif ($text == 'pg') {
+elseif ($strstr($text,'dataset') {
 
-  $url = parse_url(getenv('DATABASE_URL'));
+  $dttxt = substr($text,7);
 
-$dsn = sprintf('pgsql:host=%s;dbname=%s', $url['host'], substr($url['path'], 1));
+  $url = '';
 
-$pdo = new PDO($dsn, $url['user'], $url['pass']);
-$testTxt = $pdo->getAttribute(PDO::ATTR_SERVER_VERSION);
+  file_get_contents($url."?p1=".$dttxt);
 
 $messageData = [
   'type' => 'text',
-  'text' => $testTxt
+  'text' => 'DataSet Completed.'
 ];
 }
 //***レスポンス系*****************************************************************************************************************************************************************************

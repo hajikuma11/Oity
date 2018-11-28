@@ -2,7 +2,7 @@
 date_default_timezone_set('Asia/Tokyo');
 $Ntime = date("G");
 $tmFlag = 0;
-$NSFlag = 0;
+$NSFlag = 1;
 //==============================================
 if (6 <= $Ntime && $Ntime <= 8) {
   $TM = '6~8';
