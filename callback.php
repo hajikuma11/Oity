@@ -181,20 +181,6 @@ elseif ($text == 'getprofile') {
     'text' => $conID
   ];
 }
-
-elseif ($strstr($text,'dataset') {
-
-  $dttxt = substr($text,7);
-
-  $url = '';
-
-  file_get_contents($url."?p1=".$dttxt);
-
-$messageData = [
-  'type' => 'text',
-  'text' => 'DataSet Completed.'
-];
-}
 //***レスポンス系*****************************************************************************************************************************************************************************
   if ($msgFlag == 1) {
     $response = [
