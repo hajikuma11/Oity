@@ -152,7 +152,7 @@ elseif ($text == '時刻' or $text == 'じこく') {
 }
 
 elseif ($text == 'オールなう' or $text == 'オールナウ' or $text == 'おナウ' or $text == 'おーるなう' or $text == 'AN') {
-  require_once__DIR__ . ("/main/allNow.php");
+  require_once __DIR__ . ("/main/allNow.php");
 }
 
 //**人狼
