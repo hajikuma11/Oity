@@ -19,6 +19,10 @@ for ($i=0;$i<50;$i++) {
    if ($cont == "") {
    } else {
        if (strstr($cont,"晴")||strstr($cont,"曇")||strstr($cont,"雨")||strstr($cont,"雪")) {
+            $cont = str_replace("晴","☀️",$cont);
+           $cont = str_replace("曇","☁️",$cont);
+           $cont = str_replace("雨","☔️",$cont);
+           $cont = str_replace("雪","❄️",$cont);
             $tenk .= $cont."&";
        } else if (strstr($cont,"/")) {
             $cont2 = substr($cont,0, 2);
