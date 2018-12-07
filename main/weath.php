@@ -1,6 +1,6 @@
 <?php
 
-require '../vendor/autoload.php';
+require_once __DIR__.'../vendor/autoload.php';
 
 $URL = 'https://www.jma.go.jp/jp/week/331.html';
 
