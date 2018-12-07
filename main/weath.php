@@ -73,11 +73,11 @@ for ($i=0;$i<7;$i++) {
             $txt1 .= "\n";
         }
     } elseif ($i >= 6) {
-        $txt2 .= $txtData;
-    } else {
         $txt3 .= $txtData;
+    } else {
+        $txt2 .= $txtData;
         if ($i != 5) {
-            $txt1 .= "\n";
+            $txt2 .= "\n";
         }
     }
 }
