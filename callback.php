@@ -115,7 +115,7 @@ elseif ($text == 'forecast' or $text == 'forecast' or $text == '天気予報' or
                 [
                     'type' => 'postback',
                     'label' => '『大阪府』',
-                    'text' => 'OsakaKisyou',
+                    'text' => 'weekOsaka',
                     'data' => 'value'
                 ],
                 [
@@ -133,7 +133,7 @@ elseif ($text == 'forecast' or $text == 'forecast' or $text == '天気予報' or
     ];
 }
 
-elseif ($text == 'OsakaKisyou') {
+elseif ($text == 'weekOsaka') {
     require_once __DIR__ . ("/main/weath.php");
 }
 
