@@ -66,14 +66,19 @@ for ($i=0;$i<7;$i++) {
     $txtData .= "降水確率は、".$kousArr[$i]."％\n";
     $txtData .= "最高気温は、".$maxArr[$i]."度\n";
     $txtData .= "最低気温は、".$minArr[$i]."度\n";
-    $txtData .= "\n";
 
     if ($i <= 2) {
         $txt1 .= $txtData;
+        if ($i != 2) {
+            $txt1 .= "\n";
+        }
     } elseif ($i >= 6) {
         $txt2 .= $txtData;
     } else {
         $txt3 .= $txtData;
+        if ($i != 5) {
+            $txt1 .= "\n";
+        }
     }
 }
 
