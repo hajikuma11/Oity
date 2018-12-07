@@ -113,9 +113,10 @@ elseif ($text == 'forecast' or $text == 'forecast' or $text == '天気予報' or
                     'uri' => 'https://goo.gl/xocMKr'
                 ],
                 [
-                    'type' => 'uri',
+                    'type' => 'postback',
                     'label' => '『大阪府』',
-                    'uri' => 'https://goo.gl/zDoPwU'
+                    'text' => 'OsakaKisyou',
+                    'data' => 'value'
                 ],
                 [
                     'type' => 'uri',
@@ -130,6 +131,10 @@ elseif ($text == 'forecast' or $text == 'forecast' or $text == '天気予報' or
             ]
         ]
     ];
+}
+
+elseif ($text == 'OsakaKisyou') {
+    require_once __DIR__ . ("/main/weath.php");
 }
 
 //***交通機関選択**************************************************************************************************************************************************************************
