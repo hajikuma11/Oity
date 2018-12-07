@@ -187,7 +187,7 @@ elseif ($text == 'getprofile') {
   ];
 }
 
-elseif ($text == '👍🔥') {
+elseif ($text == '\uD83D\uDC4D\n\uD83D\uDD25') {
     $messageData = [
         'type' => 'text',
         'text' => "i'll be back"
