@@ -10,9 +10,9 @@ $messageData = [
                 'hero' => [
                     'type' => 'image',
                     'size' => 'full',
-                    'aspectRatio' => '20 =>13',
+                    'aspectRatio' => '20:13',
                     'aspectMode' => 'cover',
-                    'url' => 'https =>//scdn.line-apps.com/n/channel_devcenter/img/fx/01_5_carousel.png'
+                    'url' => 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_5_carousel.png'
                 ],
                 'body' => [
                     'type' => 'box',
@@ -61,7 +61,7 @@ $messageData = [
                             'action' => [
                                 'type' => 'uri',
                                 'label' => 'Add to Cart',
-                                'uri' => 'https =>//linecorp.com'
+                                'uri' => 'https://linecorp.com'
                             ]
                         ],
                         [
@@ -69,7 +69,7 @@ $messageData = [
                             'action' => [
                                 'type' => 'uri',
                                 'label' => 'Add to wishlist',
-                                'uri' => 'https =>//linecorp.com'
+                                'uri' => 'https://linecorp.com'
                             ]
                         ]
                     ]
@@ -80,9 +80,9 @@ $messageData = [
                 'hero' => [
                     'type' => 'image',
                     'size' => 'full',
-                    'aspectRatio' => '20 =>13',
+                    'aspectRatio' => '20:13',
                     'aspectMode' => 'cover',
-                    'url' => 'https =>//scdn.line-apps.com/n/channel_devcenter/img/fx/01_6_carousel.png'
+                    'url' => 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_6_carousel.png'
                 ],
                 'body' => [
                     'type' => 'box',
@@ -143,7 +143,7 @@ $messageData = [
                             'action' => [
                                 'type' => 'uri',
                                 'label' => 'Add to Cart',
-                                'uri' => 'https =>//linecorp.com'
+                                'uri' => 'https://linecorp.com'
                             ]
                         ],
                         [
@@ -151,7 +151,7 @@ $messageData = [
                             'action' => [
                                 'type' => 'uri',
                                 'label' => 'Add to wish list',
-                                'uri' => 'https =>//linecorp.com'
+                                'uri' => 'https://linecorp.com'
                             ]
                         ]
                     ]
