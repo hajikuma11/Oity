@@ -173,10 +173,6 @@ elseif (strstr($text,'進数')) {
   require_once __DIR__ . ("/main/decimal.php");
 }
 
-elseif ($text == 'rpathtest') {
-  require_once ("/app/main/Tr-Bs.php");
-}
-
 elseif ($text == 'getprofile') {
   $AfterConID = substr($userID, 0, 2);
   $BeforeConID = substr($userID, 30, 32);
@@ -187,11 +183,8 @@ elseif ($text == 'getprofile') {
   ];
 }
 
-elseif ($text == '\uD83D\uDC4D\n\uD83D\uDD25') {
-    $messageData = [
-        'type' => 'text',
-        'text' => "i'll be back"
-    ];
+elseif ($text == 'flex') {
+    require_once __DIR__ . ("/main/flex.php");
 }
 //***レスポンス系*****************************************************************************************************************************************************************************
   if ($msgFlag == 1) {

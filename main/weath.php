@@ -3,6 +3,7 @@
 require_once '/app/vendor/autoload.php';
 
 $URL = 'https://www.jma.go.jp/jp/week/331.html';
+$Drurl = 'https://script.google.com/macros/s/AKfycbw8sFc-jlQrlZJOf_8fvbnrO1KUjsrfwv376piCGXxV6PlV6j03/exec';
 
 $html = file_get_contents($URL);
 $doc = phpQuery::newDocument($html);
