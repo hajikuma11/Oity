@@ -1,7 +1,7 @@
 <?php
 $messageData = [
     'type' => 'flex',
-    'alttext' => 'testflex',
+    'altText' => 'testflex',
     'contents' => [
         'type' => 'carousel',
         'contents' => [
