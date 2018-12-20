@@ -52,9 +52,9 @@ if ($text == '時刻' or $text == 'じこく') {
                             'style' => 'primary',
                             'height' => 'sm',
                             'action' => [
-                                'type' => 'postback',
+                                'type' => 'text',
                                 'label' => 'バス',
-                                'data' => 'mess=LcalBus'
+                                'text' => 'LocalBus'
                             ]
                         ],
                         [
