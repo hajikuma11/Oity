@@ -15,6 +15,11 @@ $line_source = $jsonObj->{"events"}[0]->{"source"};
 $userID = $line_source->{"userId"};
 $msgFlag = 0;
 
+if ($jsonObj->events[0]->type == 'postback') {
+    $postback = $json->events[0]->postback->data;
+    parse_str($postback, $data);
+    $text = $data["mess"];
+}
 //***ヘルプ******************************************************************************************************************************************************************************
 if ($text == 'ヘルプ' or $text == 'へるぷ' or $text == 'help' or $text == 'Help') {
 
@@ -29,30 +34,22 @@ if ($text == 'ヘルプ' or $text == 'へるぷ' or $text == 'help' or $text == 
                 [
                     'type' => 'postback',
                     'label' => '交通系',
-
-                    'text' => '交通',
-                    'data' => 'value'
+                    'data' => 'mess=交通'
                 ],
                 [
                     'type' => 'postback',
                     'label' => 'URL系',
-
-                    'text' => 'URL',
-                    'data' => 'value'
+                    'data' => 'mess=URL'
                 ],
                 [
                     'type' => 'postback',
                     'label' => '教室系',
-
-                    'text' => '教室',
-                    'data' => 'value'
+                    'data' => 'mess=教室'
                 ],
                 [
                     'type' => 'postback',
                     'label' => 'その他',
-
-                    'text' => 'その他',
-                    'data' => 'value'
+                    'data' => 'mess=その他'
                 ]
             ]
         ]
@@ -186,34 +183,37 @@ elseif ($text == 'getprofile') {
 elseif ($text == 'flex') {
     require_once __DIR__ . ("/main/flex.php");
 }
-//***レスポンス系*****************************************************************************************************************************************************************************
-  if ($msgFlag == 1) {
-    $response = [
-        'replyToken' => $replyToken,
-        'messages' => [$messageData,$messageData2]
-    ];
-  } else if ($msgFlag == 2) {
-    $response = [
-        'replyToken' => $replyToken,
-        'messages' => [$messageData,$messageData2,$messageData3]
-    ];
-  } else {
-    $response = [
-        'replyToken' => $replyToken,
-        'messages' => [$messageData]
-    ];
-  }
-error_log(json_encode($response));
 
-$ch = curl_init('https://api.line.me/v2/bot/message/reply');
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($response));
-curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-    'Content-Type: application/json; charser=UTF-8',
-    'Authorization: Bearer ' . $accessToken
-));
-$result = curl_exec($ch);
-error_log($result);
-curl_close($ch);
+if (empty($messageData) == false) {
+    //***レスポンス系*****************************************************************************************************************************************************************************
+    if ($msgFlag == 1) {
+        $response = [
+            'replyToken' => $replyToken,
+            'messages' => [$messageData,$messageData2]
+        ];
+    } else if ($msgFlag == 2) {
+        $response = [
+            'replyToken' => $replyToken,
+            'messages' => [$messageData,$messageData2,$messageData3]
+        ];
+    } else {
+        $response = [
+            'replyToken' => $replyToken,
+            'messages' => [$messageData]
+        ];
+    }
+    error_log(json_encode($response));
+
+    $ch = curl_init('https://api.line.me/v2/bot/message/reply');
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($response));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        'Content-Type: application/json; charser=UTF-8',
+        'Authorization: Bearer ' . $accessToken
+    ));
+    $result = curl_exec($ch);
+    error_log($result);
+    curl_close($ch);
+}
