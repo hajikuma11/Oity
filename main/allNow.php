@@ -124,7 +124,7 @@ $messageData = [
                     'action' => [
                         'type' => 'postback',
                         'label' => "北山中央発 長尾駅行",
-                        'text' => $TM1.$loc1,
+                        'text' => $TM2.$loc2,
                         'data' => 'value'
                     ]
                 ],
@@ -135,7 +135,7 @@ $messageData = [
                     'action' => [
                         'type' => 'postback',
                         'label' => "北山中央発 樟葉駅行",
-                        'text' => $TM1.$loc1,
+                        'text' => $TM3.$loc3,
                         'data' => 'value'
                     ]
                 ],
@@ -146,7 +146,7 @@ $messageData = [
                     'action' => [
                         'type' => 'postback',
                         'label' => "京橋駅発 長尾駅行",
-                        'text' => $TM1.$loc1,
+                        'text' => $TM4,
                         'data' => 'value'
                     ]
                 ]
