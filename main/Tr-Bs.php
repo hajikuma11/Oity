@@ -54,7 +54,8 @@ if ($text == '時刻' or $text == 'じこく') {
                             'action' => [
                                 'type' => 'text',
                                 'label' => 'バス',
-                                'text' => 'LocalBus'
+                                'text' => 'バス',
+                                'data' => ''
                             ]
                         ],
                         [
@@ -64,7 +65,8 @@ if ($text == '時刻' or $text == 'じこく') {
                             'action' => [
                                 'type' => 'postback',
                                 'label' => '電車',
-                                'data' => 'mess=Train'
+                                'text' => '電車',
+                                'data' => ''
                             ]
                         ],
                         [
