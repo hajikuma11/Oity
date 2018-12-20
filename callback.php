@@ -16,7 +16,7 @@ $userID = $line_source->{"userId"};
 $msgFlag = 0;
 
 if ($jsonObj->events[0]->type == 'postback') {
-    $postback = $json->events[0]->postback->data;
+    $postback = $jsonObj->events[0]->postback->data;
     parse_str($postback, $data);
     $text = $data["mess"];
 }
@@ -70,7 +70,7 @@ elseif ($text == '天気' or $text == 'てんき' or $text == '気象' or $text 
               [
                   'type' => 'postback',
                   'label' => '天気予報',
-                  'data' => 'mess=forecast'
+                  'data' => 'mess=forecast&test=1'
               ],
               [
                   'type' => 'postback',
