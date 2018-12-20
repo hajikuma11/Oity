@@ -182,7 +182,6 @@ elseif ($text == 'flex') {
     require_once __DIR__ . ("/main/flex.php");
 }
 
-if (empty($messageData) == false) {
     //***レスポンス系*****************************************************************************************************************************************************************************
     if ($msgFlag == 1) {
         $response = [
@@ -214,4 +213,3 @@ if (empty($messageData) == false) {
     $result = curl_exec($ch);
     error_log($result);
     curl_close($ch);
-}
