@@ -104,6 +104,7 @@ elseif (strstr($text,'kh') or strstr($text,'京橋発') or strstr($text,'京橋�
 }
 
 $Tresult = $TM.$loc;
+$Tresult2 = $TM2.$loc;
 
 if ($tmflag == 0 && $NSFlag != 1) {
     $messageData = [
@@ -117,7 +118,7 @@ if ($tmflag == 0 && $NSFlag != 1) {
                 'contents' => [
                     [
                         'type' => 'text',
-                        'text' => '下のボタンを押してください',
+                        'text' => $TM.'時の時刻表',
                         'weight' => 'bold',
                         'size' => 'xl'
                     ],
@@ -180,7 +181,7 @@ if ($tmflag == 0 && $NSFlag != 1) {
                 'contents' => [
                     [
                         'type' => 'text',
-                        'text' => '下のボタンを押してください',
+                        'text' => $TM.'時の時刻表',
                         'weight' => 'bold',
                         'size' => 'xl'
                     ],
@@ -231,7 +232,6 @@ if ($tmflag == 0 && $NSFlag != 1) {
         ]
     ];
 
-$Tresult = $TM2.$loc;
     $messageData2 = [
         'type' => 'flex',
         'altText' => 'flexmessage',
@@ -243,7 +243,7 @@ $Tresult = $TM2.$loc;
                 'contents' => [
                     [
                         'type' => 'text',
-                        'text' => '下のボタンを押してください',
+                        'text' => $TM2.'時の時刻表',
                         'weight' => 'bold',
                         'size' => 'xl'
                     ],
@@ -260,7 +260,7 @@ $Tresult = $TM2.$loc;
                                 'contents' => [
                                     [
                                         'type' => 'text',
-                                        'text' => '今の時間帯の時刻表をお知らせします。',
+                                        'text' => '次の区間の時刻を知りたい場合はこちら',
                                         'wrap' => true,
                                         'color' => '#666666',
                                         'size' => 'sm',
@@ -284,7 +284,7 @@ $Tresult = $TM2.$loc;
                         'action' => [
                             'type' => 'postback',
                             'label' => "$label",
-                            'text' => $Tresult,
+                            'text' => $Tresult2,
                             'data' => 'value'
                         ]
                     ]
