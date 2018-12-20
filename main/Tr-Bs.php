@@ -3,28 +3,73 @@
 if ($text == '時刻' or $text == 'じこく') {
 
     $messageData = [
-        'type' => 'template',
-        'altText' => '機関選択',
-        'template' => [
-            'type' => 'buttons',
-            'title' => '交通機関',
-            'text' => 'どの交通機関？',
-            'actions' => [
+        'type' => 'bubble',
+        'body' => [
+            'type' => 'box',
+            'layout' => 'vertical',
+            'contents' => [
                 [
-                    'type' => 'postback',
-                    'label' => '電車',
-
-                    'text' => 'Train',
-                    'data' => 'value'
+                    'type' => 'text',
+                    'text' => '交通機関を選択',
+                    'weight' => 'bold',
+                    'size' => 'xl'
                 ],
                 [
-                    'type' => 'postback',
-                    'label' => 'バス',
-
-                    'text' => 'Localbus',
-                    'data' => 'value'
+                    'type' => 'box',
+                    'layout' => 'vertical',
+                    'margin' => 'lg',
+                    'spacing' => 'sm',
+                    'contents' => [
+                        [
+                            'type' => 'box',
+                            'layout' => 'baseline',
+                            'spacing' => 'sm',
+                            'contents' => [
+                                [
+                                    'type' => 'text',
+                                    'text' => '一定の時間ごとの時刻表を表示します',
+                                    'wrap' => true,
+                                    'color' => '#666666',
+                                    'size' => 'sm',
+                                    'flex' => 5
+                                ]
+                            ]
+                        ]
+                    ]
                 ]
             ]
+        ],
+        'footer' => [
+            'type' => 'box',
+            'layout' => 'vertical',
+            'spacing' => 'sm',
+            'contents' => [
+                [
+                    'type' => 'button',
+                    'style' => 'primary',
+                    'height' => 'sm',
+                    'action' => [
+                        'type' => 'postback',
+                        'label' => 'バス',
+                        'data' => 'mess=LcalBus'
+                    ]
+                ],
+                [
+                    'type' => 'button',
+                    'style' => 'primary',
+                    'height' => 'sm',
+                    'action' => [
+                        'type' => 'postback',
+                        'label' => '電車',
+                        'data' => 'mess=Train'
+                    ]
+                ],
+                [
+                    'type' => 'spacer',
+                    'size' => 'sm'
+                ]
+            ],
+            'flex' => 0
         ]
     ];
 }
