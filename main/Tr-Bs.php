@@ -52,7 +52,7 @@ if ($text == '時刻' or $text == 'じこく') {
                             'style' => 'primary',
                             'height' => 'sm',
                             'action' => [
-                                'type' => 'text',
+                                'type' => 'postback',
                                 'label' => 'バス',
                                 'text' => 'バス',
                                 'data' => 'empty'
@@ -66,7 +66,7 @@ if ($text == '時刻' or $text == 'じこく') {
                                 'type' => 'postback',
                                 'label' => '電車',
                                 'text' => '電車',
-                                'data' => 'empty '
+                                'data' => 'empty'
                             ]
                         ],
                         [
