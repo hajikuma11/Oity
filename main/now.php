@@ -106,62 +106,191 @@ elseif (strstr($text,'kh') or strstr($text,'京橋発') or strstr($text,'京橋�
 $Tresult = $TM.$loc;
 
 if ($tmflag == 0 || $NSFlag <= 1) {
-  $messageData = [
-      'type' => 'template',
-      'altText' => '押して、時刻を表示！',
-      'template' => [
-          'type' => 'buttons',
-          'title' => '下のボタンを押してください。',
-          'text' => '今の時間帯の時刻表をお知らせします。',
-          'actions' => [
-              [
-                  'type' => 'postback',
-                  'label' => $label,
-
-                  'text' => $Tresult,
-                  'data' => 'value'
-              ]
-          ]
-      ]
-  ];
+    $messageData = [
+        'type' => 'flex',
+        'altText' => 'flexmessage',
+        'contents' => [
+            'type' => 'bubble',
+            'body' => [
+                'type' => 'box',
+                'layout' => 'vertical',
+                'contents' => [
+                    [
+                        'type' => 'text',
+                        'text' => '下のボタンを押してください',
+                        'weight' => 'bold',
+                        'size' => 'xl'
+                    ],
+                    [
+                        'type' => 'box',
+                        'layout' => 'vertical',
+                        'margin' => 'lg',
+                        'spacing' => 'sm',
+                        'contents' => [
+                            [
+                                'type' => 'box',
+                                'layout' => 'baseline',
+                                'spacing' => 'sm',
+                                'contents' => [
+                                    [
+                                        'type' => 'text',
+                                        'text' => '今の時間帯の時刻表をお知らせします。',
+                                        'wrap' => true,
+                                        'color' => '#666666',
+                                        'size' => 'sm',
+                                        'flex' => 5
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            'footer' => [
+                'type' => 'box',
+                'layout' => 'vertical',
+                'spacing' => 'sm',
+                'contents' => [
+                    [
+                        'type' => 'button',
+                        'style' => 'primary',
+                        'height' => 'sm',
+                        'action' => [
+                            'type' => 'postback',
+                            'label' => "$label",
+                            'text' => $Tresult,
+                            'data' => 'value'
+                        ]
+                    ]
+                ],
+                'flex' => 0
+            ]
+        ]
+    ];
 } else {
   $msgFlag = 1;
-  $messageData = [
-      'type' => 'template',
-      'altText' => '押して、時刻を表示！',
-      'template' => [
-          'type' => 'buttons',
-          'title' => '下のボタンを押してください。',
-          'text' => '今の時間帯の時刻表をお知らせします。',
-          'actions' => [
-              [
-                  'type' => 'postback',
-                  'label' => $label,
-
-                  'text' => $Tresult,
-                  'data' => 'value'
-              ]
-          ]
-      ]
-  ];
+    $messageData = [
+        'type' => 'flex',
+        'altText' => 'flexmessage',
+        'contents' => [
+            'type' => 'bubble',
+            'body' => [
+                'type' => 'box',
+                'layout' => 'vertical',
+                'contents' => [
+                    [
+                        'type' => 'text',
+                        'text' => '下のボタンを押してください',
+                        'weight' => 'bold',
+                        'size' => 'xl'
+                    ],
+                    [
+                        'type' => 'box',
+                        'layout' => 'vertical',
+                        'margin' => 'lg',
+                        'spacing' => 'sm',
+                        'contents' => [
+                            [
+                                'type' => 'box',
+                                'layout' => 'baseline',
+                                'spacing' => 'sm',
+                                'contents' => [
+                                    [
+                                        'type' => 'text',
+                                        'text' => '今の時間帯の時刻表をお知らせします。',
+                                        'wrap' => true,
+                                        'color' => '#666666',
+                                        'size' => 'sm',
+                                        'flex' => 5
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            'footer' => [
+                'type' => 'box',
+                'layout' => 'vertical',
+                'spacing' => 'sm',
+                'contents' => [
+                    [
+                        'type' => 'button',
+                        'style' => 'primary',
+                        'height' => 'sm',
+                        'action' => [
+                            'type' => 'postback',
+                            'label' => "$label",
+                            'text' => $Tresult,
+                            'data' => 'value'
+                        ]
+                    ]
+                ],
+                'flex' => 0
+            ]
+        ]
+    ];
 
 $Tresult = $TM2.$loc;
-  $messageData2 = [
-      'type' => 'template',
-      'altText' => '押して、時刻を表示！',
-      'template' => [
-          'type' => 'buttons',
-          'title' => '下のボタンを押してください。',
-          'text' => '今の時間帯の時刻表をお知らせします。',
-          'actions' => [
-              [
-                  'type' => 'postback',
-                  'label' => $label,
-
-                  'text' => $Tresult,
-                  'data' => 'value'
-              ]
-          ]
-      ]
-  ];
+    $messageData2 = [
+        'type' => 'flex',
+        'altText' => 'flexmessage',
+        'contents' => [
+            'type' => 'bubble',
+            'body' => [
+                'type' => 'box',
+                'layout' => 'vertical',
+                'contents' => [
+                    [
+                        'type' => 'text',
+                        'text' => '下のボタンを押してください',
+                        'weight' => 'bold',
+                        'size' => 'xl'
+                    ],
+                    [
+                        'type' => 'box',
+                        'layout' => 'vertical',
+                        'margin' => 'lg',
+                        'spacing' => 'sm',
+                        'contents' => [
+                            [
+                                'type' => 'box',
+                                'layout' => 'baseline',
+                                'spacing' => 'sm',
+                                'contents' => [
+                                    [
+                                        'type' => 'text',
+                                        'text' => '今の時間帯の時刻表をお知らせします。',
+                                        'wrap' => true,
+                                        'color' => '#666666',
+                                        'size' => 'sm',
+                                        'flex' => 5
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            'footer' => [
+                'type' => 'box',
+                'layout' => 'vertical',
+                'spacing' => 'sm',
+                'contents' => [
+                    [
+                        'type' => 'button',
+                        'style' => 'primary',
+                        'height' => 'sm',
+                        'action' => [
+                            'type' => 'postback',
+                            'label' => "$label",
+                            'text' => $Tresult,
+                            'data' => 'value'
+                        ]
+                    ]
+                ],
+                'flex' => 0
+            ]
+        ]
+    ];
 }
