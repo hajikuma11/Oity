@@ -146,7 +146,7 @@ $messageData = [
                     'action' => [
                         'type' => 'postback',
                         'label' => "京橋駅発 長尾駅行",
-                        'text' => $TM4,
+                        'text' => $TM4.$loc4,
                         'data' => 'value'
                     ]
                 ]
