@@ -44,7 +44,7 @@ if ($text == '時刻' or $text == 'じこく') {
                 ],
                 'footer' => [
                     'type' => 'box',
-                    'layout' => 'vertical',
+                    'layout' => 'horizontal',
                     'spacing' => 'sm',
                     'contents' => [
                         [

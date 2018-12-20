@@ -62,41 +62,96 @@ $TM4 = $TM;
   $loc4 = "kh";
 
 $messageData = [
-    'type' => 'template',
-    'altText' => '押して、時刻を表示！',
-    'template' => [
-        'type' => 'buttons',
-        'title' => '下のボタンを押してください。',
-        'text' => '今の時間帯の時刻表をお知らせします。',
-        'actions' => [
-            [
-                'type' => 'postback',
-                'label' => "長尾駅発 北山中央行",
-
-                'text' => $TM1.$loc1,
-                'data' => 'value'
-            ],
-            [
-                'type' => 'postback',
-                'label' => "北山中央発 長尾駅行",
-
-                'text' => $TM2.$loc2,
-                'data' => 'value'
-            ],
-            [
-                'type' => 'postback',
-                'label' => "北山中央発 樟葉駅行",
-
-                'text' => $TM3.$loc3,
-                'data' => 'value'
-            ],
-            [
-                'type' => 'postback',
-                'label' => "京橋駅発 長尾駅行",
-
-                'text' => $TM4.$loc4,
-                'data' => 'value'
+    'type' => 'flex',
+    'altText' => 'flexmessage',
+    'contents' => [
+        'type' => 'bubble',
+        'body' => [
+            'type' => 'box',
+            'layout' => 'vertical',
+            'contents' => [
+                [
+                    'type' => 'text',
+                    'text' => 'どこからどこの時刻？',
+                    'weight' => 'bold',
+                    'size' => 'xl'
+                ],
+                [
+                    'type' => 'box',
+                    'layout' => 'vertical',
+                    'margin' => 'lg',
+                    'spacing' => 'sm',
+                    'contents' => [
+                        [
+                            'type' => 'box',
+                            'layout' => 'baseline',
+                            'spacing' => 'sm',
+                            'contents' => [
+                                [
+                                    'type' => 'text',
+                                    'text' => '今の時間帯の時刻表をお知らせします。',
+                                    'wrap' => true,
+                                    'color' => '#666666',
+                                    'size' => 'sm',
+                                    'flex' => 5
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
             ]
+        ],
+        'footer' => [
+            'type' => 'box',
+            'layout' => 'vertical',
+            'spacing' => 'sm',
+            'contents' => [
+                [
+                    'type' => 'button',
+                    'style' => 'primary',
+                    'height' => 'sm',
+                    'action' => [
+                        'type' => 'postback',
+                        'label' => "長尾駅発 北山中央行",
+                        'text' => $TM1.$loc1,
+                        'data' => 'value'
+                    ]
+                ],
+                [
+                    'type' => 'button',
+                    'style' => 'primary',
+                    'height' => 'sm',
+                    'action' => [
+                        'type' => 'postback',
+                        'label' => "北山中央発 長尾駅行",
+                        'text' => $TM1.$loc1,
+                        'data' => 'value'
+                    ]
+                ],
+                [
+                    'type' => 'button',
+                    'style' => 'primary',
+                    'height' => 'sm',
+                    'action' => [
+                        'type' => 'postback',
+                        'label' => "北山中央発 樟葉駅行",
+                        'text' => $TM1.$loc1,
+                        'data' => 'value'
+                    ]
+                ],
+                [
+                    'type' => 'button',
+                    'style' => 'primary',
+                    'height' => 'sm',
+                    'action' => [
+                        'type' => 'postback',
+                        'label' => "京橋駅発 長尾駅行",
+                        'text' => $TM1.$loc1,
+                        'data' => 'value'
+                    ]
+                ]
+            ],
+            'flex' => 0
         ]
     ]
 ];
