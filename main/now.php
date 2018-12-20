@@ -105,7 +105,7 @@ elseif (strstr($text,'kh') or strstr($text,'京橋発') or strstr($text,'京橋�
 
 $Tresult = $TM.$loc;
 
-if ($tmflag == 0 || $NSFlag <= 1) {
+if ($tmflag == 0 && $NSFlag != 1) {
     $messageData = [
         'type' => 'flex',
         'altText' => 'flexmessage',
