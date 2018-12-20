@@ -6,7 +6,6 @@ if ($text == '時刻' or $text == 'じこく') {
         'type' => 'flex',
         'altText' => 'flexmessage',
         'contents' => [
-            [
                 'type' => 'bubble',
                 'body' => [
                     'type' => 'box',
@@ -76,7 +75,6 @@ if ($text == '時刻' or $text == 'じこく') {
                     'flex' => 0
                 ]
             ]
-        ]
     ];
 
 }
