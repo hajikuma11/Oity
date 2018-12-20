@@ -70,9 +70,7 @@ elseif ($text == '天気' or $text == 'てんき' or $text == '気象' or $text 
               [
                   'type' => 'postback',
                   'label' => '天気予報',
-
-                  'text' => 'forecast',
-                  'data' => 'value'
+                  'data' => 'mess=forecast'
               ],
               [
                   'type' => 'postback',
