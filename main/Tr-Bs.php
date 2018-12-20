@@ -3,75 +3,82 @@
 if ($text == '時刻' or $text == 'じこく') {
 
     $messageData = [
-        'type' => 'bubble',
-        'body' => [
-            'type' => 'box',
-            'layout' => 'vertical',
-            'contents' => [
-                [
-                    'type' => 'text',
-                    'text' => '交通機関を選択',
-                    'weight' => 'bold',
-                    'size' => 'xl'
-                ],
-                [
+        'type' => 'flex',
+        'altText' => 'flexmessage',
+        'contents' => [
+            [
+                'type' => 'bubble',
+                'body' => [
                     'type' => 'box',
                     'layout' => 'vertical',
-                    'margin' => 'lg',
-                    'spacing' => 'sm',
                     'contents' => [
                         [
+                            'type' => 'text',
+                            'text' => '交通機関を選択',
+                            'weight' => 'bold',
+                            'size' => 'xl'
+                        ],
+                        [
                             'type' => 'box',
-                            'layout' => 'baseline',
+                            'layout' => 'vertical',
+                            'margin' => 'lg',
                             'spacing' => 'sm',
                             'contents' => [
                                 [
-                                    'type' => 'text',
-                                    'text' => '一定の時間ごとの時刻表を表示します',
-                                    'wrap' => true,
-                                    'color' => '#666666',
-                                    'size' => 'sm',
-                                    'flex' => 5
+                                    'type' => 'box',
+                                    'layout' => 'baseline',
+                                    'spacing' => 'sm',
+                                    'contents' => [
+                                        [
+                                            'type' => 'text',
+                                            'text' => '一定の時間ごとの時刻表を表示します',
+                                            'wrap' => true,
+                                            'color' => '#666666',
+                                            'size' => 'sm',
+                                            'flex' => 5
+                                        ]
+                                    ]
                                 ]
                             ]
                         ]
                     ]
+                ],
+                'footer' => [
+                    'type' => 'box',
+                    'layout' => 'vertical',
+                    'spacing' => 'sm',
+                    'contents' => [
+                        [
+                            'type' => 'button',
+                            'style' => 'primary',
+                            'height' => 'sm',
+                            'action' => [
+                                'type' => 'postback',
+                                'label' => 'バス',
+                                'data' => 'mess=LcalBus'
+                            ]
+                        ],
+                        [
+                            'type' => 'button',
+                            'style' => 'primary',
+                            'height' => 'sm',
+                            'action' => [
+                                'type' => 'postback',
+                                'label' => '電車',
+                                'data' => 'mess=Train'
+                            ]
+                        ],
+                        [
+                            'type' => 'spacer',
+                            'size' => 'sm'
+                        ]
+                    ],
+                    'flex' => 0
                 ]
             ]
-        ],
-        'footer' => [
-            'type' => 'box',
-            'layout' => 'vertical',
-            'spacing' => 'sm',
-            'contents' => [
-                [
-                    'type' => 'button',
-                    'style' => 'primary',
-                    'height' => 'sm',
-                    'action' => [
-                        'type' => 'postback',
-                        'label' => 'バス',
-                        'data' => 'mess=LcalBus'
-                    ]
-                ],
-                [
-                    'type' => 'button',
-                    'style' => 'primary',
-                    'height' => 'sm',
-                    'action' => [
-                        'type' => 'postback',
-                        'label' => '電車',
-                        'data' => 'mess=Train'
-                    ]
-                ],
-                [
-                    'type' => 'spacer',
-                    'size' => 'sm'
-                ]
-            ],
-            'flex' => 0
         ]
     ];
+
 }
 
 //***電車の駅選択**************************************************************************************************************************************************************************
