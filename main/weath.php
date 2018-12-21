@@ -1,6 +1,7 @@
 <?php
 
 require_once '/app/vendor/autoload.php';
+date_default_timezone_set("Asia/Tokyo");
 
 $URL = 'https://www.jma.go.jp/jp/week/331.html';
 $html = file_get_contents($URL);
@@ -9,6 +10,16 @@ $doc = phpQuery::newDocument($html);
 $contents = $doc[".for"]->text();
 
 $contArr = explode("\n", $contents);
+
+if (date("H") < 17 && date("H") > 10) {
+    $timestmp = date("Y/m/d") . " 11:00";
+} elseif (date("H") > 16 && date("H") <= 23) {
+    $timestmp = date("Y/m/d") . " 17:00";
+} elseif (date("H") < 11) {
+    $timestmp = date("Y/m/d",strtotime("1day")) . " 17:00";
+} else {
+    $timestmp = 'error';
+}
 
 $txt = $tenk = $kous = $max = $min = "";
 $cntKous = $cntmax = $endcnt = 0;
@@ -58,15 +69,7 @@ $d = date("d");
 $m = date("m");
 $week_name = array("日", "月", "火", "水", "木", "金", "土");
 
-if (date("H") < 17 && date("H") > 10) {
-    $timestmp = date("Y/m/d") . "11:00";
-} elseif (date("H") > 16 && date("H") <= 23) {
-    $timestmp = date("Y/m/d") . "17:00";
-} elseif (date("H") < 11) {
-    $timestmp = date("Y/m/d",strtotime("1day")) . "17:00";
-} else {
-    $timestmp = 'error';
-}
+
 
 for ($i=0;$i<7;$i++) {
     if ($i >= 1) {
