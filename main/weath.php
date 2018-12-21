@@ -65,11 +65,11 @@ for ($i=0;$i<7;$i++) {
         $m = date("m",strtotime($i." day"));
     }
 
-    $day[] = $d."日 (".$week_name[$w].")";
-    $weatherData[] = $tenkArr[$i];
-    $forRain[] = $kousArr[$i]."%";
-    $maxTemp[] = $maxArr[$i]."°C";
-    $minTemp[] = $minArr[$i]."°C";
+    $day[$i] = $d."日 (".$week_name[$w].")";
+    $weatherData[$i] = $tenkArr[$i];
+    $forRain[$i] = $kousArr[$i]."%";
+    $maxTemp[$i] = $maxArr[$i]."°C";
+    $minTemp[$i] = $minArr[$i]."°C";
                 /* $day = 日付
                  * $weatherData = 天気
                  * $forRain = 降水確率
