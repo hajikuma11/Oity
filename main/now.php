@@ -220,64 +220,64 @@ if ($tmFlag == 0) {
                         ],
                         'flex' => 0
                     ]
-                ]
-            ]
-        ],
-        [
-            'type' => 'bubble',
-            'body' => [
-                'type' => 'box',
-                'layout' => 'vertical',
-                'contents' => [
-                    [
-                        'type' => 'text',
-                        'text' => $TM2.'時の時刻表',
-                        'weight' => 'bold',
-                        'size' => 'xl'
-                    ],
-                    [
+                ],
+                [
+                    'type' => 'bubble',
+                    'body' => [
                         'type' => 'box',
                         'layout' => 'vertical',
-                        'margin' => 'lg',
-                        'spacing' => 'sm',
                         'contents' => [
                             [
+                                'type' => 'text',
+                                'text' => $TM2.'時の時刻表',
+                                'weight' => 'bold',
+                                'size' => 'xl'
+                            ],
+                            [
                                 'type' => 'box',
-                                'layout' => 'baseline',
+                                'layout' => 'vertical',
+                                'margin' => 'lg',
                                 'spacing' => 'sm',
                                 'contents' => [
                                     [
-                                        'type' => 'text',
-                                        'text' => '次の区間の時刻を知りたい場合はこちら',
-                                        'wrap' => true,
-                                        'color' => '#666666',
-                                        'size' => 'sm',
-                                        'flex' => 5
+                                        'type' => 'box',
+                                        'layout' => 'baseline',
+                                        'spacing' => 'sm',
+                                        'contents' => [
+                                            [
+                                                'type' => 'text',
+                                                'text' => '次の時間帯の時刻表をお知らせします。',
+                                                'wrap' => true,
+                                                'color' => '#666666',
+                                                'size' => 'sm',
+                                                'flex' => 5
+                                            ]
+                                        ]
                                     ]
                                 ]
                             ]
                         ]
+                    ],
+                    'footer' => [
+                        'type' => 'box',
+                        'layout' => 'vertical',
+                        'spacing' => 'sm',
+                        'contents' => [
+                            [
+                                'type' => 'button',
+                                'style' => 'primary',
+                                'height' => 'sm',
+                                'action' => [
+                                    'type' => 'postback',
+                                    'label' => "$label",
+                                    'text' => $Tresult2,
+                                    'data' => 'value'
+                                ]
+                            ]
+                        ],
+                        'flex' => 0
                     ]
                 ]
-            ],
-            'footer' => [
-                'type' => 'box',
-                'layout' => 'vertical',
-                'spacing' => 'sm',
-                'contents' => [
-                    [
-                        'type' => 'button',
-                        'style' => 'primary',
-                        'height' => 'sm',
-                        'action' => [
-                            'type' => 'postback',
-                            'label' => "$label",
-                            'text' => $Tresult2,
-                            'data' => 'value'
-                        ]
-                    ]
-                ],
-                'flex' => 0
             ]
         ]
     ];
