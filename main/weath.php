@@ -59,7 +59,13 @@ $m = date("m");
 $week_name = array("日", "月", "火", "水", "木", "金", "土");
 
 if (date("H") < 17 && date("H") > 10) {
-    $timestmp = date("Y/m/d")." 11:00";
+    $timestmp = date("Y/m/d") . "11:00";
+} elseif (date("H") > 16 && date("H") <= 23) {
+    $timestmp = date("Y/m/d") . "17:00";
+} elseif (date("H") < 11) {
+    $timestmp = date("Y/m/d",strtotime("1day")) . "17:00";
+} else {
+    $timestmp = 'error';
 }
 
 for ($i=0;$i<7;$i++) {
