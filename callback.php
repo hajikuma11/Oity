@@ -16,10 +16,13 @@ $userID = $line_source->{"userId"};
 $msgFlag = 0;
 
 if ($jsonObj->events[0]->type == 'postback') {
-    $postback = $jsonObj->events[0]->postback->data;
-    parse_str($postback, $data);
-    $text = $data["mess"];
+    if ($jsonObj->events[0]->postback->data != 'value') {
+        $postback = $jsonObj->events[0]->postback->data;
+        parse_str($postback, $data);
+        $text = $data["mess"];
+    }
 }
+$text = trim($text);
 //***ヘルプ******************************************************************************************************************************************************************************
 if ($text == 'ヘルプ' or $text == 'へるぷ' or $text == 'help' or $text == 'Help') {
 
@@ -114,14 +117,16 @@ elseif ($text == 'forecast' or $text == 'forecast' or $text == '天気予報' or
                     'data' => 'value'
                 ],
                 [
-                    'type' => 'uri',
+                    'type' => 'postback',
                     'label' => '『京都府』',
-                    'uri' => 'https://goo.gl/sbXiYv'
+                    'text' => 'weekKyoto',
+                    'data' => 'value'
                 ],
                 [
-                    'type' => 'uri',
+                    'type' => 'postback',
                     'label' => '『兵庫県』',
-                    'uri' => 'https://goo.gl/3AuVUs'
+                    'text' => 'weekHyogo',
+                    'data' => 'value'
                 ]
             ]
         ]
