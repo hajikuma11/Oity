@@ -158,72 +158,72 @@ if ($tmFlag == 0) {
         ]
     ];
 } else {
-    $msgFlag = 1;
     $messageData = [
         'type' => 'flex',
         'altText' => 'flexmessage',
         'contents' => [
-            'type' => 'bubble',
-            'body' => [
-                'type' => 'box',
-                'layout' => 'vertical',
-                'contents' => [
-                    [
-                        'type' => 'text',
-                        'text' => $TM.'時の時刻表',
-                        'weight' => 'bold',
-                        'size' => 'xl'
-                    ],
-                    [
+            'type' => 'carousel',
+            'contents' => [
+                [
+                    'type' => 'bubble',
+                    'body' => [
                         'type' => 'box',
                         'layout' => 'vertical',
-                        'margin' => 'lg',
-                        'spacing' => 'sm',
                         'contents' => [
                             [
+                                'type' => 'text',
+                                'text' => $TM.'時の時刻表',
+                                'weight' => 'bold',
+                                'size' => 'xl'
+                            ],
+                            [
                                 'type' => 'box',
-                                'layout' => 'baseline',
+                                'layout' => 'vertical',
+                                'margin' => 'lg',
                                 'spacing' => 'sm',
                                 'contents' => [
                                     [
-                                        'type' => 'text',
-                                        'text' => '今の時間帯の時刻表をお知らせします。',
-                                        'wrap' => true,
-                                        'color' => '#666666',
-                                        'size' => 'sm',
-                                        'flex' => 5
+                                        'type' => 'box',
+                                        'layout' => 'baseline',
+                                        'spacing' => 'sm',
+                                        'contents' => [
+                                            [
+                                                'type' => 'text',
+                                                'text' => '今の時間帯の時刻表をお知らせします。',
+                                                'wrap' => true,
+                                                'color' => '#666666',
+                                                'size' => 'sm',
+                                                'flex' => 5
+                                            ]
+                                        ]
                                     ]
                                 ]
                             ]
                         ]
+                    ],
+                    'footer' => [
+                        'type' => 'box',
+                        'layout' => 'vertical',
+                        'spacing' => 'sm',
+                        'contents' => [
+                            [
+                                'type' => 'button',
+                                'style' => 'primary',
+                                'height' => 'sm',
+                                'action' => [
+                                    'type' => 'postback',
+                                    'label' => "$label",
+                                    'text' => $Tresult,
+                                    'data' => 'value'
+                                ]
+                            ]
+                        ],
+                        'flex' => 0
                     ]
                 ]
-            ],
-            'footer' => [
-                'type' => 'box',
-                'layout' => 'vertical',
-                'spacing' => 'sm',
-                'contents' => [
-                    [
-                        'type' => 'button',
-                        'style' => 'primary',
-                        'height' => 'sm',
-                        'action' => [
-                            'type' => 'postback',
-                            'label' => "$label",
-                            'text' => $Tresult,
-                            'data' => 'value'
-                        ]
-                    ]
-                ],
-                'flex' => 0
             ]
-        ]
-    ];
-    $messageData2 = [
-        'type' => 'flex',
-        'altText' => 'flexmessage',
-        'contents' => [
+        ],
+        [
             'type' => 'bubble',
             'body' => [
                 'type' => 'box',
@@ -281,4 +281,5 @@ if ($tmFlag == 0) {
             ]
         ]
     ];
+
 }
