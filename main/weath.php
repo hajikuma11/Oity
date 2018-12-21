@@ -57,49 +57,198 @@ $minArr = explode("&",$min);
 
 $w = date("w");
 $d = date("d");
+$m = date("m");
 $week_name = array("日", "月", "火", "水", "木", "金", "土");
-$txt1 = $txt2 = $txt3 = "";
+$msgData = "";
 
 for ($i=0;$i<7;$i++) {
     if ($i >= 1) {
         $w = date("w",strtotime($i." day"));
         $d = date("d",strtotime($i." day"));
+        $m = date("m",strtotime($i." day"));
     }
 
-    $txtData = $d."日".$week_name[$w]."曜日の\n";
-    $txtData .= "天気は、".$tenkArr[$i]."\n";
-    $txtData .= "降水確率は、".$kousArr[$i]."％\n";
-    $txtData .= "最高気温は、".$maxArr[$i]."度\n";
-    $txtData .= "最低気温は、".$minArr[$i]."度\n";
+    $day = $d."日 (".$week_name[$w].")";
+    $weatherData = $tenkArr[$i];
+    $forRain = $kousArr[$i]."%";
+    $maxTemp = $maxArr[$i]."°C";
+    $minTemp = $minArr[$i]."°C";
 
-    if ($i <= 2) {
-        $txt1 .= $txtData;
-        if ($i != 2) {
-            $txt1 .= "\n";
-        }
-    } elseif ($i >= 6) {
-        $txt3 .= $txtData;
-    } else {
-        $txt2 .= $txtData;
-        if ($i != 5) {
-            $txt2 .= "\n";
-        }
+    $msgData .= "[
+        'type' => 'bubble',
+        'styles' => [
+            'footer' => [
+                'separator' => true
+            ]
+        ],
+        'body' => [
+            'type' => 'box',
+            'layout' => 'vertical',
+            'contents' => [
+                [
+                    'type' => 'text',
+                    'text' => '週間天気予報',
+                    'weight' => 'bold',
+                    'color' => '#1DB446',
+                    'size' => 'sm'
+                ],
+                [
+                    'type' => 'text',
+                    'text' => $day,
+                    'weight' => 'bold',
+                    'size' => 'xl',
+                    'margin' => 'md'
+                ],
+                [
+                    'type' => 'text',
+                    'text' => '気象庁のデータを参照しています',
+                    'size' => 'xs',
+                    'color' => '#aaaaaa',
+                    'wrap' => true
+                ],
+                [
+                    'type' => 'separator',
+                    'margin' => 'sm'
+                ],
+                [
+                    'type' => 'box',
+                    'layout' => 'vertical',
+                    'margin' => 'sm',
+                    'spacing' => 'xs',
+                    'contents' => [
+                        [
+                            'type' => 'box',
+                            'layout' => 'horizontal',
+                            'margin' => 'xxl',
+                            'contents' => [
+                                [
+                                    'type' => 'text',
+                                    'text' => '天気',
+                                    'size' => 'sm',
+                                    'color' => '#555555'
+                                ],
+                                [
+                                    'type' => 'text',
+                                    'text' => $weatherData,
+                                    'size' => 'sm',
+                                    'color' => '#111111',
+                                    'align' => 'end'
+                                ]
+                            ]
+                        ],
+                        [
+                            'type' => 'box',
+                            'layout' => 'horizontal',
+                            'contents' => [
+                                [
+                                    'type' => 'text',
+                                    'text' => '降水確率',
+                                    'size' => 'sm',
+                                    'color' => '#555555'
+                                ],
+                                [
+                                    'type' => 'text',
+                                    'text' => $forRain,
+                                    'size' => 'sm',
+                                    'color' => '#00008d',
+                                    'align' => 'end'
+                                ]
+                            ]
+                        ],
+                        [
+                            'type' => 'box',
+                            'layout' => 'horizontal',
+                            'contents' => [
+                                [
+                                    'type' => 'text',
+                                    'text' => '最高気温',
+                                    'size' => 'sm',
+                                    'color' => '#555555'
+                                ],
+                                [
+                                    'type' => 'text',
+                                    'text' => $maxTemp,
+                                    'size' => 'sm',
+                                    'color' => '#ea5532',
+                                    'align' => 'end'
+                                ]
+                            ]
+                        ],
+                        [
+                            'type' => 'box',
+                            'layout' => 'horizontal',
+                            'contents' => [
+                                [
+                                    'type' => 'text',
+                                    'text' => '最低気温',
+                                    'size' => 'sm',
+                                    'color' => '#555555'
+                                ],
+                                [
+                                    'type' => 'text',
+                                    'text' => $minTemp,
+                                    'size' => 'sm',
+                                    'color' => '#00a497',
+                                    'align' => 'end'
+                                ]
+                            ]
+                        ]
+                    ]
+                ],
+                [
+                    'type' => 'separator',
+                    'margin' => 'xxl'
+                ],
+                [
+                    'type' => 'box',
+                    'layout' => 'horizontal',
+                    'margin' => 'md',
+                    'contents' => [
+                        [
+                            'type' => 'text',
+                            'text' => '更新日時',
+                            'size' => 'xs',
+                            'color' => '#aaaaaa',
+                            'flex' => 0
+                        ],
+                        [
+                            'type' => 'text',
+                            'text' => '2018/12/21/11:00',
+                            'color' => '#aaaaaa',
+                            'size' => 'xs',
+                            'align' => 'end'
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]";
+
+                /* $day = 日付
+                 * $weatherData = 天気
+                 * $forRain = 降水確率
+                 * $maxTemp = 最高気温
+                 * $minTemp = 最低気温
+                 * */
+    if ($i != 6) {
+        $msgData .= ",";
     }
 }
 
-$messageData = [
-    'type' => 'text',
-    'text' => $txt1
+$msgData .= [
+    'type' => 'flex',
+    'altText' => 'flexmessage',
+    'contents' => [
+        'type' => 'carousel',
+        'contents' => [
+            /* $day = 日付
+             * $weatherData = 天気
+             * $forRain = 降水確率
+             * $maxTemp = 最高気温
+             * $minTemp = 最低気温
+             * */
+            $msgData
+        ]
+    ]
 ];
 
-$messageData2 = [
-    'type' => 'text',
-    'text' => $txt2
-];
-
-$messageData3 = [
-    'type' => 'text',
-    'text' => $txt3
-];
-
-$msgFlag = 2;
