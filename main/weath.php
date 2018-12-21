@@ -235,18 +235,12 @@ for ($i=0;$i<7;$i++) {
     }
 }
 
-$messageData .= [
+$messageData = [
     'type' => 'flex',
     'altText' => 'flexmessage',
     'contents' => [
         'type' => 'carousel',
         'contents' => [
-            /* $day = 日付
-             * $weatherData = 天気
-             * $forRain = 降水確率
-             * $maxTemp = 最高気温
-             * $minTemp = 最低気温
-             * */
             $msgData
         ]
     ]
