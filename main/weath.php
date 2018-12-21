@@ -58,6 +58,10 @@ $d = date("d");
 $m = date("m");
 $week_name = array("日", "月", "火", "水", "木", "金", "土");
 
+if (date("H") < 17 && date("H") > 10) {
+    $timestmp = date("Y/m/d")." 11:00";
+}
+
 for ($i=0;$i<7;$i++) {
     if ($i >= 1) {
         $w = date("w",strtotime($i." day"));
@@ -75,6 +79,7 @@ for ($i=0;$i<7;$i++) {
                  * $forRain = 降水確率
                  * $maxTemp = 最高気温
                  * $minTemp = 最低気温
+                 * $timestmp = 更新日時
                  * */
 }
 $messageData = [
@@ -222,7 +227,7 @@ $messageData = [
                                 ],
                                 [
                                     'type' => 'text',
-                                    'text' => '2018/12/21/11:00',
+                                    'text' => $timestmp,
                                     'color' => '#aaaaaa',
                                     'size' => 'xs',
                                     'align' => 'end'
@@ -371,7 +376,7 @@ $messageData = [
                                 ],
                                 [
                                     'type' => 'text',
-                                    'text' => '2018/12/21/11:00',
+                                    'text' => $timestmp,
                                     'color' => '#aaaaaa',
                                     'size' => 'xs',
                                     'align' => 'end'
@@ -401,7 +406,7 @@ $messageData = [
                         ],
                         [
                             'type' => 'text',
-                            'text' => $day[0],
+                            'text' => $day[2],
                             'weight' => 'bold',
                             'size' => 'xl',
                             'margin' => 'md'
@@ -436,7 +441,7 @@ $messageData = [
                                         ],
                                         [
                                             'type' => 'text',
-                                            'text' => $weatherData[0],
+                                            'text' => $weatherData[2],
                                             'size' => 'sm',
                                             'color' => '#111111',
                                             'align' => 'end'
@@ -455,7 +460,7 @@ $messageData = [
                                         ],
                                         [
                                             'type' => 'text',
-                                            'text' => $forRain[0],
+                                            'text' => $forRain[2],
                                             'size' => 'sm',
                                             'color' => '#00008d',
                                             'align' => 'end'
@@ -474,7 +479,7 @@ $messageData = [
                                         ],
                                         [
                                             'type' => 'text',
-                                            'text' => $maxTemp[0],
+                                            'text' => $maxTemp[2],
                                             'size' => 'sm',
                                             'color' => '#ea5532',
                                             'align' => 'end'
@@ -493,7 +498,7 @@ $messageData = [
                                         ],
                                         [
                                             'type' => 'text',
-                                            'text' => $minTemp[0],
+                                            'text' => $minTemp[2],
                                             'size' => 'sm',
                                             'color' => '#00a497',
                                             'align' => 'end'
@@ -520,7 +525,7 @@ $messageData = [
                                 ],
                                 [
                                     'type' => 'text',
-                                    'text' => '2018/12/21/11:00',
+                                    'text' => $timestmp,
                                     'color' => '#aaaaaa',
                                     'size' => 'xs',
                                     'align' => 'end'
@@ -550,7 +555,7 @@ $messageData = [
                         ],
                         [
                             'type' => 'text',
-                            'text' => $day[0],
+                            'text' => $day[3],
                             'weight' => 'bold',
                             'size' => 'xl',
                             'margin' => 'md'
@@ -585,7 +590,7 @@ $messageData = [
                                         ],
                                         [
                                             'type' => 'text',
-                                            'text' => $weatherData[0],
+                                            'text' => $weatherData[3],
                                             'size' => 'sm',
                                             'color' => '#111111',
                                             'align' => 'end'
@@ -604,7 +609,7 @@ $messageData = [
                                         ],
                                         [
                                             'type' => 'text',
-                                            'text' => $forRain[0],
+                                            'text' => $forRain[3],
                                             'size' => 'sm',
                                             'color' => '#00008d',
                                             'align' => 'end'
@@ -623,7 +628,7 @@ $messageData = [
                                         ],
                                         [
                                             'type' => 'text',
-                                            'text' => $maxTemp[0],
+                                            'text' => $maxTemp[3],
                                             'size' => 'sm',
                                             'color' => '#ea5532',
                                             'align' => 'end'
@@ -642,7 +647,7 @@ $messageData = [
                                         ],
                                         [
                                             'type' => 'text',
-                                            'text' => $minTemp[0],
+                                            'text' => $minTemp[3],
                                             'size' => 'sm',
                                             'color' => '#00a497',
                                             'align' => 'end'
@@ -669,7 +674,7 @@ $messageData = [
                                 ],
                                 [
                                     'type' => 'text',
-                                    'text' => '2018/12/21/11:00',
+                                    'text' => $timestmp,
                                     'color' => '#aaaaaa',
                                     'size' => 'xs',
                                     'align' => 'end'
@@ -699,7 +704,7 @@ $messageData = [
                         ],
                         [
                             'type' => 'text',
-                            'text' => $day[0],
+                            'text' => $day[4],
                             'weight' => 'bold',
                             'size' => 'xl',
                             'margin' => 'md'
@@ -734,7 +739,7 @@ $messageData = [
                                         ],
                                         [
                                             'type' => 'text',
-                                            'text' => $weatherData[0],
+                                            'text' => $weatherData[4],
                                             'size' => 'sm',
                                             'color' => '#111111',
                                             'align' => 'end'
@@ -753,7 +758,7 @@ $messageData = [
                                         ],
                                         [
                                             'type' => 'text',
-                                            'text' => $forRain[0],
+                                            'text' => $forRain[4],
                                             'size' => 'sm',
                                             'color' => '#00008d',
                                             'align' => 'end'
@@ -772,7 +777,7 @@ $messageData = [
                                         ],
                                         [
                                             'type' => 'text',
-                                            'text' => $maxTemp[0],
+                                            'text' => $maxTemp[4],
                                             'size' => 'sm',
                                             'color' => '#ea5532',
                                             'align' => 'end'
@@ -791,7 +796,7 @@ $messageData = [
                                         ],
                                         [
                                             'type' => 'text',
-                                            'text' => $minTemp[0],
+                                            'text' => $minTemp[4],
                                             'size' => 'sm',
                                             'color' => '#00a497',
                                             'align' => 'end'
@@ -818,7 +823,7 @@ $messageData = [
                                 ],
                                 [
                                     'type' => 'text',
-                                    'text' => '2018/12/21/11:00',
+                                    'text' => $timestmp,
                                     'color' => '#aaaaaa',
                                     'size' => 'xs',
                                     'align' => 'end'
@@ -848,7 +853,7 @@ $messageData = [
                         ],
                         [
                             'type' => 'text',
-                            'text' => $day[0],
+                            'text' => $day[5],
                             'weight' => 'bold',
                             'size' => 'xl',
                             'margin' => 'md'
@@ -883,7 +888,7 @@ $messageData = [
                                         ],
                                         [
                                             'type' => 'text',
-                                            'text' => $weatherData[0],
+                                            'text' => $weatherData[5],
                                             'size' => 'sm',
                                             'color' => '#111111',
                                             'align' => 'end'
@@ -902,7 +907,7 @@ $messageData = [
                                         ],
                                         [
                                             'type' => 'text',
-                                            'text' => $forRain[0],
+                                            'text' => $forRain[5],
                                             'size' => 'sm',
                                             'color' => '#00008d',
                                             'align' => 'end'
@@ -921,7 +926,7 @@ $messageData = [
                                         ],
                                         [
                                             'type' => 'text',
-                                            'text' => $maxTemp[0],
+                                            'text' => $maxTemp[5],
                                             'size' => 'sm',
                                             'color' => '#ea5532',
                                             'align' => 'end'
@@ -940,7 +945,7 @@ $messageData = [
                                         ],
                                         [
                                             'type' => 'text',
-                                            'text' => $minTemp[0],
+                                            'text' => $minTemp[5],
                                             'size' => 'sm',
                                             'color' => '#00a497',
                                             'align' => 'end'
@@ -967,7 +972,7 @@ $messageData = [
                                 ],
                                 [
                                     'type' => 'text',
-                                    'text' => '2018/12/21/11:00',
+                                    'text' => $timestmp,
                                     'color' => '#aaaaaa',
                                     'size' => 'xs',
                                     'align' => 'end'
@@ -997,7 +1002,7 @@ $messageData = [
                         ],
                         [
                             'type' => 'text',
-                            'text' => $day[0],
+                            'text' => $day[6],
                             'weight' => 'bold',
                             'size' => 'xl',
                             'margin' => 'md'
@@ -1032,7 +1037,7 @@ $messageData = [
                                         ],
                                         [
                                             'type' => 'text',
-                                            'text' => $weatherData[0],
+                                            'text' => $weatherData[6],
                                             'size' => 'sm',
                                             'color' => '#111111',
                                             'align' => 'end'
@@ -1051,7 +1056,7 @@ $messageData = [
                                         ],
                                         [
                                             'type' => 'text',
-                                            'text' => $forRain[0],
+                                            'text' => $forRain[6],
                                             'size' => 'sm',
                                             'color' => '#00008d',
                                             'align' => 'end'
@@ -1070,7 +1075,7 @@ $messageData = [
                                         ],
                                         [
                                             'type' => 'text',
-                                            'text' => $maxTemp[0],
+                                            'text' => $maxTemp[6],
                                             'size' => 'sm',
                                             'color' => '#ea5532',
                                             'align' => 'end'
@@ -1089,7 +1094,7 @@ $messageData = [
                                         ],
                                         [
                                             'type' => 'text',
-                                            'text' => $minTemp[0],
+                                            'text' => $minTemp[6],
                                             'size' => 'sm',
                                             'color' => '#00a497',
                                             'align' => 'end'
@@ -1116,7 +1121,7 @@ $messageData = [
                                 ],
                                 [
                                     'type' => 'text',
-                                    'text' => '2018/12/21/11:00',
+                                    'text' => $timestmp,
                                     'color' => '#aaaaaa',
                                     'size' => 'xs',
                                     'align' => 'end'
