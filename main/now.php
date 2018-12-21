@@ -2,7 +2,6 @@
 date_default_timezone_set('Asia/Tokyo');
 $Ntime = date("G");
 $tmFlag = 0;
-$NSFlag = 0;
 //==============================================
 if (6 <= $Ntime && $Ntime <= 8) {
   $TM = '6~8';
@@ -44,7 +43,6 @@ elseif (21 <= $Ntime && $Ntime <= 23) {
 }
 elseif (0 <= $Ntime && $Ntime <= 5) {
   $TM = '運行していないようです';
-  $NSFlag++;
 }
 //===============================================
 if (strstr($text,'きた') or strstr($text,'bu') or strstr($text,'北')) {
@@ -57,7 +55,6 @@ if (strstr($text,'きた') or strstr($text,'bu') or strstr($text,'北')) {
     $TM = '運行';
     $loc = 'していません';
     $label = "運行していません";
-    $NSFlag++;
   }
 }
 
@@ -68,7 +65,6 @@ elseif (strstr($text,'bd') or strstr($text,'なが') or strstr($text,'長') or s
     $TM = '運行';
     $loc = 'していません';
     $label = "運行していません";
-    $NSFlag++;
   }
   elseif ($Ntime == 21) {
     $TM = '21';
@@ -77,7 +73,6 @@ elseif (strstr($text,'bd') or strstr($text,'なが') or strstr($text,'長') or s
     $TM = '運行';
     $loc = 'していません';
     $label = "運行していません";
-    $NSFlag++;
   }
 }
 
@@ -105,7 +100,7 @@ elseif (strstr($text,'kh') or strstr($text,'京橋発') or strstr($text,'京橋�
 $Tresult = $TM.$loc;
 $Tresult2 = $TM2.$loc;
 
-if ($tmflag == 0 && $NSFlag == 0) {
+if ($tmflag == 0) {
     $messageData = [
         'type' => 'flex',
         'altText' => 'flexmessage',
