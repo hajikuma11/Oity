@@ -235,7 +235,7 @@ for ($i=0;$i<7;$i++) {
     }
 }
 
-$msgData .= [
+$messageData .= [
     'type' => 'flex',
     'altText' => 'flexmessage',
     'contents' => [
