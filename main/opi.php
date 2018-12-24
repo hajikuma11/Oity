@@ -5,7 +5,7 @@ $txt = str_replace('}',']',$txt);
 $txt = str_replace('"',"'",$txt);
 $txt = str_replace("':","' =>",$txt);
 
-$messsageData = [
+$messageData = [
     'type' => 'flex',
     'altText' => 'flexmessage',
     'contents' => $txt
