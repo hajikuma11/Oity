@@ -1,54 +1,11 @@
 <?php
+$json = file_get_contents('opi.json');
+$json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
+$arr = json_decode($json,true);
+
+
 $messsageData = [
     'type' => 'flex',
     'altText' => 'flexmessage',
-    'contents' => [
-        'type' => 'bubble',
-        'styles' => [
-            'footer' => [
-                'separator' => true
-            ]
-        ],
-        'body' => [
-            'type' => 'box',
-            'layout' => 'vertical',
-            'contents' => [
-                [
-                    'type' => 'text',
-                    'text' => 'OPPAI Function',
-                    'weight' => 'bold',
-                    'color' => '#1DB446',
-                    'size' => 'sm'
-                ],
-                [
-                    'type' => 'text',
-                    'text' => 'お',
-                    'weight' => 'bold',
-                    'size' => 'xxl',
-                    'margin' => 'md'
-                ],
-                [
-                    'type' => 'text',
-                    'text' => '　 　っ',
-                    'weight' => 'bold',
-                    'size' => 'xxl',
-                    'margin' => 'md'
-                ],
-                [
-                    'type' => 'text',
-                    'text' => '　　　　　ぱ',
-                    'weight' => 'bold',
-                    'size' => 'xxl',
-                    'margin' => 'md'
-                ],
-                [
-                    'type' => 'text',
-                    'text' => '　　　　　　　い',
-                    'weight' => 'bold',
-                    'size' => 'xxl',
-                    'margin' => 'md'
-                ]
-            ]
-        ]
-    ]
+    'contents' => $arr
 ];
