@@ -64,8 +64,15 @@ $kousArr = explode("&",$kous);
 $maxArr = explode("&",$max);
 $minArr = explode("&",$min);
 
-$w = date("w");
-$d = date("d");
+$one = 1;
+
+if (date("H") >= 11) {
+    $d = date("d",strtotime($one." day"));
+    $w = date("w",strtotime($one." day"));
+}  else {
+    $w = date("w");
+    $d = date("d");
+}
 $m = date("m");
 $week_name = array("日", "月", "火", "水", "木", "金", "土");
 
@@ -73,9 +80,16 @@ $week_name = array("日", "月", "火", "水", "木", "金", "土");
 
 for ($i=0;$i<7;$i++) {
     if ($i >= 1) {
-        $w = date("w",strtotime($i." day"));
-        $d = date("d",strtotime($i." day"));
-        $m = date("m",strtotime($i." day"));
+        if (date("H") >= 11) {
+            $in = $i + 1;
+            $w = date("w",strtotime($in." day"));
+            $d = date("d",strtotime($in." day"));
+            $m = date("m",strtotime($in." day"));
+        } else {
+            $w = date("w",strtotime($i." day"));
+            $d = date("d",strtotime($i." day"));
+            $m = date("m",strtotime($i." day"));
+        }
     }
 
     $day[] = $d."日 (".$week_name[$w].")";
