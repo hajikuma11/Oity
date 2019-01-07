@@ -313,13 +313,13 @@ $messageData = [
                                         [
                                             'type' => 'text',
                                             'text' => '天気',
-                                            'size' => 'sm',
+                                            'size' => 'xl',
                                             'color' => '#555555'
                                         ],
                                         [
                                             'type' => 'text',
                                             'text' => $weatherData[1],
-                                            'size' => 'sm',
+                                            'size' => 'xl',
                                             'color' => '#111111',
                                             'align' => 'end'
                                         ]
@@ -462,13 +462,13 @@ $messageData = [
                                         [
                                             'type' => 'text',
                                             'text' => '天気',
-                                            'size' => 'sm',
+                                            'size' => 'xl',
                                             'color' => '#555555'
                                         ],
                                         [
                                             'type' => 'text',
                                             'text' => $weatherData[2],
-                                            'size' => 'sm',
+                                            'size' => 'xl',
                                             'color' => '#111111',
                                             'align' => 'end'
                                         ]
@@ -611,13 +611,13 @@ $messageData = [
                                         [
                                             'type' => 'text',
                                             'text' => '天気',
-                                            'size' => 'sm',
+                                            'size' => 'xl',
                                             'color' => '#555555'
                                         ],
                                         [
                                             'type' => 'text',
                                             'text' => $weatherData[3],
-                                            'size' => 'sm',
+                                            'size' => 'xl',
                                             'color' => '#111111',
                                             'align' => 'end'
                                         ]
@@ -760,13 +760,13 @@ $messageData = [
                                         [
                                             'type' => 'text',
                                             'text' => '天気',
-                                            'size' => 'sm',
+                                            'size' => 'xl',
                                             'color' => '#555555'
                                         ],
                                         [
                                             'type' => 'text',
                                             'text' => $weatherData[4],
-                                            'size' => 'sm',
+                                            'size' => 'xl',
                                             'color' => '#111111',
                                             'align' => 'end'
                                         ]
@@ -909,13 +909,13 @@ $messageData = [
                                         [
                                             'type' => 'text',
                                             'text' => '天気',
-                                            'size' => 'sm',
+                                            'size' => 'xl',
                                             'color' => '#555555'
                                         ],
                                         [
                                             'type' => 'text',
                                             'text' => $weatherData[5],
-                                            'size' => 'sm',
+                                            'size' => 'xl',
                                             'color' => '#111111',
                                             'align' => 'end'
                                         ]
@@ -1058,13 +1058,13 @@ $messageData = [
                                         [
                                             'type' => 'text',
                                             'text' => '天気',
-                                            'size' => 'sm',
+                                            'size' => 'xl',
                                             'color' => '#555555'
                                         ],
                                         [
                                             'type' => 'text',
                                             'text' => $weatherData[6],
-                                            'size' => 'sm',
+                                            'size' => 'xl',
                                             'color' => '#111111',
                                             'align' => 'end'
                                         ]
