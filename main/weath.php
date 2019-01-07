@@ -94,8 +94,8 @@ for ($i=0;$i<7;$i++) {
 
     $day[] = $m."月".$d."日 (".$week_name[$w].")";
     $weatherData[] = $tenkArr[$i];
-    if (strstr('/',$kousArr[$i])) {
-        $kousArr[$i] = str_replace('/','',$kousArr[$i]);
+    if (strstr('0/',$kousArr[$i])) {
+        $kousArr[$i] = str_replace('0/','0',$kousArr[$i]);
     }
     $forRain[] = $kousArr[$i]."%";
     $maxTemp[] = $maxArr[$i]."°C";
