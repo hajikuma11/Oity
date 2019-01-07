@@ -164,13 +164,13 @@ $messageData = [
                                         [
                                             'type' => 'text',
                                             'text' => '天気',
-                                            'size' => 'xs',
+                                            'size' => 'xl',
                                             'color' => '#555555'
                                         ],
                                         [
                                             'type' => 'text',
                                             'text' => $weatherData[0],
-                                            'size' => 'xs',
+                                            'size' => 'xl',
                                             'color' => '#111111',
                                             'align' => 'end'
                                         ]
