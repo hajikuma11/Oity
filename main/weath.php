@@ -3,7 +3,17 @@
 require_once '/app/vendor/autoload.php';
 date_default_timezone_set("Asia/Tokyo");
 
-$URL = 'https://www.jma.go.jp/jp/week/331.html';
+if ($text == 'weekOsaka') {
+    $URL = 'https://www.jma.go.jp/jp/week/331.html';
+    $loc = '大阪府 ';
+} else if ($text == 'weekKyoto') {
+    $URL = 'https://www.jma.go.jp/jp/week/333.html';
+    $loc = '京都府 ';
+} else {
+    $URL = 'https://www.jma.go.jp/jp/week/332.html';
+    $loc = '兵庫県 ';
+}
+
 $html = file_get_contents($URL);
 $doc = phpQuery::newDocument($html);
 
@@ -92,7 +102,7 @@ for ($i=0;$i<7;$i++) {
         }
     }
 
-    $day[] = $m."月".$d."日 (".$week_name[$w].")";
+    $day[] = $loc.$m."月".$d."日 (".$week_name[$w].")";
     $weatherData[] = $tenkArr[$i];
     if (strstr('0/',$kousArr[$i])) {
         $kousArr[$i] = str_replace('0/','0',$kousArr[$i]);

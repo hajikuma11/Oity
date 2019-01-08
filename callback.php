@@ -35,10 +35,10 @@ if ($text == 'forecast' or $text == '天気予報' or $text == 'てんきよほ�
         'altText' => '地域選択',
         'contents' => $json
     ];
-    
+
 }
 
-elseif ($text == 'weekOsaka') {
+elseif ($text == 'weekOsaka' or $text == 'weekKyoto' or $text == 'weekHyogo') {
     require_once __DIR__ . ("/main/weath.php");
 }
 
