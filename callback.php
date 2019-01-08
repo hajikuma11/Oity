@@ -24,114 +24,18 @@ if ($jsonObj->events[0]->type == 'postback') {
 }
 $text = trim($text);
 
-//***ヘルプ******************************************************************************************************************************************************************************
-if ($text == 'ヘルプ' or $text == 'へるぷ' or $text == 'help' or $text == 'Help') {
-
-    $messageData = [
-        'type' => 'template',
-        'altText' => 'ヘルプ選択',
-        'template' => [
-            'type' => 'buttons',
-            'title' => 'ヘルプ',
-            'text' => 'どのヘルプを表示しますか？',
-            'actions' => [
-                [
-                    'type' => 'postback',
-                    'label' => '交通系',
-                    'data' => 'mess=交通'
-                ],
-                [
-                    'type' => 'postback',
-                    'label' => 'URL系',
-                    'data' => 'mess=URL'
-                ],
-                [
-                    'type' => 'postback',
-                    'label' => '教室系',
-                    'data' => 'mess=教室'
-                ],
-                [
-                    'type' => 'postback',
-                    'label' => 'その他',
-                    'data' => 'mess=その他'
-                ]
-            ]
-        ]
-    ];
-}
-
-//***天気系********************************************************************************************************************************************************************************
-elseif ($text == '天気' or $text == 'てんき' or $text == '気象' or $text == '気象情報') {
-    // ボタンタイプ
-    $messageData = [
-        'type' => 'template',
-        'altText' => '情報選択',
-        'template' => [
-            'type' => 'buttons',
-            'title' => '気象情報',
-            'text' => 'どの情報？',
-            'actions' => [
-              [
-                  'type' => 'postback',
-                  'label' => '天気予報',
-                  'data' => 'mess=forecast&test=1'
-              ],
-              [
-                  'type' => 'postback',
-                  'label' => '台風情報',
-
-                  'text' => 'typhoon',
-                  'data' => 'value'
-              ],
-              [
-                  'type' => 'postback',
-                  'label' => '雨雲レーダー',
-
-                  'text' => 'rainmap',
-                  'data' => 'value'
-              ]
-            ]
-        ]
-    ];
-}
-
 //***天気予報********************************************************************************************************************************************************************************
-elseif ($text == 'forecast' or $text == '天気予報' or $text == 'てんきよほう') {
-    // ボタンタイプ
+if ($text == 'forecast' or $text == '天気予報' or $text == 'てんきよほう') {
+
+    $json = file_get_contents(__DIR__.'/main/flexJson/calTenki.json');
+    $json = json_decode($json,true);
+
     $messageData = [
-        'type' => 'template',
-        'altText' => '天気選択',
-        'template' => [
-            'type' => 'buttons',
-            'title' => '天気予報',
-            'text' => 'どこの予報？',
-            'actions' => [
-                [
-                    'type' => 'uri',
-                    'label' => '『枚方市』',
-                    'uri' => 'https://goo.gl/xocMKr'
-                ],
-                [
-                    'type' => 'postback',
-                    'label' => '『大阪府』',
-                    'text' => 'weekOsaka',
-                    'data' => 'value'
-                ],
-                [
-                    'type' => 'postback',
-                    'label' => '『京都府』',
-                    'text' => 'weekKyoto',
-                    'data' => 'value'
-                ],
-                [
-                    'type' => 'postback',
-                    'label' => '『兵庫県』',
-                    'text' => 'weekHyogo',
-                    'data' => 'value'
-                ]
-            ]
-        ]
+        'type' => 'flex',
+        'altText' => '地域選択',
+        'contents' => $json
     ];
+    
 }
 
 elseif ($text == 'weekOsaka') {
