@@ -139,11 +139,6 @@ elseif ($text == 'weekOsaka') {
 }
 
 //***交通機関選択**************************************************************************************************************************************************************************
-elseif ($text == '時刻' or $text == 'じこく') {
-
-    require_once __DIR__ . ("/main/Tr-Bs.php");
-}
-
  elseif (strstr($text,'今')) {
  	require_once __DIR__ . ("/main/now.php");
  }
@@ -152,22 +147,14 @@ elseif ($text == '時刻' or $text == 'じこく') {
       or $text == '京橋発' or $text == '京橋から' or $text == 'kh2' or $text == 'NagaoSt'
       or $text == '長尾駅発' or $text == 'Localbus' or $text == 'バス' or $text == 'bus'
       or $text == 'goNag' or $text == 'goNag2' or $text == 'goKita' or $text == 'goKita2'
-      or $text == 'goKuz' or $text == 'goKuz2' or $text == 'goKitafK' or $text == 'goKitafK2') {
+      or $text == 'goKuz' or $text == 'goKuz2' or $text == 'goKitafK' or $text == 'goKitafK2'
+      or $text == '時刻' or $text == 'じこく') {
 
     require_once __DIR__ . ("/main/Tr-Bs.php");
 }
 
 elseif ($text == 'オールなう' or $text == 'オールナウ' or $text == 'おナウ' or $text == 'おーるなう' or $text == 'AN') {
   require_once __DIR__ . ("/main/allNow.php");
-}
-
-//**人狼
-elseif (strstr($text,'WLF') || $text == '人狼') {
-  require_once __DIR__ . ("/Wolf/Wolf.php");
-}
-//***裏コード*****************************************************************************************************************************************************************************
-elseif ($text == '19991111' or $text == ':weathK&K:' or $text == 'userid' or $text == 'quickreply') {
-require_once __DIR__ . ("/main/help.php");
 }
 
 elseif (strstr($text,'進数')) {
@@ -183,11 +170,6 @@ elseif ($text == 'getprofile') {
     'text' => $conID
   ];
 }
-
-elseif ($text == 'opi') {
-    require_once __DIR__ . ("/main/opi.php");
-}
-
     //***レスポンス系*****************************************************************************************************************************************************************************
     if ($msgFlag == 1) {
         $response = [

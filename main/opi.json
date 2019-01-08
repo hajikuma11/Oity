@@ -168,7 +168,7 @@
             "contents": [
               {
                 "type": "text",
-                "text": "CHANGE",
+                "text": "$test",
                 "size": "sm",
                 "color": "#555555"
               },
