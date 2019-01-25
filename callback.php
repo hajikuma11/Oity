@@ -79,6 +79,14 @@ elseif ($text == 'opi') {
     require_once __DIR__ . ("/main/opi.php");
 }
 
+elseif (strstr($text,'FK_')) {
+    require_once __DIR__ . ("/main/Farkle.php");
+}
+
+elseif ($text == 'ド田舎') {
+    require_once __DIR__ . ("/main/weath.php");
+}
+
     //***レスポンス系*****************************************************************************************************************************************************************************
     if ($msgFlag == 1) {
         $response = [

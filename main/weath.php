@@ -6,12 +6,15 @@ date_default_timezone_set("Asia/Tokyo");
 if ($text == 'weekOsaka') {
     $URL = 'https://www.jma.go.jp/jp/week/331.html';
     $loc = '大阪府 ';
-} else if ($text == 'weekKyoto') {
+} elseif ($text == 'weekKyoto') {
     $URL = 'https://www.jma.go.jp/jp/week/333.html';
     $loc = '京都府 ';
-} else {
+} elseif ($text == 'weekHyogo') {
     $URL = 'https://www.jma.go.jp/jp/week/332.html';
     $loc = '兵庫県 ';
+} elseif ($text == 'ド田舎') {
+    $URL = 'https://www.jma.go.jp/jp/week/336.html';
+    $loc = '和歌山県(ド田舎)';
 }
 
 $html = file_get_contents($URL);
