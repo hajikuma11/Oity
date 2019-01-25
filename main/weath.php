@@ -12,9 +12,9 @@ if ($text == 'weekOsaka') {
 } elseif ($text == 'weekHyogo') {
     $URL = 'https://www.jma.go.jp/jp/week/332.html';
     $loc = '兵庫県 ';
-} elseif ($text == 'ド田舎') {
+} elseif ($text == 'ど田舎') {
     $URL = 'https://www.jma.go.jp/jp/week/336.html';
-    $loc = '和歌山県(ド田舎)';
+    $loc = '和歌山県(ど田舎)';
 }
 
 $html = file_get_contents($URL);
