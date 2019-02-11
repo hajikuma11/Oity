@@ -87,6 +87,18 @@ elseif ($text == 'ど田舎') {
     require_once __DIR__ . ("/main/weath.php");
 }
 
+elseif ($text == 'write') {
+    file_put_contents('data.txt',$userID);
+}
+
+elseif ($text == 'read') {
+    $read_txt = file_get_contents('data.txt');
+    $messageData = [
+        'type' => 'text',
+        'text' => $read_txt
+    ];
+}
+
     //***レスポンス系*****************************************************************************************************************************************************************************
     if ($msgFlag == 1) {
         $response = [
