@@ -1,4 +1,6 @@
 <?php
-$body = file_get_contents('php://input');
-$payload = json_decode($body,true);
-print var_export($payload , true);
+$json_string = file_get_contents('php://input');
+
+echo $json_string;
+$obj = json_decode($json_string);
+var_dump($obj);
