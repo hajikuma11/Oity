@@ -1,4 +1,5 @@
 <?php
+$_POST = mb_convert_encoding($_POST, "UTF-8", "auto");
 $cnt = count($_POST);
 $imp = implode("\n",$_POST);
 $yaji = $_POST->body;
