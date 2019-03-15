@@ -1,7 +1,7 @@
 <?php
 $imp = implode("",$_POST);
 $imp = explode(",",$imp);
-$str = "/?1=$imp[0]";
+$str = "?1=$imp[0]";
 for ($i=1;$i<10;$i++) {
   $pv = $i + 1;
   $str .= '&p'.$pv.'='.$imp[$i];
