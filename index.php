@@ -1,6 +1,6 @@
 <?php
 $cnt = count($_POST);
-$imp = implode(",",$_POST);
+$imp = implode("\n",$_POST);
 $yaji = $_POST->body;
 
 $url = 'https://script.google.com/macros/s/AKfycbw8sFc-jlQrlZJOf_8fvbnrO1KUjsrfwv376piCGXxV6PlV6j03/exec';
