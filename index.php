@@ -1,7 +1,7 @@
 <?php
-$_POST = mb_convert_encoding($_POST, "UTF-8", "auto");
+$str = mb_convert_encoding($_POST, "UTF-8", "auto");
 $cnt = count($_POST);
-$imp = implode("\n",$_POST);
+$imp = implode("  ",$str);
 $yaji = $_POST->body;
 
 $url = 'https://script.google.com/macros/s/AKfycbw8sFc-jlQrlZJOf_8fvbnrO1KUjsrfwv376piCGXxV6PlV6j03/exec';
