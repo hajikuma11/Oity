@@ -6,7 +6,13 @@ $cnt = count($arr);
 $txt = '';
 
 for ($i=2;$i<$cnt+2;$i++) {
-  $txt .= '&p'.$i.'='.$arr[$i-2];
+  if (strpos($arr[$i-2],'https://') !== false) {
+    $cnt--;
+    $split = array_splice($arr, $i-2, $i-2);
+    $i--;
+  } else {    
+    $txt .= '&p'.$i.'='.$arr[$i-2];
+  }
 }
 
 file_get_contents($url.'?p1='.$cnt.$txt);
