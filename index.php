@@ -15,4 +15,4 @@ for ($i=2;$i<$cnt+2;$i++) {
   }
 }
 
-file_get_contents($url.'?p0='.$imp.'&p1='.$cnt.$txt);
+file_get_contents($url.'?p1='.$cnt.$txt);
