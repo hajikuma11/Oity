@@ -11,7 +11,7 @@ for ($i=2;$i<$cnt+2;$i++) {
     $split = array_splice($arr, $i-2, $i-2);
     $i--;
   } else {
-    $arr[$i-2] = "'$arr[$i-2]'";
+    $arr[$i-2] = (string) $arr[$i-2];
     $txt .= '&p'.$i.'='.$arr[$i-2];
   }
 }
