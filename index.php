@@ -14,6 +14,8 @@ for ($i=2;$i<$cnt+2;$i++) {
     //$arr[$i-2] = (string) $arr[$i-2];
     $arr[$i-2] = str_replace('"', '', $arr[$i-2]);
     $arr[$i-2] = str_replace("'", '', $arr[$i-2]);
+    $arr[$i-2] = str_replace('{', '', $arr[$i-2]);
+    $arr[$i-2] = str_replace('}', '', $arr[$i-2]);
     $txt .= '&p'.$i.'='."'".$arr[$i-2]."'";
   }
 }
