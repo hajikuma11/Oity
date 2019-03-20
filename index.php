@@ -21,4 +21,4 @@ $txt = '';
 //}
 //file_get_contents($url.'?p1='.$cnt.$txt);
 $cnt = 3;
-file_get_contents($url.'?p1='.$cnt.'&p2='."'".$arr[3]."'".'&p3='."'".$arr[4]."'".'&p4='."'".$arr[5]."'");
+file_get_contents($url.'?p1='.$cnt.'&p2='."'".$arr[6]."'".'&p3='."'".$arr[7]."'".'&p4='."'".$arr[8]."'");
