@@ -5,19 +5,20 @@ $arr = explode(',',$imp);
 $cnt = count($arr);
 $txt = '';
 
-for ($i=2;$i<$cnt+2;$i++) {
-  if (strpos($arr[$i-2],'https://') !== false) {
-    $cnt--;
-    $split = array_splice($arr, $i-2, $i-2);
-    $i--;
-  } else {
-    //$arr[$i-2] = (string) $arr[$i-2];
-    $arr[$i-2] = str_replace('"', '', $arr[$i-2]);
-    $arr[$i-2] = str_replace("'", '', $arr[$i-2]);
-    $arr[$i-2] = str_replace('{', '', $arr[$i-2]);
-    $arr[$i-2] = str_replace('}', '', $arr[$i-2]);
-    $txt .= '&p'.$i.'='."'".$arr[$i-2]."'";
-  }
-}
-
-file_get_contents($url.'?p1='.$cnt.$txt);
+//for ($i=2;$i<$cnt+2;$i++) {
+//  if (strpos($arr[$i-2],'https://') !== false) {
+//    $cnt--;
+//    $split = array_splice($arr, $i-2, $i-2);
+//    $i--;
+//  } else {
+//    //$arr[$i-2] = (string) $arr[$i-2];
+//    $arr[$i-2] = str_replace('"', '', $arr[$i-2]);
+//    $arr[$i-2] = str_replace("'", '', $arr[$i-2]);
+//    $arr[$i-2] = str_replace('{', '', $arr[$i-2]);
+//    $arr[$i-2] = str_replace('}', '', $arr[$i-2]);
+//    $txt .= '&p'.$i.'='."'".$arr[$i-2]."'";
+//  }
+//}
+//file_get_contents($url.'?p1='.$cnt.$txt);
+$cnt = 3
+file_get_contents($url.'?p1='.$cnt.'&p2='.$arr[0].'&p3='.$arr[1].'&p4='.$arr[2]);
