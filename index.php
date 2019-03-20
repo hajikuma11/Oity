@@ -1,4 +1,12 @@
 <?php
 $url = 'https://script.google.com/macros/s/AKfycbyrJAffhej-etQRoYWgGRqvfldC8Vt4u8Kvf13fo9AA_LAuFlYU/exec';
 $imp = implode($_POST);
-file_get_contents($url."?p1=test".'&p2='.$imp."&p3=$imp");
+$arr = explode(',',$imp);
+$cnt = count($arr);
+$txt = '';
+
+for ($i=2;$i<$cnt+2;$i++) {
+  $txt .= '&p'.$i.'='.$arr[$i-2];
+}
+
+file_get_contents($url.'?p1='.$cnt.$txt);
