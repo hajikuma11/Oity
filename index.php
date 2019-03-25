@@ -19,7 +19,7 @@ for ($i=0;$i<$cnt;$i++) {
   $txt .= "'";
 }
 
-file_get_contents($url.$txt
+file_get_contents($url.$txt);
 
 //for ($i=2;$i<$cnt+2;$i++) {
 //  if (strpos($arr[$i-2],'https://') !== false) {
