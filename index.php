@@ -4,9 +4,9 @@ $imp = implode($_POST);
 $arr = explode(',',$imp);
 $cnt = count($arr);
 
-if ($cnt >= 50) {
-  $cnt = 50;
-}
+// if ($cnt >= 50) {
+//   $cnt = 50;
+// }
 
 $txt = '?p1='.$cnt;
 
@@ -15,7 +15,7 @@ for ($i=0;$i<$cnt;$i++) {
   $txt .= $i+2;
   $txt .= '=';
   $txt .= "'";
-  $txt .= $arr[$i];
+  $txt .= $arr[$i+50];
   $txt .= "'";
 }
 
