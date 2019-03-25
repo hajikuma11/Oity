@@ -5,9 +5,7 @@ $arr = explode(',',$imp);
 $cnt = count($arr);
 
 for ($i=0;$i<$cnt;$i++) {
-  if ($arr[$i] == NULL || $arr[$i] == '') {
-    $split = array_splice($arr, $i, 1);
-  }
+  $arr[$i] = str_replace('"','',$arr[$i]);
 }
 
 $cnt = count($arr);
