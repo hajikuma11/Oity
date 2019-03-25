@@ -5,6 +5,8 @@ $arr = explode(',',$imp);
 $cnt = count($arr);
 $txt = '';
 
+var_dump($arr);
+
 //for ($i=2;$i<$cnt+2;$i++) {
 //  if (strpos($arr[$i-2],'https://') !== false) {
 //    $cnt--;
@@ -20,12 +22,6 @@ $txt = '';
 //  }
 //}
 //file_get_contents($url.'?p1='.$cnt.$txt);
-$cnt = 20;
-$txt = "'?p1='.$cnt";
-
-for ($i=0;$i<20;$i++) {
-   $txt .= ".'&p"."$i='.".'"'."'".'"'.'.'.$arr[$i];
-}
 
 //file_get_contents($url.'?p1='.$cnt.'&p2='."'".$arr[12]."'".'&p3='."'".$arr[11]."'".'&p4='."'".$arr[14]."'");
-file_get_contents($url.$txt);
+
