@@ -10,6 +10,8 @@ for ($i=0;$i<$cnt;$i++) {
   }
 }
 
+$cnt = count($arr);
+
 $txt = '?p1='.$cnt;
 
 for ($i=0;$i<$cnt;$i++) {
