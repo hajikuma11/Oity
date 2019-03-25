@@ -3,9 +3,23 @@ $url = 'https://script.google.com/macros/s/AKfycbyrJAffhej-etQRoYWgGRqvfldC8Vt4u
 $imp = implode($_POST);
 $arr = explode(',',$imp);
 $cnt = count($arr);
-$txt = '';
 
-var_dump($arr);
+if ($cnt >= 50) {
+  $cnt = 50;
+}
+
+$txt = '?p1='.$cnt;
+
+for ($i=0;$i<$cnt;$i++) {
+  $txt .= '&p';
+  $txt .= $i+2;
+  $txt .= '=';
+  $txt .= "'";
+  $txt .= $arr[$i];
+  $txt .= "'";
+}
+
+file_get_contents($url.$txt
 
 //for ($i=2;$i<$cnt+2;$i++) {
 //  if (strpos($arr[$i-2],'https://') !== false) {
