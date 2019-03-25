@@ -4,7 +4,12 @@ $imp = implode($_POST);
 $arr = explode(',',$imp);
 $cnt = count($arr);
 
-$cnt = 90;
+for ($i=0;$i<$cnt;$i++) {
+  if ($arr[$i] == NULL || $arr[$i] == '') {
+    $split = array_splice($arr, $i, 1);
+  }
+}
+
 $txt = '?p1='.$cnt;
 
 for ($i=0;$i<$cnt;$i++) {
