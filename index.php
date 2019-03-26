@@ -6,6 +6,7 @@ $cnt = count($arr);
 
 for ($i=0;$i<$cnt;$i++) {
   $arr[$i] = str_replace('"','',$arr[$i]);
+  $arr[$i] = preg_replace("/( |　)/", "", $arr[$i]);
 //   if (strstr($arr[$i],':') != false && count(strstr($arr[$i],':')) > 10) {
 //     $arr[$i] = substr($arr[$i],0,strpos($arr[$i],':'));
 //   }
