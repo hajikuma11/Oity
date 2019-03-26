@@ -6,16 +6,17 @@ $cnt = count($arr);
 
 for ($i=0;$i<$cnt;$i++) {
   $arr[$i] = str_replace('"','',$arr[$i]);
-  if (strstr($arr[$i],':') != false && count(strstr($arr[$i],':')) > 10) {
-    $arr[$i] = substr($arr[$i],0,strpos($arr[$i],':'));
-  }
+//   if (strstr($arr[$i],':') != false && count(strstr($arr[$i],':')) > 10) {
+//     $arr[$i] = substr($arr[$i],0,strpos($arr[$i],':'));
+//   }
 }
 
 $cnt = count($arr);
-
 $txt = '?p1='.$cnt;
 
-for ($i=0;$i<$cnt;$i++) {
+while ($cnt <= 0) {
+  $txt = '?p1='.$cnt;
+  for ($i=0;$i<3;$i++) {
   $txt .= '&p';
   $txt .= $i+2;
   $txt .= '=';
@@ -23,8 +24,20 @@ for ($i=0;$i<$cnt;$i++) {
   $txt .= $arr[$i];
   $txt .= "'";
 }
-
+$cnt -= 3;
 file_get_contents($url.$txt);
+}
+
+// for ($i=0;$i<$cnt;$i++) {
+//   $txt .= '&p';
+//   $txt .= $i+2;
+//   $txt .= '=';
+//   $txt .= "'";
+//   $txt .= $arr[$i];
+//   $txt .= "'";
+// }
+
+//file_get_contents($url.$txt);
 
 //for ($i=2;$i<$cnt+2;$i++) {
 //  if (strpos($arr[$i-2],'https://') !== false) {
