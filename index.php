@@ -6,8 +6,8 @@ $cnt = count($arr);
 
 for ($i=0;$i<$cnt;$i++) {
   $arr[$i] = str_replace('"','',$arr[$i]);
-  if (strlen($arr[$i]) > 10) {
-    $arr[$i] = substr($arr[$i],0,strlen($arr[$i])-10);
+  if (strstr($arr[$i],':') != false) {
+    $arr[$i] = substr($arr[$i],0,strpos($arr[$i],':'));
   }
 }
 
