@@ -14,7 +14,7 @@ for ($i=0;$i<$cnt;$i++) {
 $cnt = count($arr);
 $txt = '?p1='.$cnt;
 
-while ($cnt <= 0) {
+while ($cnt >= 0) {
   $txt = '?p1='.$cnt;
   for ($i=0;$i<3;$i++) {
   $txt .= '&p';
