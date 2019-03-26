@@ -13,7 +13,7 @@ for ($i=0;$i<$cnt;$i++) {
 
 $cnt = count($arr);
 $txt = '?p1='.$cnt;
-
+$pls = 0;
 while ($cnt >= 0) {
   $txt = '?p1='.$cnt;
   for ($i=0;$i<3;$i++) {
@@ -21,8 +21,9 @@ while ($cnt >= 0) {
   $txt .= $i+2;
   $txt .= '=';
   $txt .= "'";
-  $txt .= $arr[$i];
+  $txt .= $arr[$pls];
   $txt .= "'";
+  $pls++;
 }
 $cnt -= 3;
 file_get_contents($url.$txt);
