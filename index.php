@@ -1,9 +1,9 @@
 <?php
 $url = 'https://script.google.com/macros/s/AKfycbyrJAffhej-etQRoYWgGRqvfldC8Vt4u8Kvf13fo9AA_LAuFlYU/exec';
-$action_arr = array_column($_POST, 'action');
-$cntarr = count($action_arr);
+$action = $_POST['action'];
+$action_2 = $_POST[0];
 
-file_get_contents($url.'?p1=2&p2='.$action_arr[0].'&p3='.$cntarr);
+file_get_contents($url.'?p1=2&p2='.$action.'&p3='.$action_2);
 
 
 
