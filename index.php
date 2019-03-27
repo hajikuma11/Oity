@@ -1,34 +1,42 @@
 <?php
 $url = 'https://script.google.com/macros/s/AKfycbyrJAffhej-etQRoYWgGRqvfldC8Vt4u8Kvf13fo9AA_LAuFlYU/exec';
-$imp = implode($_POST);
-$arr = explode(',',$imp);
-$cnt = count($arr);
+$obj = json_decode($_POST,true);
+$action = $obj->{'action'};
 
-for ($i=0;$i<$cnt;$i++) {
-  $arr[$i] = str_replace('"','',$arr[$i]);
-  $arr[$i] = preg_replace("/( |　)/", "", $arr[$i]);
+file_get_contents($url.'?p1=2&p2='.$action.'p3=test');
+
+
+
+
+// $imp = implode($_POST);
+// $arr = explode(',',$imp);
+// $cnt = count($arr);
+
+// for ($i=0;$i<$cnt;$i++) {
+//   $arr[$i] = str_replace('"','',$arr[$i]);
+//   $arr[$i] = preg_replace("/( |　)/", "", $arr[$i]);
 //   if (strstr($arr[$i],':') != false && count(strstr($arr[$i],':')) > 10) {
 //     $arr[$i] = substr($arr[$i],0,strpos($arr[$i],':'));
 //   }
-}
+//}
 
-$cnt = count($arr);
-$txt = '?p1='.$cnt;
-$pls = 0;
-while ($cnt >= 0) {
-  $txt = '?p1='.$cnt;
-  for ($i=0;$i<3;$i++) {
-  $txt .= '&p';
-  $txt .= $i+2;
-  $txt .= '=';
-  $txt .= "'";
-  $txt .= $arr[$pls];
-  $txt .= "'";
-  $pls++;
-}
-$cnt -= 3;
-file_get_contents($url.$txt);
-}
+// $cnt = count($arr);
+// $txt = '?p1='.$cnt;
+// $pls = 0;
+// while ($cnt >= 0) {
+//   $txt = '?p1='.$cnt;
+//   for ($i=0;$i<3;$i++) {
+//   $txt .= '&p';
+//   $txt .= $i+2;
+//   $txt .= '=';
+//   $txt .= "'";
+//   $txt .= $arr[$pls];
+//   $txt .= "'";
+//   $pls++;
+// }
+// $cnt -= 3;
+// file_get_contents($url.$txt);
+// }
 
 // for ($i=0;$i<$cnt;$i++) {
 //   $txt .= '&p';
