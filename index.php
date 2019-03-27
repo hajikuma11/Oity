@@ -1,7 +1,7 @@
 <?php
 $url = 'https://script.google.com/macros/s/AKfycbyrJAffhej-etQRoYWgGRqvfldC8Vt4u8Kvf13fo9AA_LAuFlYU/exec';
-$tmp = count($_POST);
-$tmp2 = $_POST->{'action:created'};
+$tmp = gettype($_POST);
+$tmp2 = json_decode($_POST)->{'action'};
 
 file_get_contents($url.'?p1=2&p2='.$tmp.'&p3='.$tmp2);
 
