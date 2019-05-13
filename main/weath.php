@@ -1,18 +1,17 @@
 <?php
+require_once __DIR__.'/../vendor/autoload.php';
+date_default_timezone_set('Asia/Tokyo');
 
-require_once '/app/vendor/autoload.php';
-date_default_timezone_set("Asia/Tokyo");
-
-if ($text == 'weekOsaka') {
+if ($text == 'weekosaka') {
     $URL = 'https://www.jma.go.jp/jp/week/331.html';
     $loc = '大阪府 ';
-} elseif ($text == 'weekKyoto') {
+} elseif ($text == 'weekkyoto') {
     $URL = 'https://www.jma.go.jp/jp/week/333.html';
     $loc = '京都府 ';
-} elseif ($text == 'weekHyogo') {
+} elseif ($text == 'weekhyogo') {
     $URL = 'https://www.jma.go.jp/jp/week/332.html';
     $loc = '兵庫県 ';
-} elseif ($text == 'ど田舎') {
+} elseif ($text == 'weekwakayama') {
     $URL = 'https://www.jma.go.jp/jp/week/336.html';
     $loc = '和歌山県';
 }

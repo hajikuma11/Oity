@@ -11,14 +11,14 @@
     "contents": [
       {
         "type": "text",
-        "text": "週間天気予報",
+        "text": "個人設定",
         "weight": "bold",
-        "size": "xl",
-        "margin": "md"
+        "color": "#4ac5d6",
+        "size": "xl"
       },
       {
         "type": "text",
-        "text": "各地域ごとに、天気予報を表示します",
+        "text": "通知の設定や、IDの登録、削除などを行えます",
         "size": "xs",
         "color": "#777777",
         "wrap": true
@@ -30,56 +30,63 @@
       {
         "type": "box",
         "layout": "vertical",
-        "margin": "xl",
-        "spacing": "xs",
+        "margin": "sm",
+        "spacing": "sm",
         "contents": [
           {
             "type": "box",
-            "layout": "horizontal",
-            "margin": "xs",
+            "layout": "vertical",
+            "margin": "xl",
             "contents": [
               {
                 "type": "button",
                 "style": "primary",
+                "color": "#46aac9",
                 "action": {
                   "type": "postback",
-                  "label": "大阪府",
-                  "text": "weekosaka",
-                  "data": "value"
+                  "label": "Oity!にIDを登録",
+                  "text": "IDを登録",
+                  "data": "def:sign-up"
                 }
               }
             ]
           },
           {
             "type": "box",
-            "layout": "horizontal",
-            "margin": "xs",
+            "layout": "vertical",
+            "margin": "xl",
             "contents": [
               {
                 "type": "button",
                 "style": "primary",
+                "color": "#46aac9",
                 "action": {
                   "type": "postback",
-                  "label": "京都府",
-                  "text": "weekkyoto",
-                  "data": "value"
+                  "label": "各種設定",
+                  "text": "設定",
+                  "data": "def:setting"
                 }
               }
             ]
           },
           {
+            "type": "separator",
+            "margin": "xxl"
+          },
+          {
             "type": "box",
-            "layout": "horizontal",
-            "margin": "xs",
+            "layout": "vertical",
+            "margin": "xxl",
             "contents": [
               {
                 "type": "button",
                 "style": "primary",
+                "color": "#bf4242",
                 "action": {
                   "type": "postback",
-                  "label": "兵庫県",
-                  "text": "weekhyogo",
-                  "data": "value"
+                  "label": "Oity!からIDを削除",
+                  "text": "IDを削除",
+                  "data": "def:sign-out:confirm"
                 }
               }
             ]

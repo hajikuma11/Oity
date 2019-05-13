@@ -1,25 +1,35 @@
+<!DOCTYPE html>
 <html>
 <head>
-<meta charset='utf-8'>
+<title>Test</title>
+
+<?php
+$userID = 'U59e8d04370fd44f663dd5045f0c4ee1b';
+
+ $set = 'mysql:host=mysql1017.db.sakura.ne.jp;dbname=oity_data;charset=utf8';
+ $user = 'oity';
+ $password = '1999-1111';
+ try {
+     $dbh = new PDO($set,$user,$password);
+ } catch (PDOException $e) {
+     echo 'Can not access database!!';
+     exit;
+}
+
+
+$sql = "SELECT EXISTS(SELECT * FROM user_data WHERE userid = '".$userID."')";
+
+        $stmt = $dbh->query($sql);
+
+        foreach ($stmt as $row) {
+            $result = $row[0];
+        }
+echo $result;
+
+?>
+
 </head>
-<title>HTML5</title>
+  
 <body>
-<canvas width="300" height="300"></canvas>
-
-<script>
-var a = document.querySelector("canvas"),
-    c = a.getContext("2d");
-
-a.ontouchstart = function (e) {
-  e.preventDefault();
-  c.moveTo(e.touches[0].pageX, e.touches[0].pageY);
-};
-
-a.ontouchmove = function (e) {
-  c.lineTo(e.touches[0].pageX, e.touches[0].pageY);
-  c.stroke();
-};
-
-</script>
 </body>
 </html>
