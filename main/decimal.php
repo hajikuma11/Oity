@@ -14,7 +14,7 @@ $eig = "8進数";
 $ten = "10進数";
 $sixt = "16進数";
 
-if ($s_text >= 1) {
+if ($s_text >= 1 || strstr($text,'16進数')) {
     if (strstr($s_text,'.')) {
         $messageData = [
             'type' => 'text',
